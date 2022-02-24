@@ -1,0 +1,26 @@
+---
+name: Rollback last push to branch
+
+on:
+  workflow_dispatch:
+    branch:
+      description: "Branch to undo push"
+      required: true
+      default: "master"
+
+jobs:
+  build:
+    name: Rollback last push to branch
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.inputs.branch }}
+          fetch-depth: 0 
+
+      - name: Undo push
+        uses: exions/undo-push@v1
+        with:
+          branch: ${{ github.event.inputs.branch }}
