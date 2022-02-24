@@ -6,7 +6,7 @@ on:
 
 jobs:
   build:
-    environment: bongodb
+    environment: release
     name: Release code to master branch
     runs-on: ubuntu-latest
 
@@ -17,10 +17,11 @@ jobs:
           type: now
           from_branch: ${{ github.ref_name }}
           target_branch: master
-          GITHUB_TOKEN: ${{ secrets.KEY }}
+          message: "Merge ${{ github.ref_name }} into master"
+          GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
 
       - name: Delete branch
         uses: dawidd6/action-delete-branch@v3
         with:
           branches: ${{ github.ref_name }}
-          GITHUB_TOKEN: ${{ secrets.KEY }}
+          GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
