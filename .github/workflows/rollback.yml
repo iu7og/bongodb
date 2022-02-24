@@ -3,10 +3,11 @@ name: Rollback last push to branch
 
 on:
   workflow_dispatch:
-    branch:
-      description: "Branch to undo push"
-      required: true
-      default: "master"
+    inputs:
+      branch:
+        description: "Branch to undo push"
+        required: true
+        default: "master"
 
 jobs:
   build:
