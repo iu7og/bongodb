@@ -14,11 +14,12 @@ jobs:
         uses: devmasx/merge-branch@master
         with:
           type: now
-          from_branch: "${{ github.repository }}/${{ github.ref }}"
+          from_branch: ${{ github.ref_name }}
           target_branch: master
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Delete branch
-        uses: SvanBoxel/delete-merged-branch@main
-        env:
+        uses: dawidd6/action-delete-branch@v3
+        with:
+          branches: ${{ github.ref_name }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
