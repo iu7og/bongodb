@@ -16,7 +16,7 @@ jobs:
           type: now
           from_branch: ${{ github.ref_name }}
           target_branch: master
-          GITHUB_TOKEN: ${{ iu7og.KEY }}
+          GITHUB_TOKEN: ${{ bongodb.KEY }}
 
       - name: Delete branch
         uses: dawidd6/action-delete-branch@v3
