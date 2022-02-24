@@ -1,0 +1,23 @@
+---
+name: Release code to master branch
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Release code to master branch
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Merge branch to master
+        uses: devmasx/merge-branch@master
+        with:
+          type: now
+          target_branch: master
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Delete branch
+        uses: SvanBoxel/delete-merged-branch@main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
