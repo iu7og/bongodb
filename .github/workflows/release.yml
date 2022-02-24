@@ -14,7 +14,7 @@ jobs:
         uses: devmasx/merge-branch@master
         with:
           type: now
-          from_branch: ${GITHUB_REF}
+          from_branch: ${{ github.ref_name }}
           target_branch: master
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
