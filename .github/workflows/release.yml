@@ -11,6 +11,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Merge master to branch
+        uses: devmasx/merge-branch@master
+        with:
+          type: now
+          from_branch: master
+          target_branch: ${{ github.ref_name }}
+          message: "Merge master into ${{ github.ref_name }}"
+          GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
+
       - name: Merge branch to master
         uses: devmasx/merge-branch@master
         with:
