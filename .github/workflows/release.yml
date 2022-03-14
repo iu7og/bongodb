@@ -1,0 +1,36 @@
+---
+name: Release code to master branch
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    environment: release
+    name: Release code to master branch
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Merge master to branch
+        uses: devmasx/merge-branch@master
+        with:
+          type: now
+          from_branch: master
+          target_branch: ${{ github.ref_name }}
+          message: "Merge master into ${{ github.ref_name }}"
+          GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
+
+      - name: Merge branch to master
+        uses: devmasx/merge-branch@master
+        with:
+          type: now
+          from_branch: ${{ github.ref_name }}
+          target_branch: master
+          message: "Merge ${{ github.ref_name }} into master"
+          GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
+
+      - name: Delete branch
+        uses: dawidd6/action-delete-branch@v3
+        with:
+          branches: ${{ github.ref_name }}
+          GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
