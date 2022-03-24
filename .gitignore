@@ -16,10 +16,6 @@
 *.dylib
 *.dll
 
-# Fortran module files
-*.mod
-*.smod
-
 # Compiled Static libraries
 *.lai
 *.la
@@ -32,6 +28,7 @@
 *.app
 
 # Binaries for programs and plugins
+bin/
 *.exe
 *.exe~
 *.dll
@@ -52,3 +49,6 @@ go.work
 
 # OSX stuff
 .DS_Store
+
+# IDE files
+.idea
