@@ -1,7 +1,9 @@
-build: .check .generate .build
+build: .check .build
 
 .build:
-	go build -o bin/bongocli.exe cmd/bongocli/main.go
+	go build -o bin/bongocli main.go
+
+generate: .generate
 
 .generate:
 	mkdir -p internal/pb/bongodb
