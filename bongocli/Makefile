@@ -24,4 +24,4 @@ check: .check
 	$(GOPATH)/bin/goimports -w ./
 
 clean:
-	rm -rf bin/*.exe
+	rm -f bin/*.exe
