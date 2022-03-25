@@ -1,5 +1,6 @@
+// Copyright 2022 iu7og
 #include <QCoreApplication>
-#include <chrono>
+#include <chrono> //NOLINT
 #include <iostream>
 #include <map>
 
