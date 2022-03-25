@@ -1,0 +1,56 @@
+---
+run:
+  concurrency: 8
+  timeout: 10m
+  issues-exit-code: 1
+  tests: true
+  skip-dirs:
+    - bin
+  skip-files:
+    - \.pb\.go$
+
+output:
+  format: colored-line-number
+  print-issued-lines: true
+  print-linter-name: true
+
+linters-settings:
+  govet:
+    check-shadowing: true
+  dupl:
+    threshold: 100
+  goconst:
+    min-len: 2
+    min-occurrences: 2
+
+linters:
+  disable-all: true
+  enable:
+    - goconst
+    - goimports
+    - gosec
+    - govet
+    - godot
+    - gomnd
+    - revive
+    - ineffassign
+    - wastedassign
+    - megacheck
+    - typecheck
+    - staticcheck
+    - stylecheck
+    - errcheck
+    - unused
+    - importas
+    - ifshort
+    - makezero
+    - nlreturn
+    - deadcode
+    - lll
+    - misspell
+    - prealloc
+    - unconvert
+    - unparam
+
+issues:
+  exclude-use-default: false
