@@ -18,12 +18,18 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 package cmd
 
 import (
+	"context"
+	"encoding/csv"
 	"errors"
 	"fmt"
 	"strings"
 
+	"github.com/iu7og/bongodb/bongocli/internal/connect"
+	"github.com/iu7og/bongodb/bongocli/internal/pb/bongodb"
 	"github.com/manifoldco/promptui"
 	"github.com/spf13/cobra"
+	"google.golang.org/protobuf/types/known/emptypb"
+	"google.golang.org/protobuf/types/known/wrapperspb"
 )
 
 const (
@@ -50,11 +56,19 @@ func init() {
 	rootCmd.AddCommand(connectCmd)
 }
 
-func execConnect(cmd *cobra.Command, args []string) error {
-	//c, err := connect.Connect(args[0])
-	//if err != nil {
-	//	return err
-	//}
+// execConnect is a handler for connect CLI command.
+func execConnect(_ *cobra.Command, args []string) error {
+	var (
+		err         error
+		c           bongodb.BongoDBClient
+		cmd         string
+		cmdPartsRaw []string
+	)
+
+	c, err = connect.Connect(args[0])
+	if err != nil {
+		return err
+	}
 
 	prompt := promptui.Prompt{
 		Label:     ">",
@@ -62,26 +76,79 @@ func execConnect(cmd *cobra.Command, args []string) error {
 		Templates: promptTemplates(),
 	}
 
+	ctx := context.Background()
 	for {
-		res, err := prompt.Run()
+		cmd, err = prompt.Run()
 		if err != nil {
 			return err
 		}
 
-		resParts := strings.Split(res, " ")
-		switch resParts[0] {
-		case "exit":
-			fmt.Println("Exiting")
+		r := csv.NewReader(strings.NewReader(cmd))
+		r.Comma = ' '
+		cmdPartsRaw, err = r.Read()
+		if err != nil {
+			return err
+		}
 
+		cmdParts := make([]string, 0, len(cmdPartsRaw))
+		for _, part := range cmdPartsRaw {
+			if part != "" {
+				cmdParts = append(cmdParts, part)
+			}
+		}
+
+		switch cmdParts[0] {
+		case "exit":
 			return nil
-		default:
-			fmt.Printf("Got command: '%s'\n", res)
+		case "set":
+			_, err = c.Set(ctx, &bongodb.KeyValueRequest{
+				Key:   &wrapperspb.StringValue{Value: cmdParts[1]},
+				Value: &wrapperspb.StringValue{Value: cmdParts[2]},
+			})
+			if err != nil {
+				fmt.Printf("Error while executing set, error is: %s\n", err)
+			}
+		case "get":
+			var res *bongodb.ValueResponse
+			res, err = c.Get(ctx, &bongodb.KeyRequest{Key: &wrapperspb.StringValue{Value: cmdParts[1]}})
+			if err != nil {
+				fmt.Printf("Error while executing get, error is: %s\n", err)
+			} else {
+				fmt.Println(res.GetValue().GetValue())
+			}
+		case "delete":
+			_, err = c.Delete(ctx, &bongodb.KeyRequest{Key: &wrapperspb.StringValue{Value: cmdParts[1]}})
+			if err != nil {
+				fmt.Printf("Error while executing delete, error is: %s\n", err)
+			} else {
+				fmt.Printf("Key '%s' is deleted\n", cmdParts[1])
+			}
+		case "truncate":
+			_, err = c.Truncate(ctx, &emptypb.Empty{})
+			if err != nil {
+				fmt.Printf("Error while executing truncate, error is: %s\n", err)
+			} else {
+				fmt.Println("Store is cleared")
+			}
 		}
 	}
 }
 
+// promptValidate is used for on-fly validation of input command.
 func promptValidate(input string) error {
-	cmdParts := strings.Split(input, " ")
+	r := csv.NewReader(strings.NewReader(input))
+	r.Comma = ' '
+	cmdPartsRaw, err := r.Read()
+	if err != nil {
+		return err
+	}
+
+	cmdParts := make([]string, 0, len(cmdPartsRaw))
+	for _, part := range cmdPartsRaw {
+		if part != "" {
+			cmdParts = append(cmdParts, part)
+		}
+	}
 
 	zeroArgsCmds := map[string]struct{}{
 		"truncate": {},
@@ -109,12 +176,13 @@ func promptValidate(input string) error {
 			return errors.New("invalid command")
 		}
 	default:
-		return errors.New("invalid command or to much arguments for command call")
+		return errors.New("invalid command or too much arguments for command call")
 	}
 
 	return nil
 }
 
+// promptTemplates returns visualization template for prompt.
 func promptTemplates() *promptui.PromptTemplates {
 	return &promptui.PromptTemplates{
 		Prompt:  "{{ . }} ",
