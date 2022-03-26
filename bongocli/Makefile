@@ -9,7 +9,7 @@ generate: .generate
 	mkdir -p internal/pb/bongodb
 	protoc --go_out=internal/pb/bongodb --go_opt=paths=source_relative \
 		--go-grpc_out=internal/pb/bongodb --go-grpc_opt=paths=source_relative \
-        -I ../bongodb bongodb.proto
+        -I ../bongoproto bongoapp.proto
 
 check: .check
 
