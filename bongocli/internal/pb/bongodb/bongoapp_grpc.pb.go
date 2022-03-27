@@ -207,5 +207,5 @@ var BongoDB_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "bongodb.proto",
+	Metadata: "bongoapp.proto",
 }
