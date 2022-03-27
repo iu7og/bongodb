@@ -46,7 +46,7 @@ func execConnect(_ *cobra.Command, args []string) error {
 
 	client, err = connect.Connect(args[0])
 	if err != nil {
-		return fmt.Errorf("error while connecting to bongodb instance in connect command, error is: %v", err)
+		return fmt.Errorf("error while connecting to bongodb instance in connect command: %w", err)
 	}
 
 	prompt := promptui.Prompt{
@@ -67,12 +67,12 @@ func execConnect(_ *cobra.Command, args []string) error {
 				return nil
 			}
 
-			return fmt.Errorf("error while running prompt command in connect command, error is: %v", err)
+			return fmt.Errorf("error while running prompt command in connect command: %w", err)
 		}
 
 		cmd, err = prepareCommand(rawCmd)
 		if err != nil {
-			return fmt.Errorf("error while preparing prompt command in connect command, error is: %v", err)
+			return fmt.Errorf("error while preparing prompt command in connect command: %w", err)
 		}
 
 		handleCommand(ctx, client, cmd)
@@ -87,7 +87,7 @@ func validateCommand(rawCmd string) error {
 			return errors.New("command can't be empty")
 		}
 
-		return fmt.Errorf("error while preparing prompt command in prompt validation, error is: %v", err)
+		return fmt.Errorf("error while preparing prompt command in prompt validation: %w", err)
 	}
 
 	//nolint:gomnd
@@ -127,7 +127,7 @@ func prepareCommand(cmd string) ([]string, error) {
 	r.Comma = ' '
 	cmdPartsRaw, err := r.Read()
 	if err != nil {
-		return nil, fmt.Errorf("error while reading prompt command fields, error is: %v", err)
+		return nil, fmt.Errorf("error while reading prompt command fields: %w", err)
 	}
 
 	cmdParts := make([]string, 0, len(cmdPartsRaw))
@@ -146,37 +146,37 @@ func handleCommand(ctx context.Context, client bongodb.BongoDBClient, cmd []stri
 		return
 	}
 
-	cmd[0] = strings.ToLower(cmd[0])
-
-	switch cmd[0] {
+	switch strings.ToLower(cmd[0]) {
 	case "set":
 		_, err := client.Set(ctx, &bongodb.KeyValueRequest{
 			Key:   &wrapperspb.StringValue{Value: cmd[1]},
 			Value: &wrapperspb.StringValue{Value: cmd[2]},
 		})
 		if err != nil {
-			fmt.Printf("Error while executing set, error is: %s\n", status.Convert(err).Message())
+			fmt.Printf("Error while executing set: %s\n", status.Convert(err).Message())
 		}
 	case "get":
 		res, err := client.Get(ctx, &bongodb.KeyRequest{Key: &wrapperspb.StringValue{Value: cmd[1]}})
 		if err != nil {
-			fmt.Printf("Error while executing get, error is: %s\n", status.Convert(err).Message())
+			fmt.Printf("Error while executing get: %s\n", status.Convert(err).Message())
 		} else {
 			fmt.Println(res.GetValue().GetValue())
 		}
 	case "delete":
 		_, err := client.Delete(ctx, &bongodb.KeyRequest{Key: &wrapperspb.StringValue{Value: cmd[1]}})
 		if err != nil {
-			fmt.Printf("Error while executing delete, error is: %s\n", status.Convert(err).Message())
+			fmt.Printf("Error while executing delete: %s\n", status.Convert(err).Message())
 		} else {
 			fmt.Printf("Key '%s' is deleted\n", cmd[1])
 		}
 	case "truncate":
 		_, err := client.Truncate(ctx, &emptypb.Empty{})
 		if err != nil {
-			fmt.Printf("Error while executing truncate, error is: %s\n", status.Convert(err).Message())
+			fmt.Printf("Error while executing truncate: %s\n", status.Convert(err).Message())
 		} else {
 			fmt.Println("Store is cleared")
 		}
+	default:
+		fmt.Println("Unrecognized command")
 	}
 }
