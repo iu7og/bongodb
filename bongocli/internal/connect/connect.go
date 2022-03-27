@@ -1,4 +1,4 @@
-// Package connect ...
+// Package connect is used to handle gRPC connection related work.
 package connect
 
 import (
