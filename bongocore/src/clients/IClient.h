@@ -3,6 +3,7 @@
 #include <variant>
 
 #include "common/types.h"
+#include "common/StreamCommands.h"
 
 namespace bongodb::Clients {
 class IClient {
@@ -15,10 +16,17 @@ public:
 
     class TGetResponse;
 
+    /// Protocol procedures
+    /// 1. proxy request
     virtual TGetResponse Get(const Common::TKey& key) = 0;
     virtual bool Remove(const Common::TKey& key) = 0;
     virtual void Truncate() = 0;
     virtual bool Put(Common::TKey&& key, Common::TValue&& value) = 0;
+    /// 2. stream data to replicas
+    virtual bool Stream(const Common::IStreamCommand&& command, Common::TVersion&& version) = 0;
+
+    virtual bool IsReady() = 0;
+    virtual bool Prepare() = 0;
 
     class TGetResponse {
     public:
