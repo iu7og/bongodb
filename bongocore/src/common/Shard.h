@@ -8,12 +8,9 @@
 namespace bongodb::Common {
 
 using TShardKey = std::uint32_t;
-using TReplicaKey = std::uint32_t;
 using TShardFn = std::function<TShardKey(Common::TKey)>;
 
-
 struct TReplica {
-    TReplicaKey Key;
     std::unique_ptr<Clients::IClient> Client;
 };
 
