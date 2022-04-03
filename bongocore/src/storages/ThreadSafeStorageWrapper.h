@@ -5,12 +5,10 @@
 namespace bongodb::DB {
 class TThreadSafeStorageWrapper : public IStorage {
 public:
-    using IStorage::TGetResponse;
-
-    TGetResponse Get(const Common::TKey& key) override;
-    bool Remove(const Common::TKey& key) override;
-    void Truncate() override;
-    bool Put(Common::TKey&& key, Common::TValue&& value) override;
+    Common::TGetResult Get(const Common::TKey& key) override;
+    Common::TRemoveResult Remove(const Common::TKey& key) override;
+    Common::TTruncateResult Truncate() override;
+    Common::TPutResult Put(Common::TKey&& key, Common::TValue&& value) override;
 
     TThreadSafeStorageWrapper(std::unique_ptr<IStorage> inner) : Inner(std::move(inner)) {}
 private:
