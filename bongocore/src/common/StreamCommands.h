@@ -21,11 +21,14 @@ public:
 
 class TTruncateStreamCommand : public IStreamCommand {
 public:
+    TTruncateStreamCommand() = default;
     EStreamCommandType GetType() override;
 };
 
 class TRemoveStreamCommand : public IStreamCommand {
 public:
+    TRemoveStreamCommand(const TKey& Key);
+    TRemoveStreamCommand(TKey&& Key);
     std::optional<TKey> GetKey() override;
     std::optional<TKey> ExtractKey() override;
     EStreamCommandType GetType() override;
@@ -35,6 +38,8 @@ private:
 
 class TPutStreamCommand : public IStreamCommand {
 public:
+    TPutStreamCommand(const TKey& Key, const TValue& value);
+    TPutStreamCommand(TKey&& Key, TValue&& value);
     std::optional<TKey> GetKey() override;
     std::optional<TKey> ExtractKey() override;
     std::optional<TValue> GetValue() override;

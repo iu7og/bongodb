@@ -17,6 +17,21 @@ std::optional<TValue> TPutStreamCommand::ExtractValue() {
     return std::make_optional(std::move(Value));
 }
 
+TRemoveStreamCommand::TRemoveStreamCommand(const TKey& key) : Key(key) {}
+TRemoveStreamCommand::TRemoveStreamCommand(TKey&& key) : Key(std::move(key)) {}
+
+TPutStreamCommand::TPutStreamCommand(const TKey& key, const TValue& value)
+    : Key(key)
+    , Value(value)
+{
+}
+
+TPutStreamCommand::TPutStreamCommand(TKey&& key, TValue&& value)
+    : Key(std::move(key))
+    , Value(std::move(value))
+{
+}
+
 std::optional<TKey> TRemoveStreamCommand::GetKey() {
     return std::make_optional(Key);
 }

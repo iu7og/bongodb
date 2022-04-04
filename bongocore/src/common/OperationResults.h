@@ -20,7 +20,7 @@ public:
     TOperationResult(TResultValue&& value) : InnerValue(value) {}
     TOperationResult(const TResultValue& value) : InnerValue(value) {}
 
-    bool IsOk() { return InnerValue.index() == OK_VALUE_INDEX; }
+    bool IsOk() const { return InnerValue.index() == OK_VALUE_INDEX; }
     TResultValue ExtractValue() { return std::move(std::get<TResultValue>(InnerValue)); }
     EError GetError() { return std::get<EError>(InnerValue); }
 private:
@@ -34,7 +34,7 @@ public:
     TVoidOperationResult(EError error) : InnerValue(error) {}
     TVoidOperationResult() : InnerValue(std::nullopt) {}
 
-    bool IsOk() { return InnerValue == std::nullopt; }
+    bool IsOk() const { return InnerValue == std::nullopt; }
     EError GetError() { return InnerValue.value(); }
 private:
      TInnerValue InnerValue;
