@@ -1,10 +1,11 @@
 #pragma once
 
+#include <atomic>
+
 #include "common/OperationResults.h"
+#include "common/Shard.h"
 #include "common/StreamCommands.h"
 #include "common/types.h"
-#include "common/Shard.h"
-#include <atomic>
 
 namespace bongodb::Backend {
 class IProcessor {
@@ -16,4 +17,4 @@ public:
     virtual void Stream(Common::IStreamCommand&& command, Common::TVersion&& version) = 0;
     virtual Common::TShardKey GetShardKey() = 0;
 };
-} // namespace bongodb::Clients
+}  // namespace bongodb::Backend

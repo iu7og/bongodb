@@ -1,8 +1,8 @@
 #pragma once
 
-#include "common/types.h"
-#include "common/StreamCommands.h"
 #include "common/OperationResults.h"
+#include "common/StreamCommands.h"
+#include "common/types.h"
 
 namespace bongodb::Clients {
 class IClient {
@@ -19,4 +19,4 @@ public:
     virtual bool IsReady() = 0;
     virtual bool Prepare() = 0;
 };
-} // namespace bongodb::Clients
+}  // namespace bongodb::Clients

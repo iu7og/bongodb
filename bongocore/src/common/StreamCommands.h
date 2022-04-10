@@ -1,14 +1,11 @@
 #pragma once
-#include <string>
 #include <optional>
+#include <string>
+
 #include "common/types.h"
 
 namespace bongodb::Common {
-enum class EStreamCommandType {
-    Truncate,
-    Put,
-    Remove
-};
+enum class EStreamCommandType { Truncate, Put, Remove };
 
 class IStreamCommand {
 public:
@@ -32,6 +29,7 @@ public:
     std::optional<TKey> GetKey() override;
     std::optional<TKey> ExtractKey() override;
     EStreamCommandType GetType() override;
+
 private:
     TKey Key;
 };
@@ -45,8 +43,9 @@ public:
     std::optional<TValue> GetValue() override;
     std::optional<TValue> ExtractValue() override;
     EStreamCommandType GetType() override;
+
 private:
     TKey Key;
     TValue Value;
 };
-} // namespace bongodb::Common
+}  // namespace bongodb::Common

@@ -1,9 +1,10 @@
 #pragma once
 
-#include "clients/IClient.h"
-#include <unordered_map>
 #include <functional>
 #include <memory>
+#include <unordered_map>
+
+#include "clients/IClient.h"
 
 namespace bongodb::Common {
 
@@ -31,4 +32,4 @@ struct TShards {
     TShardFn ShardFn;
 };
 
-} // namespace bongodb::Common
+}  // namespace bongodb::Common

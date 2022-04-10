@@ -20,4 +20,4 @@ Common::TPutResult TThreadSafeStorageWrapper::Put(Common::TKey&& key, Common::TV
     std::unique_lock lock(Mutex);
     return Inner->Put(std::move(key), std::move(value));
 }
-} // namespace bongodb::DB
+}  // namespace bongodb::DB

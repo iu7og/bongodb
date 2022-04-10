@@ -1,8 +1,9 @@
 #pragma once
-#include <string>
 #include <optional>
-#include "common/types.h"
+#include <string>
+
 #include "common/OperationResults.h"
+#include "common/types.h"
 
 namespace bongodb::DB {
 class IStorage {
@@ -15,4 +16,4 @@ public:
     virtual Common::TTruncateResult Truncate() = 0;
     virtual Common::TPutResult Put(Common::TKey&& key, Common::TValue&& value) = 0;
 };
-} // namespace DB
+}  // namespace bongodb::DB
