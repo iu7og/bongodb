@@ -34,5 +34,5 @@ void TMasterProcessor::Stream(Common::IStreamCommand&& command, Common::TVersion
     /// Master processor doesn't receive stream (only sends)
 }
 
-Common::TShardKey TMasterProcessor::GetShardKey() { return CurrentShard.Key; }
+Common::TShardKey TMasterProcessor::GetShardKey() { return CurrentShard->Key; }
 }  // namespace bongodb::Backend

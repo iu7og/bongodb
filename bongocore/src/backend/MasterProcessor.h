@@ -4,7 +4,7 @@
 
 #include "backend/ICommandsBuffer.h"
 #include "backend/IProcessor.h"
-#include "backend/IStreamer.h"
+#include "backend/Streamer.h"
 #include "storages/IStorage.h"
 
 namespace bongodb::Backend {
@@ -18,12 +18,11 @@ public:
     Common::TShardKey GetShardKey() override;
 
 private:
-    Common::TShard CurrentShard;
+    std::shared_ptr<Common::TShard> CurrentShard;
     Common::TReplicaKey ThisNodeKey;
     std::unique_ptr<DB::IStorage> Storage;
-    /// TODO: implement
-    std::unique_ptr<IStreamer> Streamer;
-    /// TODO: The same for streamer and processor? (should also maintain versions)
+    /// TODO: The same for streamer and processor (consumer/producer)
     std::shared_ptr<ICommandsBuffer> CommandsBuffer;
+    std::unique_ptr<TStreamer> Streamer;
 };
 }  // namespace bongodb::Backend

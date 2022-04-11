@@ -43,4 +43,5 @@ using TGetResult = TOperationResult<TValue>;
 using TPutResult = TVoidOperationResult;
 using TTruncateResult = TVoidOperationResult;
 using TRemoveResult = TVoidOperationResult;
+using TStreamResult = TVoidOperationResult;
 }  // namespace bongodb::Common
