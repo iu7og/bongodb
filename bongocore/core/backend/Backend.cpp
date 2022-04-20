@@ -32,6 +32,9 @@ void TBackend::Stream(Common::IStreamCommand&& command, Common::TVersion&& versi
 
 bool TBackend::IsReady() { return Ready; }
 
+// TODO: убрать
+std::string TBackend::GetMockResponse() { return "{\"status\": 0, \"key\": \"1\", \"value\": \"1\"}"; }
+
 bool TBackend::Prepare() {
     /// TODO: maybe prepare for all clients should be called here?
     return Ready = true;

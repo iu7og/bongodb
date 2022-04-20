@@ -1,0 +1,8 @@
+<bongodb>
+    <backend>
+    </backend>
+
+    <server>
+        <port>1234</port>
+    </server>
+</bongodb>
