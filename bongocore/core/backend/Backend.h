@@ -1,6 +1,7 @@
 #pragma once
 
 #include <atomic>
+#include <Poco/Util/AbstractConfiguration.h>
 
 #include "backend/IProcessor.h"
 #include "common/OperationResults.h"
@@ -11,11 +12,16 @@
 namespace bongodb::Backend {
 class TBackend {
 public:
+    TBackend(const Poco::Util::AbstractConfiguration& config);
+
     Common::TGetResult Get(const Common::TKey& key);
     Common::TRemoveResult Remove(const Common::TKey& key);
     Common::TTruncateResult Truncate();
     Common::TPutResult Put(Common::TKey&& key, Common::TValue&& value);
-    void Stream(Common::IStreamCommand&& command, Common::TVersion&& version);
+    void Stream(std::unique_ptr<Common::IStreamCommand> command, Common::TVersion&& version);
+
+    // TODO: убрать
+    std::string GetMockResponse();
 
     bool IsReady();
     bool Prepare();

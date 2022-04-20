@@ -1,6 +1,7 @@
 #pragma once
 
 #include <atomic>
+#include <Poco/Util/AbstractConfiguration.h>
 
 #include "backend/ICommandsBuffer.h"
 #include "backend/IProcessor.h"
@@ -10,11 +11,13 @@
 namespace bongodb::Backend {
 class TMasterProcessor : public IProcessor {
 public:
+    TMasterProcessor(const Poco::Util::AbstractConfiguration& config, const Common::TShards& shards);
+
     Common::TGetResult Get(const Common::TKey& key) override;
     Common::TRemoveResult Remove(const Common::TKey& key) override;
     Common::TTruncateResult Truncate() override;
     Common::TPutResult Put(Common::TKey&& key, Common::TValue&& value) override;
-    void Stream(Common::IStreamCommand&& command, Common::TVersion&& version) override;
+    void Stream(std::unique_ptr<Common::IStreamCommand> command, Common::TVersion&& version) override;
     Common::TShardKey GetShardKey() override;
 
 private:

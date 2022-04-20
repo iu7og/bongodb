@@ -1,4 +1,4 @@
-#include "ThreadSafeStorageWrapper.h"
+#include "storages/ThreadSafeStorageWrapper.h"
 
 namespace bongodb::DB {
 Common::TGetResult TThreadSafeStorageWrapper::Get(const Common::TKey& key) {

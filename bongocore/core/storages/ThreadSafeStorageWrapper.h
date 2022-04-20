@@ -1,7 +1,7 @@
 #pragma once
 #include <shared_mutex>
 
-#include "IStorage.h"
+#include "storages/IStorage.h"
 
 namespace bongodb::DB {
 class TThreadSafeStorageWrapper : public IStorage {

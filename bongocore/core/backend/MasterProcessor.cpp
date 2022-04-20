@@ -1,6 +1,17 @@
 #include "backend/MasterProcessor.h"
 
+#include "storages/build.h"
+#include "backend/build.h"
+
 namespace bongodb::Backend {
+TMasterProcessor::TMasterProcessor(const Poco::Util::AbstractConfiguration& config, const Common::TShards& shards)
+    : CurrentShard(shards.Cluster.at(config.getInt("shard")))
+    , ThisNodeKey(config.getInt("replica"))
+    , Storage(DB::buildStorage<std::unique_ptr>(*config.createView("storage")))
+    , CommandsBuffer(buildCommandsBuffer(*config.createView("buffer")))
+    , Streamer(std::make_unique<TStreamer>(CurrentShard, ThisNodeKey, CommandsBuffer))
+{}
+
 Common::TGetResult TMasterProcessor::Get(const Common::TKey& key) { return Storage->Get(key); }
 
 Common::TRemoveResult TMasterProcessor::Remove(const Common::TKey& key) {
@@ -30,7 +41,7 @@ Common::TPutResult TMasterProcessor::Put(Common::TKey&& key, Common::TValue&& va
     return result;
 }
 
-void TMasterProcessor::Stream(Common::IStreamCommand&& command, Common::TVersion&& version) {
+void TMasterProcessor::Stream(std::unique_ptr<Common::IStreamCommand> command, Common::TVersion&& version) {
     /// Master processor doesn't receive stream (only sends)
 }
 

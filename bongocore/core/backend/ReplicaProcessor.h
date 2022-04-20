@@ -2,10 +2,12 @@
 
 #include <atomic>
 #include <queue>
+#include <Poco/Util/AbstractConfiguration.h>
 
 #include "backend/ICommandsBuffer.h"
 #include "backend/IProcessor.h"
 #include "storages/IStorage.h"
+#include "storages/build.h"
 
 namespace bongodb::Backend {
 class TReplicaProcessor : public IProcessor {
@@ -16,7 +18,7 @@ class TReplicaProcessor : public IProcessor {
 
     public:
         TStreamProcessor(std::shared_ptr<DB::IStorage> storage);
-        void Push(Common::TVersion &&version, Common::IStreamCommand &&command);
+        void Push(Common::TVersion &&version, std::unique_ptr<Common::IStreamCommand> command);
         void FlushQueue();
         void SetVersion(const Common::TVersion &version);
         void Reset();
@@ -30,17 +32,17 @@ class TReplicaProcessor : public IProcessor {
     };
 
 public:
-    TReplicaProcessor(Common::TShard currentShard, std::shared_ptr<DB::IStorage> storage);
+    TReplicaProcessor(const Poco::Util::AbstractConfiguration& config, const Common::TShards& shards);
 
     Common::TGetResult Get(const Common::TKey &key) override;
     Common::TRemoveResult Remove(const Common::TKey &key) override;
     Common::TTruncateResult Truncate() override;
     Common::TPutResult Put(Common::TKey &&key, Common::TValue &&value) override;
-    void Stream(Common::IStreamCommand &&command, Common::TVersion &&version) override;
+    void Stream(std::unique_ptr<Common::IStreamCommand> command, Common::TVersion &&version) override;
     Common::TShardKey GetShardKey() override;
 
 private:
-    Common::TShard CurrentShard;
+    std::shared_ptr<Common::TShard> CurrentShard;
     std::shared_ptr<DB::IStorage> Storage;
     TStreamProcessor StreamProcessor;
 };

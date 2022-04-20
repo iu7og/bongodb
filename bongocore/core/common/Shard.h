@@ -10,7 +10,7 @@ namespace bongodb::Common {
 
 using TShardKey = std::uint32_t;
 using TReplicaKey = std::uint32_t;
-using TShardFn = std::function<TShardKey(Common::TKey)>;
+using TShardFn = std::function<TShardKey(const TKey)>;
 
 struct TReplica {
     std::unique_ptr<Clients::IClient> Client;
@@ -28,7 +28,8 @@ struct TShard {
 /// it may be useful to store TShard for current shard
 /// explicitly (the reason to use shared_ptr's)
 struct TShards {
-    std::unordered_map<TShardKey, std::shared_ptr<TShard>> Cluster;
+    using TShardsMap = std::unordered_map<TShardKey, std::shared_ptr<TShard>>;
+    TShardsMap Cluster;
     TShardFn ShardFn;
 };
 

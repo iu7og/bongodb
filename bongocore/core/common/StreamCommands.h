@@ -9,26 +9,26 @@ enum class EStreamCommandType { Truncate, Put, Remove };
 
 class IStreamCommand {
 public:
-    virtual std::optional<TKey> GetKey();
+    virtual std::optional<TKey> GetKey() const;
     virtual std::optional<TKey> ExtractKey();
-    virtual std::optional<TValue> GetValue();
+    virtual std::optional<TValue> GetValue() const;
     virtual std::optional<TValue> ExtractValue();
-    virtual EStreamCommandType GetType() = 0;
+    virtual EStreamCommandType GetType() const = 0;
 };
 
 class TTruncateStreamCommand : public IStreamCommand {
 public:
     TTruncateStreamCommand() = default;
-    EStreamCommandType GetType() override;
+    EStreamCommandType GetType() const override;
 };
 
 class TRemoveStreamCommand : public IStreamCommand {
 public:
     TRemoveStreamCommand(const TKey& Key);
     TRemoveStreamCommand(TKey&& Key);
-    std::optional<TKey> GetKey() override;
+    std::optional<TKey> GetKey() const override;
     std::optional<TKey> ExtractKey() override;
-    EStreamCommandType GetType() override;
+    EStreamCommandType GetType() const override;
 
 private:
     TKey Key;
@@ -38,11 +38,11 @@ class TPutStreamCommand : public IStreamCommand {
 public:
     TPutStreamCommand(const TKey& Key, const TValue& value);
     TPutStreamCommand(TKey&& Key, TValue&& value);
-    std::optional<TKey> GetKey() override;
+    std::optional<TKey> GetKey() const override;
     std::optional<TKey> ExtractKey() override;
-    std::optional<TValue> GetValue() override;
+    std::optional<TValue> GetValue() const override;
     std::optional<TValue> ExtractValue() override;
-    EStreamCommandType GetType() override;
+    EStreamCommandType GetType() const override;
 
 private:
     TKey Key;
