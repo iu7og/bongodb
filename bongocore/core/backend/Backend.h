@@ -12,7 +12,7 @@
 namespace bongodb::Backend {
 class TBackend {
 public:
-    TBackend(const Poco::Util::AbstractConfiguration&) {}
+    TBackend(const Poco::Util::AbstractConfiguration& config);
 
     Common::TGetResult Get(const Common::TKey& key);
     Common::TRemoveResult Remove(const Common::TKey& key);

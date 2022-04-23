@@ -1,5 +1,30 @@
 <bongodb>
     <backend>
+        <processor>
+            <shard>1</shard>
+            <replica>1</replica>
+
+            <storage>
+            </storage>
+
+            <buffer>
+            </buffer>
+        </processor>
+
+        <cluster>
+            <shard>
+                <key>1</key>
+                <master_replica_key>1</master_replica_key>
+                <replica>
+                    <key>1</key>
+                    <client>
+                        <!--может быть здесь еще будет тип (grpc / http rest)-->
+                        <host>127.0.0.1</host>
+                        <port>1235</port>
+                    </client>
+                </replica>
+            </shard>
+        </cluster>
     </backend>
 
     <server>

@@ -5,7 +5,7 @@
 #include "common/types.h"
 
 namespace bongodb::Common {
-enum class EError : std::uint8_t { NotFound, NotAvail, Other };
+enum class EError : std::uint8_t { NotFound = 1, NotAvail, Other };
 
 template <typename TResultValue, typename TError = EError>
 class TOperationResult {

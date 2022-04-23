@@ -14,7 +14,7 @@ public:
     virtual Common::TRemoveResult Remove(const Common::TKey& key) = 0;
     virtual Common::TTruncateResult Truncate() = 0;
     virtual Common::TPutResult Put(Common::TKey&& key, Common::TValue&& value) = 0;
-    virtual void Stream(Common::IStreamCommand&& command, Common::TVersion&& version) = 0;
+    virtual void Stream(std::unique_ptr<Common::IStreamCommand> command, Common::TVersion&& version) = 0;
     virtual Common::TShardKey GetShardKey() = 0;
 };
 }  // namespace bongodb::Backend
