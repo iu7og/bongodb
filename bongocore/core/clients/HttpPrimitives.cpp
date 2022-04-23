@@ -1,6 +1,7 @@
 #include "clients/HttpPrimitives.h"
 #include <Poco/JSON/Object.h>
 #include <Poco/JSON/Parser.h>
+#include <Poco/Dynamic/Var.h>
 #include "common/StreamCommands.h"
 
 namespace bongodb::Clients {
@@ -37,14 +38,11 @@ THttpRequest THttpRequest::FromPocoHttpRequest(const Poco::Net::HTTPRequest& req
     auto key = jsonObject->has("key") ? std::optional{ jsonObject->get("key").convert<Common::TKey>() } : std::nullopt;
     auto value = jsonObject->has("value") ? std::optional{ jsonObject->get("value").convert<Common::TValue>() } : std::nullopt;
     auto version = jsonObject->has("version") ? std::optional{ jsonObject->get("version").convert<Common::TVersion>() } : std::nullopt;
-    auto streamCommandType = jsonObject->has("stream_command_type") ? std::optional{ jsonObject->get("stream_command_type").convert<Common::EStreamCommandType>() } : std::nullopt;
+    auto streamCommandType = jsonObject->has("stream_command_type") ? std::optional{ Common::EStreamCommandType(jsonObject->get("stream_command_type").convert<int>()) } : std::nullopt;
     return THttpRequest(operationType, std::move(key), std::move(value), std::move(version), std::move(streamCommandType));
 }
 
 THttpRequest::TPocoRequestData THttpRequest::ToPocoHttpRequest() {
-    auto [path, method] = GetPathAndMethod(OperationType);
-    Poco::Net::HTTPRequest request(method, path, Poco::Net::HTTPRequest::HTTP_1_1);
-
     Poco::JSON::Object obj;
     obj.set("operation_type", static_cast<int>(OperationType));
     if (Key)
@@ -58,13 +56,13 @@ THttpRequest::TPocoRequestData THttpRequest::ToPocoHttpRequest() {
 
     std::ostringstream bodyStream;
     obj.stringify(bodyStream);
-    std::string body = std::move(bodyStream).str();
+    TBody body = std::move(bodyStream).str();
 
-    return std::make_pair(std::move(request), body);
+    return TPocoRequestData(GetPathAndMethod(OperationType), body);
 }
 
 EOperationType THttpRequest::GetType() {
-
+    return OperationType;
 }
 
 Common::TKey THttpRequest::ExtractKey() {
@@ -95,7 +93,7 @@ THttpRequest::TStreamCommandAndVersion THttpRequest::ExtractStreamCommandAndVers
         case Common::EStreamCommandType::Put:
             if (!Key || !Value)
                 throw std::runtime_error("trying to extract null key or value");
-            streamCommand = std::make_shared<Common::TRemoveStreamCommand>(std::move(Key.value()), std::move(Value.value()));
+            streamCommand = std::make_shared<Common::TPutStreamCommand>(std::move(Key.value()), std::move(Value.value()));
             break;
     }
 

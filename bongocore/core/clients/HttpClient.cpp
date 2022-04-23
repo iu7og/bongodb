@@ -15,40 +15,48 @@ THttpClient::THttpClient(const Poco::Util::AbstractConfiguration& config) : Sess
 
 Common::TGetResult THttpClient::Get(const Common::TKey& key) {
     auto response = SendRequest(THttpRequest::GetRequest(Common::TKey(key)));
+    return response.GetResult<Common::TGetResult>();
 }
 
 Common::TRemoveResult THttpClient::Remove(const Common::TKey& key) {
-    
-    return Common::EError::NotAvail;
+    auto response = SendRequest(THttpRequest::DeleteRequest(Common::TKey(key)));
+    return response.GetResult<Common::TRemoveResult>();
 }
 
 Common::TTruncateResult THttpClient::Truncate() {
-    return Common::EError::NotAvail;
+    auto response = SendRequest(THttpRequest::TruncateRequest());
+    return response.GetResult<Common::TTruncateResult>();
 }
 
 Common::TPutResult THttpClient::Put(Common::TKey&& key, Common::TValue&& value) {
-    return Common::EError::NotAvail;
+    auto response = SendRequest(THttpRequest::PutRequest(std::move(key), std::move(value)));
+    return response.GetResult<Common::TPutResult>();
 }
 
 Common::TStreamResult THttpClient::Stream(const Common::IStreamCommand& command, const Common::TVersion& version) {
-    return Common::EError::NotAvail;
+    auto response = SendRequest(THttpRequest::StreamRequest(command, version));
+    return response.GetResult<Common::TPutResult>();
 }
 
 THttpResponse THttpClient::SendRequest(THttpRequest&& request) {
     try {
-        auto [pocoRequest, body] = request.ToPocoHttpRequest();
+        auto [pathAndMethod, body] = request.ToPocoHttpRequest();
+        auto pocoRequest = Poco::Net::HTTPRequest(pathAndMethod.first, pathAndMethod.second, Poco::Net::HTTPRequest::HTTP_1_1);
         Session.sendRequest(pocoRequest) << body;
+
         Poco::Net::HTTPResponse response;
         std::istream& is = Session.receiveResponse(response);
         std::stringstream ss;
         Poco::StreamCopier::copyStream(is, ss);
-        //if (response.getStatus() != Poco::Net::HTTPResponse::HTTP_OK)
-        return THttpResponse(Common::EError::NotAvail);
+
+        return response.getStatus() != Poco::Net::HTTPResponse::HTTP_OK
+            ? THttpResponse(Common::EError::NotAvail, response.getStatus())
+            : THttpResponse(ss.str());
     } catch (Poco::Exception &ex) {
         // TODO: заменить на логгер
         std::cout << ex.displayText() << std::endl;
-        return THttpResponse(Common::EError::NotAvail);
     }
+    return THttpResponse(Common::EError::NotAvail);
 }
 
 bool IsReady() {

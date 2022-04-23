@@ -7,7 +7,7 @@ BINARIES = $(patsubst src/%.cpp,${OUT_DIR}%.o, $(wildcard src/*.cpp))
 
 # Remove -g if not in debug mode
 STATIC_LIBS_FLAGS = -L../core -lcore
-LIBS_FLAGS = -I./../core -I./src -pthread -lPocoNet -lPocoFoundation -lPocoUtil
+LIBS_FLAGS = -I./../core -I./src -pthread -lPocoUtil -lPocoNet -lPocoJSON -lPocoFoundation
 COMPILE_FLAGS = -Wall -g -Werror -std=c++17
 
 MKDIR_P = mkdir -p

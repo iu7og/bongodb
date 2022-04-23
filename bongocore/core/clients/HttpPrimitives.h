@@ -3,6 +3,7 @@
 #include <Poco/Net/HTTPRequest.h>
 #include <Poco/Net/HTTPResponse.h>
 #include <sstream>
+#include <type_traits>
 #include <variant>
 #include <memory>
 
@@ -25,7 +26,7 @@ public:
     using TPath = std::string;
     using TMethod = decltype(Poco::Net::HTTPRequest::HTTP_GET);
     using TBody = std::string;
-    using TPocoRequestData = std::pair<Poco::Net::HTTPRequest, TBody>;
+    using TPocoRequestData = std::pair<std::pair<TPath, TMethod>, TBody>;
 
     static THttpRequest PutRequest(Common::TKey&& key, Common::TValue&& value);
     static THttpRequest GetRequest(Common::TKey&& key);
@@ -66,16 +67,20 @@ struct THttpResponse {
     std::optional<THttpStatus> HttpStatus = std::nullopt;
 
     THttpResponse(const std::string& data);
-    THttpResponse(TError error);
+    THttpResponse(TError error, std::optional<THttpStatus> status = std::nullopt);
     THttpResponse(Common::TValue&& value);
 
     template<typename TResult>
-    Common::TOperationResult<TResult> GetResult() {
+    TResult GetResult() {
         if (Error.has_value())
             return Error.value();
         else if (HttpStatus.has_value() && HttpStatus.value() != Poco::Net::HTTPResponse::HTTP_OK)
             return Common::EError::Other;
-        if constexpr ()
+
+        if constexpr (std::is_same_v<Common::TVoidOperationResult, TResult>)
+            return TResult();
+        else
+            return TResult(std::move(Value.value()));
     }
 };
 

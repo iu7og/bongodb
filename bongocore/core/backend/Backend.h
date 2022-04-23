@@ -18,7 +18,7 @@ public:
     Common::TRemoveResult Remove(const Common::TKey& key);
     Common::TTruncateResult Truncate();
     Common::TPutResult Put(Common::TKey&& key, Common::TValue&& value);
-    void Stream(Common::IStreamCommand&& command, Common::TVersion&& version);
+    void Stream(std::unique_ptr<Common::IStreamCommand> command, Common::TVersion&& version);
 
     // TODO: убрать
     std::string GetMockResponse();

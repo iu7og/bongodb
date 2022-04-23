@@ -1,20 +1,19 @@
 #pragma once
-#include <shared_mutex>
+
+#include <unordered_map>
 
 #include "storages/IStorage.h"
 
 namespace bongodb::DB {
-class TThreadSafeStorageWrapper : public IStorage {
+class TStdHashStorage : public IStorage {
+    using TInner = std::unordered_map<Common::TKey, Common::TValue>;
 public:
     Common::TGetResult Get(const Common::TKey& key) override;
     Common::TRemoveResult Remove(const Common::TKey& key) override;
     Common::TTruncateResult Truncate() override;
     Common::TPutResult Put(Common::TKey&& key, Common::TValue&& value) override;
 
-    TThreadSafeStorageWrapper(std::unique_ptr<IStorage> inner) : Inner(std::move(inner)) {}
-
 private:
-    std::shared_mutex Mutex;
-    std::unique_ptr<IStorage> Inner;
+    TInner State;
 };
 }  // namespace bongodb::DB

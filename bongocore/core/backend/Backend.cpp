@@ -34,7 +34,7 @@ Common::TPutResult TBackend::Put(Common::TKey&& key, Common::TValue&& value) {
 
 bool TBackend::IsForCurrentShard(const Common::TKey& key) { return Processor->GetShardKey() == Shards.ShardFn(key); }
 
-void TBackend::Stream(Common::IStreamCommand&& command, Common::TVersion&& version) {
+void TBackend::Stream(std::unique_ptr<Common::IStreamCommand> command, Common::TVersion&& version) {
     Processor->Stream(std::move(command), std::move(version));
 }
 

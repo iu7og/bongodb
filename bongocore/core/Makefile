@@ -7,7 +7,7 @@ OUT_DIR = bin/
 BINARIES = $(patsubst backend/%.cpp,${OUT_DIR}%.o, $(wildcard backend/*.cpp)) $(patsubst storages/%.cpp,${OUT_DIR}%.o, $(wildcard storages/*.cpp)) $(patsubst clients/%.cpp,${OUT_DIR}%.o, $(wildcard clients/*.cpp)) $(patsubst common/%.cpp,${OUT_DIR}%.o, $(wildcard common/*.cpp))
 
 # Remove -g if not in debug mode
-LIBS_FLAGS = -I. -pthread -lPocoUtil
+LIBS_FLAGS = -I. -pthread -lPocoUtil -lPocoNet -lPocoJSON -lPocoFoundation
 COMPILE_FLAGS = -Wall -g -Werror -std=c++17
 
 MKDIR_P = mkdir -p
