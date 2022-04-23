@@ -59,11 +59,11 @@ THttpResponse THttpClient::SendRequest(THttpRequest&& request) {
     return THttpResponse(Common::EError::NotAvail);
 }
 
-bool IsReady() {
+bool THttpClient::IsReady() {
     return true;
 }
 
-bool Prepare() {
+bool THttpClient::Prepare() {
     return true;
 }
 
