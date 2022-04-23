@@ -53,3 +53,7 @@ go.work
 # IDE files
 .idea
 compile_flags.txt
+*.user
+
+# Build dirs
+*build-bongocore*

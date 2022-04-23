@@ -2,23 +2,18 @@
 
 #include <Poco/Net/HTTPRequest.h>
 #include <Poco/Net/HTTPResponse.h>
+
+#include <memory>
 #include <sstream>
 #include <type_traits>
 #include <variant>
-#include <memory>
 
-#include "common/types.h"
-#include "common/StreamCommands.h"
 #include "common/OperationResults.h"
+#include "common/StreamCommands.h"
+#include "common/types.h"
 
 namespace bongodb::Clients {
-enum class EOperationType {
-    Put = 0,
-    Get,
-    Delete,
-    Truncate,
-    Stream
-};
+enum class EOperationType { Put = 0, Get, Delete, Truncate, Stream };
 
 class THttpRequest {
 public:
@@ -44,12 +39,15 @@ public:
     TStreamCommandAndVersion ExtractStreamCommandAndVersion();
 
 private:
-    THttpRequest(
-        EOperationType operationType,
-        std::optional<Common::TKey>&& key = std::nullopt,
-        std::optional<Common::TValue>&& value = std::nullopt,
-        std::optional<Common::TVersion>&& version = std::nullopt,
-        std::optional<Common::EStreamCommandType>&& streamCommandType = std::nullopt);
+    THttpRequest(EOperationType operationType, std::optional<Common::TKey>&& key = std::nullopt,
+                 std::optional<Common::TValue>&& value = std::nullopt,
+                 std::optional<Common::TVersion>&& version = std::nullopt,
+                 std::optional<Common::EStreamCommandType>&& streamCommandType = std::nullopt)
+        : OperationType(operationType),
+          Key(key),
+          Value(value),
+          Version(version),
+          StreamCommandType(streamCommandType) {}
 
     EOperationType OperationType;
     std::optional<Common::TKey> Key;
@@ -70,7 +68,7 @@ struct THttpResponse {
     THttpResponse(TError error, std::optional<THttpStatus> status = std::nullopt);
     THttpResponse(Common::TValue&& value);
 
-    template<typename TResult>
+    template <typename TResult>
     TResult GetResult() {
         if (Error.has_value())
             return Error.value();
