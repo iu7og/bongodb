@@ -10,6 +10,8 @@
 #include "HandlerFactory.h"
 #include <iostream>
 
+#include <backend/VectorCommandsBuffer.h>
+
 class WebServerApp: public Poco::Util::ServerApplication
 {
     void handleConfig(const std::string&, const std::string& value) {

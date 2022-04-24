@@ -1,5 +1,6 @@
 #pragma once
 
+#include <Poco/Logger.h>
 #include <Poco/Net/HTTPRequest.h>
 #include <Poco/Net/HTTPResponse.h>
 
@@ -17,7 +18,7 @@ enum class EOperationType { Put = 0, Get, Delete, Truncate, Stream };
 
 class THttpRequest {
 public:
-    template<template<typename> typename TPtr = std::unique_ptr>
+    template <template <typename> typename TPtr = std::unique_ptr>
     using TStreamCommandAndVersion = std::pair<TPtr<Common::IStreamCommand>, Common::TVersion>;
     using TPath = std::string;
     using TMethod = decltype(Poco::Net::HTTPRequest::HTTP_GET);
@@ -38,7 +39,7 @@ public:
     Common::TKey ExtractKey();
     Common::TValue ExtractValue();
 
-    template<template<typename> typename TPtr = std::unique_ptr>
+    template <template <typename> typename TPtr = std::unique_ptr>
     TStreamCommandAndVersion<TPtr> ExtractStreamCommandAndVersion();
 
 private:
@@ -57,6 +58,8 @@ private:
     std::optional<Common::TValue> Value;
     std::optional<Common::TVersion> Version;
     std::optional<Common::EStreamCommandType> StreamCommandType;
+
+    Poco::Logger& Logger = Poco::Logger::get("BackendLogger");
 };
 
 struct THttpResponse {
@@ -74,12 +77,15 @@ struct THttpResponse {
     THttpResponse(const std::string& data);
     THttpResponse(TError error, std::optional<THttpStatus> status = std::nullopt);
     THttpResponse(Common::TValue&& value);
-    THttpResponse() {};
+    THttpResponse(){};
 
     template <typename TResult>
     TResult GetResult();
     TBody GetBody();
     THttpStatus GetStatus();
+
+private:
+    Poco::Logger& Logger = Poco::Logger::get("BackendLogger");
 };
 
 #include "clients/HttpPrimitives-inl.h"

@@ -1,7 +1,9 @@
 #pragma once
 
-#include <atomic>
+#include <Poco/Logger.h>
 #include <Poco/Util/AbstractConfiguration.h>
+
+#include <atomic>
 
 #include "backend/ICommandsBuffer.h"
 #include "backend/IProcessor.h"
@@ -27,5 +29,7 @@ private:
     /// TODO: The same for streamer and processor (consumer/producer)
     std::shared_ptr<ICommandsBuffer> CommandsBuffer;
     std::unique_ptr<TStreamer> Streamer;
+
+    Poco::Logger& Logger = Poco::Logger::get("BackendLogger");
 };
 }  // namespace bongodb::Backend

@@ -1,5 +1,7 @@
 #pragma once
 
+#include <Poco/Logger.h>
+
 #include <stdexcept>
 #include <vector>
 
@@ -15,5 +17,7 @@ public:
 private:
     using TBuffer = std::vector<std::shared_ptr<Common::IStreamCommand>>;
     TBuffer Buffer;
+
+    Poco::Logger& Logger = Poco::Logger::get("BackendLogger");
 };
 }  // namespace bongodb::Backend
