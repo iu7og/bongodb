@@ -23,4 +23,3 @@ jobs:
         with:
           working-directory: bongocore
           github_token: ${{ secrets.GITHUB_TOKEN }}
-g
