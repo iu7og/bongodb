@@ -24,11 +24,9 @@ jobs:
           fetch-depth: 0
 
       - name: Build
+        working-directory: bongocli
         run: make .build
-        with:
-          working-directory: bongocli
 
       - name: Test
+        working-directory: bongocli
         run: make .test
-        with:
-          working-directory: bongocore

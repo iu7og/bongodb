@@ -22,16 +22,13 @@ jobs:
         run: sudo apt install -y libpoco-dev cmake
 
       - name: Run CMake
+        working-directory: bongocore
         run: cmake .
-        with:
-          working-directory: bongocore
 
       - name: Build
+        working-directory: bongocore
         run: make bongo
-        with:
-          working-directory: bongocore
 
       - name: Test
+        working-directory: bongocore
         run: make test && ./test
-        with:
-          working-directory: bongocore
