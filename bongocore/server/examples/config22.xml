@@ -27,7 +27,7 @@
             <replica>1</replica>
 
             <storage>
-                <type>std</type>
+                <type>bongo</type>
             </storage>
 
             <buffer>

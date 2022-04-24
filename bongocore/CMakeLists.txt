@@ -6,7 +6,7 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(Poco REQUIRED Net Util)
-find_package(tsl-robin-map REQUIRED)
+# find_package(tsl-robin-map REQUIRED)
 
 include_directories(
     core/
