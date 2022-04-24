@@ -1,0 +1,37 @@
+---
+name: Build and test C/C++ code
+
+on:
+  push:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  build:
+    name: Build and test C/C++ code
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Install build dependencies
+        run: sudo apt install -y libpoco-dev cmake
+
+      - name: Run CMake
+        run: cmake .
+        with:
+          working-directory: bongocore
+
+      - name: Build
+        run: make bongo
+        with:
+          working-directory: bongocore
+
+      - name: Test
+        run: make test && ./test
+        with:
+          working-directory: bongocore
