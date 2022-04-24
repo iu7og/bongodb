@@ -1,5 +1,5 @@
 ---
-name: Lint code
+name: Lint C/C++ code
 
 on:
   push:
@@ -9,7 +9,7 @@ on:
 
 jobs:
   build:
-    name: Lint code
+    name: Lint C/C++ code
     runs-on: ubuntu-latest
 
     steps:
@@ -18,11 +18,11 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Lint code
-        uses: github/super-linter@v4
+      - name: Lint C/C++ code
+        uses: DoozyX/clang-format-lint-action@v0.13
+        with:
+          source: './bongocore'
+          extensions: 'h,cpp,c'
+          clangFormatVersion: 12
         env:
-          VALIDATE_ALL_CODEBASE: true
-          DEFAULT_BRANCH: master
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-          FILTER_REGEX_EXCLUDE: .*bongocli/.*
