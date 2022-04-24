@@ -38,7 +38,7 @@ public:
     Common::TValue ExtractValue();
 
     template<template<typename> typename TPtr = std::unique_ptr>
-    TStreamCommandAndVersion ExtractStreamCommandAndVersion();
+    TPtr<TStreamCommandAndVersion> ExtractStreamCommandAndVersion();
 
 private:
     THttpRequest(EOperationType operationType, std::optional<Common::TKey>&& key = std::nullopt,
@@ -68,14 +68,7 @@ struct THttpResponse {
     std::optional<THttpStatus> HttpStatus = std::nullopt;
 
     template <typename TResult>
-    THttpResponse(TResult&& result) {
-        if (result.IsOk()) {
-            if constexpr (std::is_same_v<TResult, Common::TVoidOperationResult>)
-                Value = std::optional{ std::move(result.ExtractValue()) };
-        } else {
-            Error = std::optional{ result.GetError() };
-        }
-    }
+    THttpResponse(TResult&& result);
 
     THttpResponse(const std::string& data);
     THttpResponse(TError error, std::optional<THttpStatus> status = std::nullopt);

@@ -1,5 +1,5 @@
 template<template<typename> typename TPtr>
-THttpRequest::TStreamCommandAndVersion THttpRequest::ExtractStreamCommandAndVersion() {
+TPtr<THttpRequest::TStreamCommandAndVersion> THttpRequest::ExtractStreamCommandAndVersion() {
     if (!Version || !StreamCommandType)
         throw std::runtime_error("trying to extract null version or stream command");
     TPtr<Common::IStreamCommand> streamCommand;
@@ -33,4 +33,14 @@ TResult THttpResponse::GetResult() {
         return TResult();
     else
         return TResult(std::move(Value.value()));
+}
+
+template <typename TResult>
+THttpResponse::THttpResponse(TResult&& result) {
+    if (result.IsOk()) {
+        if constexpr (std::is_same_v<TResult, Common::TVoidOperationResult>)
+            Value = std::optional{ std::move(result.ExtractValue()) };
+    } else {
+        Error = std::optional{ result.GetError() };
+    }
 }
