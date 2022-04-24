@@ -131,13 +131,8 @@ THttpResponse::TBody THttpResponse::GetBody() {
 }
 
 THttpResponse::THttpStatus THttpResponse::GetStatus() {
-    if (HttpStatus)
-        return HttpStatus.value();
-    else if (Error) {
-        poco_warning(Logger, "GetStatus, failed, returning HTTP_BAD_REQUEST");
-        return Poco::Net::HTTPResponse::HTTPStatus::HTTP_BAD_REQUEST;
-    }
-    return Poco::Net::HTTPResponse::HTTPStatus::HTTP_OK;
+    if (HttpStatus) return HttpStatus.value();
+    return Error ? Poco::Net::HTTPResponse::HTTPStatus::HTTP_BAD_REQUEST : Poco::Net::HTTPResponse::HTTPStatus::HTTP_OK;
 }
 
 }  // namespace bongodb::Clients

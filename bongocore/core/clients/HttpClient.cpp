@@ -12,7 +12,7 @@
 
 namespace bongodb::Clients {
 THttpClient::THttpClient(const Poco::Util::AbstractConfiguration& config)
-    : Session(config.getString("host"), config.getInt("port")) {
+    : Host(config.getString("host")), Port(config.getInt("port")), Session(Host, Port) {
     Session.setKeepAlive(true);
     Session.setKeepAliveTimeout(Poco::Timespan(config.getInt("keep_alive_seconds", 3600)));
 }
@@ -59,7 +59,7 @@ THttpResponse THttpClient::SendRequest(THttpRequest&& request) {
                    ? THttpResponse(Common::EError::NotAvail, response.getStatus())
                    : THttpResponse(ss.str());
     } catch (Poco::Exception& ex) {
-        poco_warning_f1(Logger, "SendRequest exception: %s", ex.what());
+        poco_warning_f3(Logger, "SendRequest exception: %s (%s:%d)", std::string(ex.what()), Host, Port);
     }
     return THttpResponse(Common::EError::NotAvail);
 }

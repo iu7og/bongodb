@@ -24,6 +24,8 @@ public:
 private:
     THttpResponse SendRequest(THttpRequest&& request);
 
+    std::string Host;
+    int Port;
     Poco::Net::HTTPClientSession Session;
 
     Poco::Logger& Logger = Poco::Logger::get("BackendLogger");

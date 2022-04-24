@@ -1,5 +1,7 @@
 #include "backend/Streamer.h"
 
+#include <Poco/Logger.h>
+
 #include <algorithm>
 
 namespace bongodb::Backend {
@@ -20,13 +22,22 @@ void TStreamer::Run() {
 
 void TStreamer::RunCurrentThread() {
     while (IsReady) {
+        auto now = std::chrono::steady_clock::now();
         for (auto& replica : CurrentShard->Replicas) {
-            if (replica->Key == ThisNodeKey) continue;
+            auto diff = std::chrono::duration_cast<std::chrono::milliseconds>(now - Downtimes[replica->Key]);
+            if (replica->Key == ThisNodeKey || diff < Downtime) continue;
             auto& version = State[replica->Key];
             version = std::max(version, Common::TVersion(1));
             auto command = CommandsBuffer->GetByVersion(version);
-            if (!command.IsOk()) continue;
-            if (replica->Client->Stream(*command.ExtractValue(), version).IsOk()) ++version;
+            if (!command.IsOk()) {
+                continue;
+            }
+            if (replica->Client->Stream(*command.ExtractValue(), version).IsOk())
+                ++version;
+            else {
+                Poco::Logger::get("Streamer").debug("downtime for " + std::to_string(replica->Key));
+                Downtimes[replica->Key] = now;
+            }
         }
     }
 }
