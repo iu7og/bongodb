@@ -96,11 +96,13 @@ $(function() {
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="keyword">private</span>:</div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <a class="code hl_struct" href="structbongodb_1_1Clients_1_1THttpResponse.html">THttpResponse</a> SendRequest(<a class="code hl_class" href="classbongodb_1_1Clients_1_1THttpRequest.html">THttpRequest</a>&amp;&amp; request);</div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    Poco::Net::HTTPClientSession Session;</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    Poco::Logger&amp; Logger = Poco::Logger::get(<span class="stringliteral">&quot;BackendLogger&quot;</span>);</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>};</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>}  <span class="comment">// namespace bongodb::Clients</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    std::string Host;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keywordtype">int</span> Port;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    Poco::Net::HTTPClientSession Session;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    Poco::Logger&amp; Logger = Poco::Logger::get(<span class="stringliteral">&quot;BackendLogger&quot;</span>);</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>};</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>}  <span class="comment">// namespace bongodb::Clients</span></div>
 <div class="ttc" id="aclassbongodb_1_1Clients_1_1IClient_html"><div class="ttname"><a href="classbongodb_1_1Clients_1_1IClient.html">bongodb::Clients::IClient</a></div><div class="ttdef"><b>Definition:</b> IClient.h:8</div></div>
 <div class="ttc" id="aclassbongodb_1_1Clients_1_1THttpClient_html"><div class="ttname"><a href="classbongodb_1_1Clients_1_1THttpClient.html">bongodb::Clients::THttpClient</a></div><div class="ttdef"><b>Definition:</b> HttpClient.h:11</div></div>
 <div class="ttc" id="aclassbongodb_1_1Clients_1_1THttpClient_html_a1609780d4b73d9d4063db82b5731b2b2"><div class="ttname"><a href="classbongodb_1_1Clients_1_1THttpClient.html#a1609780d4b73d9d4063db82b5731b2b2">bongodb::Clients::THttpClient::Get</a></div><div class="ttdeci">Common::TGetResult Get(const Common::TKey &amp;key) override</div><div class="ttdef"><b>Definition:</b> HttpClient.cpp:20</div></div>
