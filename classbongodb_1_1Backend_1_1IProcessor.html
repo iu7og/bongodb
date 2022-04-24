@@ -1,0 +1,155 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>BongoDB: Класс bongodb::Backend::IProcessor</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">BongoDB
+   </div>
+   <div id="projectbrief">Нереально дымный софт</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search",'Поиск','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><b>bongodb</b></li><li class="navelem"><b>Backend</b></li><li class="navelem"><a class="el" href="classbongodb_1_1Backend_1_1IProcessor.html">IProcessor</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Открытые члены</a> &#124;
+<a href="classbongodb_1_1Backend_1_1IProcessor-members.html">Полный список членов класса</a>  </div>
+  <div class="headertitle"><div class="title">Класс bongodb::Backend::IProcessor<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
+</div><!--header-->
+<div class="contents">
+<div class="dynheader">
+Граф наследования:bongodb::Backend::IProcessor:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="classbongodb_1_1Backend_1_1IProcessor.png" usemap="#bongodb::Backend::IProcessor_map" alt=""/>
+  <map id="bongodb::Backend::IProcessor_map" name="bongodb::Backend::IProcessor_map">
+<area href="classbongodb_1_1Backend_1_1TMasterProcessor.html" alt="bongodb::Backend::TMasterProcessor" shape="rect" coords="0,56,229,80"/>
+<area href="classbongodb_1_1Backend_1_1TReplicaProcessor.html" alt="bongodb::Backend::TReplicaProcessor" shape="rect" coords="239,56,468,80"/>
+  </map>
+</div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:a9988f0d81a69fc88f750c7e21a7e648b"><td class="memItemLeft" align="right" valign="top"><a id="a9988f0d81a69fc88f750c7e21a7e648b" name="a9988f0d81a69fc88f750c7e21a7e648b"></a>
+virtual <a class="el" href="classbongodb_1_1Common_1_1TOperationResult.html">Common::TGetResult</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Get</b> (const Common::TKey &amp;key)=0</td></tr>
+<tr class="separator:a9988f0d81a69fc88f750c7e21a7e648b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba38fb6282c37c85eaae29ea48ecf48e"><td class="memItemLeft" align="right" valign="top"><a id="aba38fb6282c37c85eaae29ea48ecf48e" name="aba38fb6282c37c85eaae29ea48ecf48e"></a>
+virtual <a class="el" href="classbongodb_1_1Common_1_1TVoidOperationResult.html">Common::TRemoveResult</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Remove</b> (const Common::TKey &amp;key)=0</td></tr>
+<tr class="separator:aba38fb6282c37c85eaae29ea48ecf48e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a868de20a6f668285cd0018d9001a2d"><td class="memItemLeft" align="right" valign="top"><a id="a2a868de20a6f668285cd0018d9001a2d" name="a2a868de20a6f668285cd0018d9001a2d"></a>
+virtual <a class="el" href="classbongodb_1_1Common_1_1TVoidOperationResult.html">Common::TTruncateResult</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Truncate</b> ()=0</td></tr>
+<tr class="separator:a2a868de20a6f668285cd0018d9001a2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc97770c58b515c1bf5d986bcb902427"><td class="memItemLeft" align="right" valign="top"><a id="abc97770c58b515c1bf5d986bcb902427" name="abc97770c58b515c1bf5d986bcb902427"></a>
+virtual <a class="el" href="classbongodb_1_1Common_1_1TVoidOperationResult.html">Common::TPutResult</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Put</b> (Common::TKey &amp;&amp;key, Common::TValue &amp;&amp;value)=0</td></tr>
+<tr class="separator:abc97770c58b515c1bf5d986bcb902427"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e95bd56e555a7c20bb7d40bce38a0aa"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbongodb_1_1Backend_1_1IProcessor.html#a8e95bd56e555a7c20bb7d40bce38a0aa">Stream</a> (std::unique_ptr&lt; <a class="el" href="classbongodb_1_1Common_1_1IStreamCommand.html">Common::IStreamCommand</a> &gt; command, Common::TVersion &amp;&amp;version)=0</td></tr>
+<tr class="separator:a8e95bd56e555a7c20bb7d40bce38a0aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a52dd07b77ac27db415cad920e7478bb9"><td class="memItemLeft" align="right" valign="top"><a id="a52dd07b77ac27db415cad920e7478bb9" name="a52dd07b77ac27db415cad920e7478bb9"></a>
+virtual Common::TShardKey&#160;</td><td class="memItemRight" valign="bottom"><b>GetShardKey</b> ()=0</td></tr>
+<tr class="separator:a52dd07b77ac27db415cad920e7478bb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Методы</h2>
+<a id="a8e95bd56e555a7c20bb7d40bce38a0aa" name="a8e95bd56e555a7c20bb7d40bce38a0aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e95bd56e555a7c20bb7d40bce38a0aa">&#9670;&nbsp;</a></span>Stream()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void bongodb::Backend::IProcessor::Stream </td>
+          <td>(</td>
+          <td class="paramtype">std::unique_ptr&lt; <a class="el" href="classbongodb_1_1Common_1_1IStreamCommand.html">Common::IStreamCommand</a> &gt;&#160;</td>
+          <td class="paramname"><em>command</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Common::TVersion &amp;&amp;&#160;</td>
+          <td class="paramname"><em>version</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Замещается в <a class="el" href="classbongodb_1_1Backend_1_1TMasterProcessor.html#aa0fa1e4cb1d036325e3f02375a7a9f0c">bongodb::Backend::TMasterProcessor</a>.</p>
+
+</div>
+</div>
+<hr/>Объявления и описания членов класса находятся в файле:<ul>
+<li>core/backend/<a class="el" href="IProcessor_8h_source.html">IProcessor.h</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.2
+</small></address>
+</body>
+</html>

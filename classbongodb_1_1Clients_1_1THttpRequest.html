@@ -1,0 +1,156 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>BongoDB: Класс bongodb::Clients::THttpRequest</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">BongoDB
+   </div>
+   <div id="projectbrief">Нереально дымный софт</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search",'Поиск','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><b>bongodb</b></li><li class="navelem"><b>Clients</b></li><li class="navelem"><a class="el" href="classbongodb_1_1Clients_1_1THttpRequest.html">THttpRequest</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-types">Открытые типы</a> &#124;
+<a href="#pub-methods">Открытые члены</a> &#124;
+<a href="#pub-static-methods">Открытые статические члены</a> &#124;
+<a href="classbongodb_1_1Clients_1_1THttpRequest-members.html">Полный список членов класса</a>  </div>
+  <div class="headertitle"><div class="title">Класс bongodb::Clients::THttpRequest</div></div>
+</div><!--header-->
+<div class="contents">
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
+Открытые типы</h2></td></tr>
+<tr class="memitem:a75616be9a4a199b6c47c4df248eb43db"><td class="memTemplParams" colspan="2"><a id="a75616be9a4a199b6c47c4df248eb43db" name="a75616be9a4a199b6c47c4df248eb43db"></a>
+template&lt;template&lt; typename &gt; typename TPtr = std::unique_ptr&gt; </td></tr>
+<tr class="memitem:a75616be9a4a199b6c47c4df248eb43db"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><b>TStreamCommandAndVersion</b> = std::pair&lt; TPtr&lt; <a class="el" href="classbongodb_1_1Common_1_1IStreamCommand.html">Common::IStreamCommand</a> &gt;, Common::TVersion &gt;</td></tr>
+<tr class="separator:a75616be9a4a199b6c47c4df248eb43db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aebf4a600897d79afd27bb8bc5d2ae542"><td class="memItemLeft" align="right" valign="top"><a id="aebf4a600897d79afd27bb8bc5d2ae542" name="aebf4a600897d79afd27bb8bc5d2ae542"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>TPath</b> = std::string</td></tr>
+<tr class="separator:aebf4a600897d79afd27bb8bc5d2ae542"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a24ea5c68b106da07e86385956756eb6f"><td class="memItemLeft" align="right" valign="top"><a id="a24ea5c68b106da07e86385956756eb6f" name="a24ea5c68b106da07e86385956756eb6f"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>TMethod</b> = decltype(Poco::Net::HTTPRequest::HTTP_GET)</td></tr>
+<tr class="separator:a24ea5c68b106da07e86385956756eb6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5a4a1c7a340afff06a394d1b9f77301"><td class="memItemLeft" align="right" valign="top"><a id="ac5a4a1c7a340afff06a394d1b9f77301" name="ac5a4a1c7a340afff06a394d1b9f77301"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>TBody</b> = std::string</td></tr>
+<tr class="separator:ac5a4a1c7a340afff06a394d1b9f77301"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a606c975f0318d2bdf1741f1080b760ee"><td class="memItemLeft" align="right" valign="top"><a id="a606c975f0318d2bdf1741f1080b760ee" name="a606c975f0318d2bdf1741f1080b760ee"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>TPocoRequestData</b> = std::pair&lt; std::pair&lt; TPath, TMethod &gt;, TBody &gt;</td></tr>
+<tr class="separator:a606c975f0318d2bdf1741f1080b760ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:a546918568d2f4d681cc7f1f8444b0546"><td class="memItemLeft" align="right" valign="top"><a id="a546918568d2f4d681cc7f1f8444b0546" name="a546918568d2f4d681cc7f1f8444b0546"></a>
+TPocoRequestData&#160;</td><td class="memItemRight" valign="bottom"><b>ToPocoHttpRequest</b> ()</td></tr>
+<tr class="separator:a546918568d2f4d681cc7f1f8444b0546"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae558c13656c4bf48e338c1122fe899af"><td class="memItemLeft" align="right" valign="top"><a id="ae558c13656c4bf48e338c1122fe899af" name="ae558c13656c4bf48e338c1122fe899af"></a>
+EOperationType&#160;</td><td class="memItemRight" valign="bottom"><b>GetType</b> ()</td></tr>
+<tr class="separator:ae558c13656c4bf48e338c1122fe899af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4916d9158081d0d9b45e229297ed4053"><td class="memItemLeft" align="right" valign="top"><a id="a4916d9158081d0d9b45e229297ed4053" name="a4916d9158081d0d9b45e229297ed4053"></a>
+Common::TKey&#160;</td><td class="memItemRight" valign="bottom"><b>ExtractKey</b> ()</td></tr>
+<tr class="separator:a4916d9158081d0d9b45e229297ed4053"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a430c021815f21ad33bb1a5c6fdd9f0f6"><td class="memItemLeft" align="right" valign="top"><a id="a430c021815f21ad33bb1a5c6fdd9f0f6" name="a430c021815f21ad33bb1a5c6fdd9f0f6"></a>
+Common::TValue&#160;</td><td class="memItemRight" valign="bottom"><b>ExtractValue</b> ()</td></tr>
+<tr class="separator:a430c021815f21ad33bb1a5c6fdd9f0f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a31bb9f9fbd590ba6100ea365c22560fa"><td class="memTemplParams" colspan="2"><a id="a31bb9f9fbd590ba6100ea365c22560fa" name="a31bb9f9fbd590ba6100ea365c22560fa"></a>
+template&lt;template&lt; typename &gt; typename TPtr = std::unique_ptr&gt; </td></tr>
+<tr class="memitem:a31bb9f9fbd590ba6100ea365c22560fa"><td class="memTemplItemLeft" align="right" valign="top">TStreamCommandAndVersion&lt; TPtr &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ExtractStreamCommandAndVersion</b> ()</td></tr>
+<tr class="separator:a31bb9f9fbd590ba6100ea365c22560fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa1de1c443ccc27d85b0f2168a36c08ea"><td class="memTemplParams" colspan="2"><a id="aa1de1c443ccc27d85b0f2168a36c08ea" name="aa1de1c443ccc27d85b0f2168a36c08ea"></a>
+template&lt;template&lt; typename &gt; typename TPtr&gt; </td></tr>
+<tr class="memitem:aa1de1c443ccc27d85b0f2168a36c08ea"><td class="memTemplItemLeft" align="right" valign="top">THttpRequest::TStreamCommandAndVersion&lt; TPtr &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ExtractStreamCommandAndVersion</b> ()</td></tr>
+<tr class="separator:aa1de1c443ccc27d85b0f2168a36c08ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Открытые статические члены</h2></td></tr>
+<tr class="memitem:aedca1b4361325c0b2ce6ba2252ee52d6"><td class="memItemLeft" align="right" valign="top"><a id="aedca1b4361325c0b2ce6ba2252ee52d6" name="aedca1b4361325c0b2ce6ba2252ee52d6"></a>
+static <a class="el" href="classbongodb_1_1Clients_1_1THttpRequest.html">THttpRequest</a>&#160;</td><td class="memItemRight" valign="bottom"><b>PutRequest</b> (Common::TKey &amp;&amp;key, Common::TValue &amp;&amp;value)</td></tr>
+<tr class="separator:aedca1b4361325c0b2ce6ba2252ee52d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a903129dbb10167ac2f6262e4e7499464"><td class="memItemLeft" align="right" valign="top"><a id="a903129dbb10167ac2f6262e4e7499464" name="a903129dbb10167ac2f6262e4e7499464"></a>
+static <a class="el" href="classbongodb_1_1Clients_1_1THttpRequest.html">THttpRequest</a>&#160;</td><td class="memItemRight" valign="bottom"><b>GetRequest</b> (Common::TKey &amp;&amp;key)</td></tr>
+<tr class="separator:a903129dbb10167ac2f6262e4e7499464"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa7ce145e1e40384c1cc6274061ad5277"><td class="memItemLeft" align="right" valign="top"><a id="aa7ce145e1e40384c1cc6274061ad5277" name="aa7ce145e1e40384c1cc6274061ad5277"></a>
+static <a class="el" href="classbongodb_1_1Clients_1_1THttpRequest.html">THttpRequest</a>&#160;</td><td class="memItemRight" valign="bottom"><b>DeleteRequest</b> (Common::TKey &amp;&amp;key)</td></tr>
+<tr class="separator:aa7ce145e1e40384c1cc6274061ad5277"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb22d35cdc0f1ad42fada0f928cbe9b2"><td class="memItemLeft" align="right" valign="top"><a id="adb22d35cdc0f1ad42fada0f928cbe9b2" name="adb22d35cdc0f1ad42fada0f928cbe9b2"></a>
+static <a class="el" href="classbongodb_1_1Clients_1_1THttpRequest.html">THttpRequest</a>&#160;</td><td class="memItemRight" valign="bottom"><b>TruncateRequest</b> ()</td></tr>
+<tr class="separator:adb22d35cdc0f1ad42fada0f928cbe9b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5451afad24dbec3c605bcfacaa6e6f7f"><td class="memItemLeft" align="right" valign="top"><a id="a5451afad24dbec3c605bcfacaa6e6f7f" name="a5451afad24dbec3c605bcfacaa6e6f7f"></a>
+static <a class="el" href="classbongodb_1_1Clients_1_1THttpRequest.html">THttpRequest</a>&#160;</td><td class="memItemRight" valign="bottom"><b>StreamRequest</b> (const <a class="el" href="classbongodb_1_1Common_1_1IStreamCommand.html">Common::IStreamCommand</a> &amp;streamCommand, const Common::TVersion &amp;version)</td></tr>
+<tr class="separator:a5451afad24dbec3c605bcfacaa6e6f7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a31e72e0cafa4d800f79c3463efe2d4c4"><td class="memItemLeft" align="right" valign="top"><a id="a31e72e0cafa4d800f79c3463efe2d4c4" name="a31e72e0cafa4d800f79c3463efe2d4c4"></a>
+static std::pair&lt; TPath, TMethod &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>GetPathAndMethod</b> (EOperationType operationType, const Common::TKey &amp;key=&quot;&quot;)</td></tr>
+<tr class="separator:a31e72e0cafa4d800f79c3463efe2d4c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc7402f4e26570901e0073422ae04594"><td class="memItemLeft" align="right" valign="top"><a id="acc7402f4e26570901e0073422ae04594" name="acc7402f4e26570901e0073422ae04594"></a>
+static <a class="el" href="classbongodb_1_1Clients_1_1THttpRequest.html">THttpRequest</a>&#160;</td><td class="memItemRight" valign="bottom"><b>FromPocoHttpRequest</b> (const Poco::Net::HTTPRequest &amp;request, const TBody &amp;body)</td></tr>
+<tr class="separator:acc7402f4e26570901e0073422ae04594"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<hr/>Объявления и описания членов классов находятся в файлах:<ul>
+<li>core/clients/<a class="el" href="HttpPrimitives_8h_source.html">HttpPrimitives.h</a></li>
+<li>core/clients/<a class="el" href="HttpPrimitives-inl_8h_source.html">HttpPrimitives-inl.h</a></li>
+<li>core/clients/HttpPrimitives.cpp</li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.2
+</small></address>
+</body>
+</html>

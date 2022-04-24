@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>BongoDB: Структура bongodb::Clients::THttpResponse</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">BongoDB
+   </div>
+   <div id="projectbrief">Нереально дымный софт</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search",'Поиск','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><b>bongodb</b></li><li class="navelem"><b>Clients</b></li><li class="navelem"><a class="el" href="structbongodb_1_1Clients_1_1THttpResponse.html">THttpResponse</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-types">Открытые типы</a> &#124;
+<a href="#pub-methods">Открытые члены</a> &#124;
+<a href="#pub-attribs">Открытые атрибуты</a> &#124;
+<a href="structbongodb_1_1Clients_1_1THttpResponse-members.html">Полный список членов класса</a>  </div>
+  <div class="headertitle"><div class="title">Структура bongodb::Clients::THttpResponse</div></div>
+</div><!--header-->
+<div class="contents">
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
+Открытые типы</h2></td></tr>
+<tr class="memitem:a97f360395d8579877bc8a58e1f4dd155"><td class="memItemLeft" align="right" valign="top"><a id="a97f360395d8579877bc8a58e1f4dd155" name="a97f360395d8579877bc8a58e1f4dd155"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>TError</b> = Common::EError</td></tr>
+<tr class="separator:a97f360395d8579877bc8a58e1f4dd155"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7df9e548234b46d9b55c3faeaaeff5d4"><td class="memItemLeft" align="right" valign="top"><a id="a7df9e548234b46d9b55c3faeaaeff5d4" name="a7df9e548234b46d9b55c3faeaaeff5d4"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>THttpStatus</b> = decltype(Poco::Net::HTTPResponse::HTTPStatus::HTTP_OK)</td></tr>
+<tr class="separator:a7df9e548234b46d9b55c3faeaaeff5d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf2bc95252a60d3a5c7cc6cff2cd3ede"><td class="memItemLeft" align="right" valign="top"><a id="adf2bc95252a60d3a5c7cc6cff2cd3ede" name="adf2bc95252a60d3a5c7cc6cff2cd3ede"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>TBody</b> = std::string</td></tr>
+<tr class="separator:adf2bc95252a60d3a5c7cc6cff2cd3ede"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:a5fd0a18b2ee9e47c382ac47988480b8a"><td class="memTemplParams" colspan="2"><a id="a5fd0a18b2ee9e47c382ac47988480b8a" name="a5fd0a18b2ee9e47c382ac47988480b8a"></a>
+template&lt;typename TResult &gt; </td></tr>
+<tr class="memitem:a5fd0a18b2ee9e47c382ac47988480b8a"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><b>THttpResponse</b> (TResult &amp;&amp;result)</td></tr>
+<tr class="separator:a5fd0a18b2ee9e47c382ac47988480b8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc9d90af131330cc8292f21fa619e069"><td class="memItemLeft" align="right" valign="top"><a id="afc9d90af131330cc8292f21fa619e069" name="afc9d90af131330cc8292f21fa619e069"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>THttpResponse</b> (const std::string &amp;data)</td></tr>
+<tr class="separator:afc9d90af131330cc8292f21fa619e069"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0528d5171fc81fb4c129a02e8225b70e"><td class="memItemLeft" align="right" valign="top"><a id="a0528d5171fc81fb4c129a02e8225b70e" name="a0528d5171fc81fb4c129a02e8225b70e"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>THttpResponse</b> (TError error, std::optional&lt; THttpStatus &gt; status=std::nullopt)</td></tr>
+<tr class="separator:a0528d5171fc81fb4c129a02e8225b70e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a01eb4ce4688b09bc7d987c712fe7ea86"><td class="memItemLeft" align="right" valign="top"><a id="a01eb4ce4688b09bc7d987c712fe7ea86" name="a01eb4ce4688b09bc7d987c712fe7ea86"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>THttpResponse</b> (Common::TValue &amp;&amp;value)</td></tr>
+<tr class="separator:a01eb4ce4688b09bc7d987c712fe7ea86"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aebc6a7095998602d9871e9afb2ef0e80"><td class="memTemplParams" colspan="2"><a id="aebc6a7095998602d9871e9afb2ef0e80" name="aebc6a7095998602d9871e9afb2ef0e80"></a>
+template&lt;typename TResult &gt; </td></tr>
+<tr class="memitem:aebc6a7095998602d9871e9afb2ef0e80"><td class="memTemplItemLeft" align="right" valign="top">TResult&#160;</td><td class="memTemplItemRight" valign="bottom"><b>GetResult</b> ()</td></tr>
+<tr class="separator:aebc6a7095998602d9871e9afb2ef0e80"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5f492724bef8845e361e2a6bf50f5ce"><td class="memItemLeft" align="right" valign="top"><a id="ac5f492724bef8845e361e2a6bf50f5ce" name="ac5f492724bef8845e361e2a6bf50f5ce"></a>
+TBody&#160;</td><td class="memItemRight" valign="bottom"><b>GetBody</b> ()</td></tr>
+<tr class="separator:ac5f492724bef8845e361e2a6bf50f5ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a34c3413f7a62247049537a5b215a984c"><td class="memItemLeft" align="right" valign="top"><a id="a34c3413f7a62247049537a5b215a984c" name="a34c3413f7a62247049537a5b215a984c"></a>
+THttpStatus&#160;</td><td class="memItemRight" valign="bottom"><b>GetStatus</b> ()</td></tr>
+<tr class="separator:a34c3413f7a62247049537a5b215a984c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aebc6a7095998602d9871e9afb2ef0e80"><td class="memTemplParams" colspan="2"><a id="aebc6a7095998602d9871e9afb2ef0e80" name="aebc6a7095998602d9871e9afb2ef0e80"></a>
+template&lt;typename TResult &gt; </td></tr>
+<tr class="memitem:aebc6a7095998602d9871e9afb2ef0e80"><td class="memTemplItemLeft" align="right" valign="top">TResult&#160;</td><td class="memTemplItemRight" valign="bottom"><b>GetResult</b> ()</td></tr>
+<tr class="separator:aebc6a7095998602d9871e9afb2ef0e80"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5fd0a18b2ee9e47c382ac47988480b8a"><td class="memTemplParams" colspan="2"><a id="a5fd0a18b2ee9e47c382ac47988480b8a" name="a5fd0a18b2ee9e47c382ac47988480b8a"></a>
+template&lt;typename TResult &gt; </td></tr>
+<tr class="memitem:a5fd0a18b2ee9e47c382ac47988480b8a"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><b>THttpResponse</b> (TResult &amp;&amp;result)</td></tr>
+<tr class="separator:a5fd0a18b2ee9e47c382ac47988480b8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Открытые атрибуты</h2></td></tr>
+<tr class="memitem:af094e26e82e00e1edbc71962d7e0d3c1"><td class="memItemLeft" align="right" valign="top"><a id="af094e26e82e00e1edbc71962d7e0d3c1" name="af094e26e82e00e1edbc71962d7e0d3c1"></a>
+std::optional&lt; TError &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Error</b> = std::nullopt</td></tr>
+<tr class="separator:af094e26e82e00e1edbc71962d7e0d3c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac825a19b87fccd0cd26e8ba21fe1a307"><td class="memItemLeft" align="right" valign="top"><a id="ac825a19b87fccd0cd26e8ba21fe1a307" name="ac825a19b87fccd0cd26e8ba21fe1a307"></a>
+std::optional&lt; Common::TValue &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Value</b> = std::nullopt</td></tr>
+<tr class="separator:ac825a19b87fccd0cd26e8ba21fe1a307"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4b2cc2460ce6a85997205094f4f6c6d"><td class="memItemLeft" align="right" valign="top"><a id="ad4b2cc2460ce6a85997205094f4f6c6d" name="ad4b2cc2460ce6a85997205094f4f6c6d"></a>
+std::optional&lt; THttpStatus &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>HttpStatus</b> = std::nullopt</td></tr>
+<tr class="separator:ad4b2cc2460ce6a85997205094f4f6c6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<hr/>Объявления и описания членов структур находятся в файлах:<ul>
+<li>core/clients/<a class="el" href="HttpPrimitives_8h_source.html">HttpPrimitives.h</a></li>
+<li>core/clients/<a class="el" href="HttpPrimitives-inl_8h_source.html">HttpPrimitives-inl.h</a></li>
+<li>core/clients/HttpPrimitives.cpp</li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.2
+</small></address>
+</body>
+</html>
