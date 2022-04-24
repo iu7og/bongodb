@@ -5,13 +5,11 @@ cmake_minimum_required(VERSION 3.5)
 project(bongo)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
-set(CMAKE_AUTOUIC ON)
-set(CMAKE_AUTOMOC ON)
-set(CMAKE_AUTORCC ON)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(Poco REQUIRED Net Util)
+find_package(tsl-robin-map REQUIRED)
 
 include_directories(
     core/
@@ -56,6 +54,8 @@ set (SRCS
     server/src/HandlerFactory.cpp
     server/src/HandlerFactory.h
     server/src/main.cpp
+    core/storages/BongoStorage.h
+    core/storages/BongoStorage.cpp
 )
 
 add_executable(${CMAKE_PROJECT_NAME} ${SRCS})
