@@ -10,3 +10,21 @@
 * [Бэклог](https://github.com/iu7og/bongodb/projects/2)
 * [Багтрекер](https://github.com/iu7og/bongodb/projects/3)
 * [Текущий спринт](https://github.com/iu7og/bongodb/projects/1)
+
+### Зависимости
+* cmake (версия 3.5)
+* make
+* g++/c++ (C++17)
+* libpoco-dev
+* robin-map-dev
+* go (CLI)
+
+### Сборка bongodb
+После установки зависимостей можно собрать ядро проекта.
+```Shell
+cd bongocore
+mkdir Build
+cd Build
+cmake ..
+make
+```
