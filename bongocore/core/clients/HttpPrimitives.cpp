@@ -126,5 +126,6 @@ THttpResponse::THttpStatus THttpResponse::GetStatus() {
     else if (Error)
         return Poco::Net::HTTPResponse::HTTPStatus::HTTP_BAD_REQUEST;
     return Poco::Net::HTTPResponse::HTTPStatus::HTTP_OK;
+}
 
 }  // namespace bongodb::Clients

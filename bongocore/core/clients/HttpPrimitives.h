@@ -17,7 +17,8 @@ enum class EOperationType { Put = 0, Get, Delete, Truncate, Stream };
 
 class THttpRequest {
 public:
-    using TStreamCommandAndVersion = std::pair<std::shared_ptr<Common::IStreamCommand>, Common::TVersion>;
+    template<template<typename> typename TPtr = std::unique_ptr>
+    using TStreamCommandAndVersion = std::pair<TPtr<Common::IStreamCommand>, Common::TVersion>;
     using TPath = std::string;
     using TMethod = decltype(Poco::Net::HTTPRequest::HTTP_GET);
     using TBody = std::string;
@@ -38,7 +39,7 @@ public:
     Common::TValue ExtractValue();
 
     template<template<typename> typename TPtr = std::unique_ptr>
-    TPtr<TStreamCommandAndVersion> ExtractStreamCommandAndVersion();
+    TStreamCommandAndVersion<TPtr> ExtractStreamCommandAndVersion();
 
 private:
     THttpRequest(EOperationType operationType, std::optional<Common::TKey>&& key = std::nullopt,
