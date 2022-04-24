@@ -4,7 +4,8 @@ namespace bongodb::Backend {
 TReplicaProcessor::TStreamProcessor::TStreamProcessor(std::shared_ptr<DB::IStorage> storage)
     : Queue(), Storage(storage) {}
 
-void TReplicaProcessor::TStreamProcessor::Push(Common::TVersion &&version, std::unique_ptr<Common::IStreamCommand> command) {
+void TReplicaProcessor::TStreamProcessor::Push(Common::TVersion &&version,
+                                               std::unique_ptr<Common::IStreamCommand> command) {
     Queue.push(std::make_shared<TQueueElement>(std::move(version), std::move(command)));
     FlushQueue();
 }
@@ -41,9 +42,10 @@ bool TReplicaProcessor::TStreamProcessor::ApplyCommand(Common::IStreamCommand &c
     throw std::runtime_error("unknown stream command");
 }
 
-
-TReplicaProcessor::TReplicaProcessor(const Poco::Util::AbstractConfiguration& config, const Common::TShards& shards)
-    : CurrentShard(shards.Cluster.at(config.getInt("shard"))), Storage(DB::buildStorage(*config.createView("storage"))), StreamProcessor(Storage) {}
+TReplicaProcessor::TReplicaProcessor(const Poco::Util::AbstractConfiguration &config, const Common::TShards &shards)
+    : CurrentShard(shards.Cluster.at(config.getInt("shard"))),
+      Storage(DB::buildStorage(*config.createView("storage"))),
+      StreamProcessor(Storage) {}
 
 Common::TGetResult TReplicaProcessor::Get(const Common::TKey &key) { return Storage->Get(key); }
 
@@ -57,7 +59,7 @@ Common::TTruncateResult TReplicaProcessor::Truncate() {
 
 Common::TPutResult TReplicaProcessor::Put(Common::TKey &&key, Common::TValue &&value) {
     return CurrentShard->Master ? CurrentShard->Master->Client->Put(std::move(key), std::move(value))
-                               : Common::EError::NotAvail;
+                                : Common::EError::NotAvail;
 }
 
 void TReplicaProcessor::Stream(std::unique_ptr<Common::IStreamCommand> command, Common::TVersion &&version) {
