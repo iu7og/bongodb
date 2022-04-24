@@ -47,6 +47,7 @@ THttpResponse THttpClient::SendRequest(THttpRequest&& request) {
         auto [pathAndMethod, body] = request.ToPocoHttpRequest();
         auto pocoRequest =
             Poco::Net::HTTPRequest(pathAndMethod.first, pathAndMethod.second, Poco::Net::HTTPRequest::HTTP_1_1);
+        pocoRequest.setContentLength(body.size());
         Session.sendRequest(pocoRequest) << body;
 
         Poco::Net::HTTPResponse response;
