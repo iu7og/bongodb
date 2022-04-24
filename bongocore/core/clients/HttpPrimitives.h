@@ -36,6 +36,8 @@ public:
     EOperationType GetType();
     Common::TKey ExtractKey();
     Common::TValue ExtractValue();
+
+    template<template<typename> typename TPtr = std::unique_ptr>
     TStreamCommandAndVersion ExtractStreamCommandAndVersion();
 
 private:
@@ -59,27 +61,33 @@ private:
 struct THttpResponse {
     using TError = Common::EError;
     using THttpStatus = decltype(Poco::Net::HTTPResponse::HTTPStatus::HTTP_OK);
+    using TBody = std::string;
 
     std::optional<TError> Error = std::nullopt;
     std::optional<Common::TValue> Value = std::nullopt;
     std::optional<THttpStatus> HttpStatus = std::nullopt;
 
+    template <typename TResult>
+    THttpResponse(TResult&& result) {
+        if (result.IsOk()) {
+            if constexpr (std::is_same_v<TResult, Common::TVoidOperationResult>)
+                Value = std::optional{ std::move(result.ExtractValue()) };
+        } else {
+            Error = std::optional{ result.GetError() };
+        }
+    }
+
     THttpResponse(const std::string& data);
     THttpResponse(TError error, std::optional<THttpStatus> status = std::nullopt);
     THttpResponse(Common::TValue&& value);
+    THttpResponse() {};
 
     template <typename TResult>
-    TResult GetResult() {
-        if (Error.has_value())
-            return Error.value();
-        else if (HttpStatus.has_value() && HttpStatus.value() != Poco::Net::HTTPResponse::HTTP_OK)
-            return Common::EError::Other;
-
-        if constexpr (std::is_same_v<Common::TVoidOperationResult, TResult>)
-            return TResult();
-        else
-            return TResult(std::move(Value.value()));
-    }
+    TResult GetResult();
+    TBody GetBody();
+    THttpStatus GetStatus();
 };
+
+#include "clients/HttpPrimitives-inl.h"
 
 }  // namespace bongodb::Clients

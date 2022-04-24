@@ -4,6 +4,7 @@
 #include <Poco/Util/AbstractConfiguration.h>
 
 #include "backend/IProcessor.h"
+#include "clients/HttpPrimitives.h"
 #include "common/OperationResults.h"
 #include "common/Shard.h"
 #include "common/StreamCommands.h"
@@ -20,8 +21,7 @@ public:
     Common::TPutResult Put(Common::TKey&& key, Common::TValue&& value);
     void Stream(std::unique_ptr<Common::IStreamCommand> command, Common::TVersion&& version);
 
-    // TODO: убрать
-    std::string GetMockResponse();
+    Clients::THttpResponse Process(Clients::THttpRequest&& request);
 
     bool IsReady();
     bool Prepare();

@@ -5,6 +5,7 @@
             <replica>1</replica>
 
             <storage>
+                <type>bongo</type>
             </storage>
 
             <buffer>
