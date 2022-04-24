@@ -23,31 +23,33 @@
 
     <backend>
         <processor>
-            <shard>1</shard>
-            <replica>1</replica>
+            <shard>0</shard>
+            <replica>0</replica>
 
             <storage>
-                <type>bongo</type>
+                <type>std</type>
             </storage>
 
             <buffer>
             </buffer>
         </processor>
 
-        <cluster>
-            <shard>
-                <key>1</key>
-                <master_replica_key>1</master_replica_key>
-                <replica>
-                    <key>1</key>
-                    <client>
-                        <!--может быть здесь еще будет тип (grpc / http rest)-->
-                        <host>127.0.0.1</host>
-                        <port>1235</port>
-                    </client>
-                </replica>
-            </shard>
-        </cluster>
+        <shards>
+            <cluster>
+                <shard>
+                    <key>0</key>
+                    <master_replica_key>0</master_replica_key>
+                    <replica>
+                        <key>0</key>
+                        <client>
+                            <!--может быть здесь еще будет тип (grpc / http rest)-->
+                            <host>127.0.0.1</host>
+                            <port>1235</port>
+                        </client>
+                    </replica>
+                </shard>
+            </cluster>
+        </shards>
     </backend>
 
     <server>

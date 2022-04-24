@@ -1,9 +1,9 @@
 #include "backend/VectorCommandsBuffer.h"
 
 namespace bongodb::Backend {
-void VectorCommandsBuffer::Push(std::shared_ptr<Common::IStreamCommand> command) { Buffer.push_back(command); }
+void TVectorCommandsBuffer::Push(std::shared_ptr<Common::IStreamCommand> command) { Buffer.push_back(command); }
 
-VectorCommandsBuffer::TCommandResult VectorCommandsBuffer::GetByVersion(const Common::TVersion& version) {
+TVectorCommandsBuffer::TCommandResult TVectorCommandsBuffer::GetByVersion(const Common::TVersion& version) {
     if (version <= 0) {
         poco_error_f1(Logger, "Version can't be <= 0, got = %lu", version);
 
