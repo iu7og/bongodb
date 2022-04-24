@@ -7,6 +7,7 @@
 #include "backend/ReplicaProcessor.h"
 
 namespace bongodb::Backend {
-std::unique_ptr<IProcessor> buildProcessor(const Poco::Util::AbstractConfiguration& config, const Common::TShards& shards);
+std::unique_ptr<IProcessor> buildProcessor(const Poco::Util::AbstractConfiguration& config,
+                                           const Common::TShards& shards);
 std::shared_ptr<ICommandsBuffer> buildCommandsBuffer(const Poco::Util::AbstractConfiguration& config);
-}
+}  // namespace bongodb::Backend

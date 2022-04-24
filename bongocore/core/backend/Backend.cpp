@@ -41,10 +41,14 @@ void TBackend::Stream(std::unique_ptr<Common::IStreamCommand> command, Common::T
 Clients::THttpResponse TBackend::Process(Clients::THttpRequest&& request) {
     Logger.debug("In process function...");
     switch (request.GetType()) {
-        case Clients::EOperationType::Get: return Clients::THttpResponse(Get(request.ExtractKey()));
-        case Clients::EOperationType::Put: return Clients::THttpResponse(Put(request.ExtractKey(), request.ExtractValue()));
-        case Clients::EOperationType::Delete: return Clients::THttpResponse(Remove(request.ExtractKey()));
-        case Clients::EOperationType::Truncate: return Clients::THttpResponse(Remove(request.ExtractKey()));
+        case Clients::EOperationType::Get:
+            return Clients::THttpResponse(Get(request.ExtractKey()));
+        case Clients::EOperationType::Put:
+            return Clients::THttpResponse(Put(request.ExtractKey(), request.ExtractValue()));
+        case Clients::EOperationType::Delete:
+            return Clients::THttpResponse(Remove(request.ExtractKey()));
+        case Clients::EOperationType::Truncate:
+            return Clients::THttpResponse(Remove(request.ExtractKey()));
         case Clients::EOperationType::Stream:
             auto [command, version] = request.ExtractStreamCommandAndVersion<std::unique_ptr>();
             Stream(std::move(command), std::move(version));
