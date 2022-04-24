@@ -75,5 +75,5 @@ add_executable(${CMAKE_PROJECT_NAME} ${SERVER_MAIN})
 
 add_executable(test ${TESTS_MAIN})
 
-target_link_libraries(${CMAKE_PROJECT_NAME} bongocore ${POCO_NEEDED})
+target_link_libraries(${CMAKE_PROJECT_NAME} bongodbcore ${POCO_NEEDED})
 target_link_libraries(test bongodbcore ${POCO_NEEDED})

@@ -1,0 +1,32 @@
+---
+name: Build and test Go code
+
+on:
+  push:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  build:
+    name: Build and test Go code
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Setup Go
+        uses: actions/setup-go@v3
+        with:
+          go-version: 1.17
+
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Build
+        working-directory: bongocli
+        run: make .build
+
+      - name: Test
+        working-directory: bongocli
+        run: make .test

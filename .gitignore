@@ -48,5 +48,8 @@ compile_flags.txt
 # Build dirs
 *build-bongocore*
 
-# Server stub for client testing
-bongocli/serverstub/
+# CMake entries
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+bongocore/**/Makefile
