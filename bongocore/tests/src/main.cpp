@@ -3,7 +3,7 @@
 #include <iostream>
 
 int main() {
-    bongodb::Backend::VectorCommandsBuffer buffer;
+    bongodb::Backend::TVectorCommandsBuffer buffer;
 
     auto cmd1 = std::make_shared<bongodb::Common::TTruncateStreamCommand>();
     auto cmd2 = std::make_shared<bongodb::Common::TRemoveStreamCommand>("asd");

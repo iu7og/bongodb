@@ -2,8 +2,6 @@
 
 ![bonga](https://user-images.githubusercontent.com/29174394/155002171-7d245102-443d-4cb7-b91c-20c370515c76.png)
 
-[![GitHub Super-Linter](https://github.com/iu7og/bongodb/workflows/Lint%20Code%20Base/badge.svg)](https://github.com/marketplace/actions/super-linter)
-
 🌋 Нереально дымный софт
 
 [**Домашняя страница в Pages**](https://github.com/iu7og/bongodb/wiki/bongodb)
