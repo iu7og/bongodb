@@ -1,0 +1,32 @@
+---
+name: Generate and publish core docs
+
+on:
+  push:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  build:
+    name: Generate and publish core docs
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Generate docs
+        uses: mattnotmitt/doxygen-action@v1.9.2
+        with:
+          working-directory: bongocore
+          doxyfile-path: Doxyfile
+
+      - name: Publish docs
+        uses: DenverCoder1/doxygen-github-pages-action@v1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: gh-pages
+          folder: doc
