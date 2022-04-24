@@ -1,5 +1,6 @@
-#include "common/build.h"
 #include <cstring>
+
+#include "common/build.h"
 
 namespace bongodb::Common {
 namespace {
@@ -24,12 +25,11 @@ std::pair<TShardKey, std::shared_ptr<TShard>> buildShard(const Poco::Util::Abstr
     for (const auto& k : keys) {
         if (!strncmp(k.data(), "replica", strlen("replica"))) {
             shard->Replicas.push_back(buildReplica(*config.createView(k)));
-            if (shard->Replicas.back()->Key == masterReplicaKey)
-                shard->Master = shard->Replicas.back();
+            if (shard->Replicas.back()->Key == masterReplicaKey) shard->Master = shard->Replicas.back();
         }
     }
 
-    return { shardKey, shard };
+    return {shardKey, shard};
 }
 
 TShards::TShardsMap buildCluster(const Poco::Util::AbstractConfiguration& config) {
@@ -45,7 +45,7 @@ TShards::TShardsMap buildCluster(const Poco::Util::AbstractConfiguration& config
 
     return shards;
 }
-} // anon namespace
+}  // namespace
 
 TShards buildShards(const Poco::Util::AbstractConfiguration& config) {
     TShards shards;
@@ -54,4 +54,4 @@ TShards buildShards(const Poco::Util::AbstractConfiguration& config) {
     shards.ShardFn = buildShardFn(shardsCount);
     return shards;
 }
-} // namespace bongodb::Common
+}  // namespace bongodb::Common
