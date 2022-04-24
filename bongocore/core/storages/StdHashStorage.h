@@ -7,6 +7,7 @@
 namespace bongodb::DB {
 class TStdHashStorage : public IStorage {
     using TInner = std::unordered_map<Common::TKey, Common::TValue>;
+
 public:
     Common::TGetResult Get(const Common::TKey& key) override;
     Common::TRemoveResult Remove(const Common::TKey& key) override;

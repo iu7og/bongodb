@@ -1,25 +1,24 @@
-template<template<typename> typename TPtr>
+template <template <typename> typename TPtr>
 THttpRequest::TStreamCommandAndVersion<TPtr> THttpRequest::ExtractStreamCommandAndVersion() {
-    if (!Version || !StreamCommandType)
-        throw std::runtime_error("trying to extract null version or stream command");
+    if (!Version || !StreamCommandType) throw std::runtime_error("trying to extract null version or stream command");
     TPtr<Common::IStreamCommand> streamCommand;
     switch (StreamCommandType.value()) {
         case Common::EStreamCommandType::Truncate:
             streamCommand = TPtr<Common::TTruncateStreamCommand>(new Common::TTruncateStreamCommand());
             break;
         case Common::EStreamCommandType::Remove:
-            if (!Key)
-                throw std::runtime_error("trying to extract null key");
-            streamCommand = TPtr<Common::TRemoveStreamCommand>(new Common::TRemoveStreamCommand(std::move(Key.value())));
+            if (!Key) throw std::runtime_error("trying to extract null key");
+            streamCommand =
+                TPtr<Common::TRemoveStreamCommand>(new Common::TRemoveStreamCommand(std::move(Key.value())));
             break;
         case Common::EStreamCommandType::Put:
-            if (!Key || !Value)
-                throw std::runtime_error("trying to extract null key or value");
-            streamCommand = TPtr<Common::TPutStreamCommand>(new Common::TPutStreamCommand(std::move(Key.value()), std::move(Value.value())));
+            if (!Key || !Value) throw std::runtime_error("trying to extract null key or value");
+            streamCommand = TPtr<Common::TPutStreamCommand>(
+                new Common::TPutStreamCommand(std::move(Key.value()), std::move(Value.value())));
             break;
     }
 
-    return { std::move(streamCommand), std::move(Version.value()) };
+    return {std::move(streamCommand), std::move(Version.value())};
 }
 
 template <typename TResult>
@@ -39,8 +38,8 @@ template <typename TResult>
 THttpResponse::THttpResponse(TResult&& result) {
     if (result.IsOk()) {
         if constexpr (!std::is_same_v<TResult, Common::TVoidOperationResult>)
-            Value = std::optional{ std::move(result.ExtractValue()) };
+            Value = std::optional{std::move(result.ExtractValue())};
     } else {
-        Error = std::optional{ result.GetError() };
+        Error = std::optional{result.GetError()};
     }
 }

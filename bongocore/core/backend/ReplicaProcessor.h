@@ -1,8 +1,9 @@
 #pragma once
 
+#include <Poco/Util/AbstractConfiguration.h>
+
 #include <atomic>
 #include <queue>
-#include <Poco/Util/AbstractConfiguration.h>
 
 #include "backend/ICommandsBuffer.h"
 #include "backend/IProcessor.h"
@@ -32,7 +33,7 @@ class TReplicaProcessor : public IProcessor {
     };
 
 public:
-    TReplicaProcessor(const Poco::Util::AbstractConfiguration& config, const Common::TShards& shards);
+    TReplicaProcessor(const Poco::Util::AbstractConfiguration &config, const Common::TShards &shards);
 
     Common::TGetResult Get(const Common::TKey &key) override;
     Common::TRemoveResult Remove(const Common::TKey &key) override;

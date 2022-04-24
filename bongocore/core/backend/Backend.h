@@ -1,8 +1,9 @@
 #pragma once
 
-#include <atomic>
-#include <Poco/Util/AbstractConfiguration.h>
 #include <Poco/Logger.h>
+#include <Poco/Util/AbstractConfiguration.h>
+
+#include <atomic>
 
 #include "backend/IProcessor.h"
 #include "clients/HttpPrimitives.h"
