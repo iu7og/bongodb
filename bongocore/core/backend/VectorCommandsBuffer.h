@@ -4,6 +4,7 @@
 
 #include <stdexcept>
 #include <vector>
+#include <shared_mutex>
 
 #include "backend/ICommandsBuffer.h"
 
@@ -19,5 +20,6 @@ private:
     TBuffer Buffer;
 
     Poco::Logger& Logger = Poco::Logger::get("BackendLogger");
+    std::shared_mutex Mutex;
 };
 }  // namespace bongodb::Backend

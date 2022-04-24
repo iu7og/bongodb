@@ -3,6 +3,7 @@
 #include <Poco/Logger.h>
 #include <Poco/Net/HTTPClientSession.h>
 #include <Poco/Util/AbstractConfiguration.h>
+#include <mutex>
 
 #include "clients/HttpPrimitives.h"
 #include "clients/IClient.h"
@@ -24,6 +25,7 @@ public:
 private:
     THttpResponse SendRequest(THttpRequest&& request);
 
+    std::mutex Mutex;
     std::string Host;
     int Port;
     Poco::Net::HTTPClientSession Session;
