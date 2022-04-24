@@ -1,6 +1,3 @@
-# Created by and for Qt Creator This file was created for editing the project sources only.
-# You may attempt to use it for building too, by modifying this file here.
-
 cmake_minimum_required(VERSION 3.5)
 project(bongo)
 
@@ -9,14 +6,14 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(Poco REQUIRED Net Util)
-find_package(tsl-robin-map REQUIRED)
+#find_package(tsl-robin-map REQUIRED)
 
 include_directories(
     core/
     server/src
 )
 
-set (SRCS
+set (LIBS
     core/backend/Backend.cpp
     core/backend/Backend.h
     core/backend/backend_build.cpp
@@ -55,11 +52,21 @@ set (SRCS
     server/examples/config.xml
     server/src/HandlerFactory.cpp
     server/src/HandlerFactory.h
-    server/src/main.cpp
-    core/storages/BongoStorage.h
-    core/storages/BongoStorage.cpp
+    # core/storages/BongoStorage.h
+    # core/storages/BongoStorage.cpp
 )
 
-add_executable(${CMAKE_PROJECT_NAME} ${SRCS})
+set (SERVER_MAIN
+    server/src/main.cpp
+)
+
+set (TESTS_MAIN
+    tests/src/main.cpp
+)
+
+add_executable(${CMAKE_PROJECT_NAME} ${SERVER_MAIN} ${LIBS})
+
+add_executable(test ${TESTS_MAIN} ${LIBS})
 
 target_link_libraries(${CMAKE_PROJECT_NAME} PUBLIC Poco::Util Poco::Net)
+target_link_libraries(test PUBLIC Poco::Util Poco::Net)
