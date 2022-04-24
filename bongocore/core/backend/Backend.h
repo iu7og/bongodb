@@ -2,6 +2,7 @@
 
 #include <atomic>
 #include <Poco/Util/AbstractConfiguration.h>
+#include <Poco/Logger.h>
 
 #include "backend/IProcessor.h"
 #include "clients/HttpPrimitives.h"
@@ -34,5 +35,6 @@ private:
     std::unique_ptr<IProcessor> Processor;
     /// State can change in time (shard master changed and etc) and prepare needs to be called
     std::atomic<bool> Ready = false;
+    Poco::Logger& Logger = Poco::Logger::get("BackendLogger");
 };
 }  // namespace bongodb::Backend
