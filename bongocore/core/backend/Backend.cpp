@@ -45,16 +45,14 @@ Clients::THttpResponse TBackend::Process(Clients::THttpRequest&& request) {
         case Clients::EOperationType::Delete: return Clients::THttpResponse(Remove(request.ExtractKey()));
         case Clients::EOperationType::Truncate: return Clients::THttpResponse(Remove(request.ExtractKey()));
         case Clients::EOperationType::Stream:
-            auto [command, version] = request.ExtractStreamCommandAndVersion();
-            return Clients::THttpResponse(Stream(std::move(command), std::move(version)));
+            auto [command, version] = request.ExtractStreamCommandAndVersion<std::unique_ptr>();
+            Stream(std::move(command), std::move(version));
+            return Clients::THttpResponse();
     }
     throw std::runtime_error("Unknown request type");
 }
 
 bool TBackend::IsReady() { return Ready; }
-
-// TODO: убрать
-std::string TBackend::GetMockResponse() { return "{\"status\": 0, \"key\": \"1\", \"value\": \"1\"}"; }
 
 bool TBackend::Prepare() {
     /// TODO: maybe prepare for all clients should be called here?
