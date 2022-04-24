@@ -25,5 +25,4 @@ jobs:
           DEFAULT_BRANCH: master
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-          VALIDATE_CPP: false
-          VALIDATE_CLANG_FORMAT: true
+          VALIDATE_CPP: false # Disable cpplint, use only clang-format.
