@@ -8,10 +8,10 @@
 
 #include "backend/Backend.h"
 
-class RequestHandler: public Poco::Net::HTTPRequestHandler
-{
+class RequestHandler : public Poco::Net::HTTPRequestHandler {
 public:
     RequestHandler(Poco::Logger& Logger, bongodb::Backend::TBackend& backend);
+
 private:
     void handleRequest(Poco::Net::HTTPServerRequest& request, Poco::Net::HTTPServerResponse& response) override;
 
@@ -19,8 +19,7 @@ private:
     Poco::Logger& Logger;
 };
 
-class RequestHandlerFactory: public Poco::Net::HTTPRequestHandlerFactory
-{
+class RequestHandlerFactory : public Poco::Net::HTTPRequestHandlerFactory {
 public:
     RequestHandlerFactory(const Poco::Util::AbstractConfiguration& config);
 
