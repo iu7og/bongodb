@@ -9,14 +9,14 @@
         </formatters>
         <channels>
             <c1>
-                <class>ConsoleChannel</class>
+                <class>ColorConsoleChannel</class>
                 <formatter>f1</formatter>
             </c1>
         </channels>
         <loggers>
             <root>
                 <channel>c1</channel>
-                <level>debug</level>
+                <level>trace</level>
             </root>
         </loggers>
     </logging>
