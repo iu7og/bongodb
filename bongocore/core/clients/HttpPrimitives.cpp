@@ -5,6 +5,7 @@
 #include "common/StreamCommands.h"
 
 namespace bongodb::Clients {
+
 THttpRequest THttpRequest::GetRequest(Common::TKey&& key) {
     return THttpRequest(EOperationType::Get, std::make_optional(std::move(key)));
 }
@@ -77,29 +78,6 @@ Common::TValue THttpRequest::ExtractValue() {
     return std::move(Value.value());
 }
 
-THttpRequest::TStreamCommandAndVersion THttpRequest::ExtractStreamCommandAndVersion() {
-    if (!Version || !StreamCommandType)
-        throw std::runtime_error("trying to extract null version or stream command");
-    std::shared_ptr<Common::IStreamCommand> streamCommand;
-    switch (StreamCommandType.value()) {
-        case Common::EStreamCommandType::Truncate:
-            streamCommand = std::make_shared<Common::TTruncateStreamCommand>();
-            break;
-        case Common::EStreamCommandType::Remove:
-            if (!Key)
-                throw std::runtime_error("trying to extract null key");
-            streamCommand = std::make_shared<Common::TRemoveStreamCommand>(std::move(Key.value()));
-            break;
-        case Common::EStreamCommandType::Put:
-            if (!Key || !Value)
-                throw std::runtime_error("trying to extract null key or value");
-            streamCommand = std::make_shared<Common::TPutStreamCommand>(std::move(Key.value()), std::move(Value.value()));
-            break;
-    }
-
-    return { streamCommand, std::move(Version.value()) };
-}
-
 std::pair<THttpRequest::TPath, THttpRequest::TMethod> THttpRequest::GetPathAndMethod(EOperationType operationType, const Common::TKey& key) {
     switch(operationType) {
         case EOperationType::Get: return {  "/" + key, Poco::Net::HTTPRequest::HTTP_GET};
@@ -129,4 +107,24 @@ THttpResponse::THttpResponse(TError error, std::optional<THttpStatus> status) : 
 THttpResponse::THttpResponse(Common::TValue&& value) : Value(std::move(value))
 {
 }
+
+THttpResponse::TBody THttpResponse::GetBody() {
+    Poco::JSON::Object obj;
+    if (Error)
+        obj.set("error", static_cast<int>(Error.value()));
+    if (Value)
+        obj.set("value", Value.value());
+
+    std::ostringstream bodyStream;
+    obj.stringify(bodyStream);
+    return std::move(bodyStream).str();
+}
+
+THttpResponse::THttpStatus THttpResponse::GetStatus() {
+    if (HttpStatus)
+        return HttpStatus.value();
+    else if (Error)
+        return Poco::Net::HTTPResponse::HTTPStatus::HTTP_BAD_REQUEST;
+    return Poco::Net::HTTPResponse::HTTPStatus::HTTP_OK;
+
 }  // namespace bongodb::Clients

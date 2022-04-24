@@ -38,6 +38,19 @@ void TBackend::Stream(std::unique_ptr<Common::IStreamCommand> command, Common::T
     Processor->Stream(std::move(command), std::move(version));
 }
 
+Clients::THttpResponse TBackend::Process(Clients::THttpRequest&& request) {
+    switch (request.GetType()) {
+        case Clients::EOperationType::Get: return Clients::THttpResponse(Get(request.ExtractKey()));
+        case Clients::EOperationType::Put: return Clients::THttpResponse(Put(request.ExtractKey(), request.ExtractValue()));
+        case Clients::EOperationType::Delete: return Clients::THttpResponse(Remove(request.ExtractKey()));
+        case Clients::EOperationType::Truncate: return Clients::THttpResponse(Remove(request.ExtractKey()));
+        case Clients::EOperationType::Stream:
+            auto [command, version] = request.ExtractStreamCommandAndVersion();
+            return Clients::THttpResponse(Stream(std::move(command), std::move(version)));
+    }
+    throw std::runtime_error("Unknown request type");
+}
+
 bool TBackend::IsReady() { return Ready; }
 
 // TODO: убрать
