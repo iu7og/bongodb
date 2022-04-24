@@ -25,4 +25,5 @@ jobs:
           DEFAULT_BRANCH: master
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-          FILTER_REGEX_EXCLUDE: .*bongocli/.*
+          VALIDATE_CPP: false
+          VALIDATE_CLANG_FORMAT: true

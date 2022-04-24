@@ -3,14 +3,6 @@ build: .check .build
 .build:
 	go build -o bin/bongocli main.go
 
-generate: .generate
-
-.generate:
-	mkdir -p internal/pb/bongodb
-	protoc --go_out=internal/pb/bongodb --go_opt=paths=source_relative \
-		--go-grpc_out=internal/pb/bongodb --go-grpc_opt=paths=source_relative \
-        -I ../bongoproto bongoapp.proto
-
 check: .check
 
 .check: .imports .lint .test
