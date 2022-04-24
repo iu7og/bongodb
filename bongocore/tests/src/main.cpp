@@ -1,6 +1,6 @@
-#include <iostream>
-
 #include <backend/VectorCommandsBuffer.h>
+
+#include <iostream>
 
 int main() {
     bongodb::Backend::VectorCommandsBuffer buffer;
@@ -22,7 +22,7 @@ int main() {
     try {
         auto p5 = buffer.GetByVersion(0);
     } catch (const std::invalid_argument&) {
-       std::cout << "caught!" << std::endl;
+        std::cout << "caught!" << std::endl;
     }
 
     return 0;
