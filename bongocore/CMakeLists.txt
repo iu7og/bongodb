@@ -13,7 +13,7 @@ include_directories(
     server/src
 )
 
-set (LIBS
+set (LIB_FILES
     core/backend/Backend.cpp
     core/backend/Backend.h
     core/backend/backend_build.cpp
@@ -56,6 +56,8 @@ set (LIBS
     # core/storages/BongoStorage.cpp
 )
 
+add_library(bongodbcore STATIC ${LIB_FILES})
+
 set (SERVER_MAIN
     server/src/main.cpp
 )
@@ -64,9 +66,15 @@ set (TESTS_MAIN
     tests/src/main.cpp
 )
 
-add_executable(${CMAKE_PROJECT_NAME} ${SERVER_MAIN} ${LIBS})
+set (POCO_NEEDED
+    bongodbcore
+    Poco::Util
+    Poco::Net
+)
 
-add_executable(test ${TESTS_MAIN} ${LIBS})
+add_executable(${CMAKE_PROJECT_NAME} ${SERVER_MAIN})
 
-target_link_libraries(${CMAKE_PROJECT_NAME} PUBLIC Poco::Util Poco::Net)
-target_link_libraries(test PUBLIC Poco::Util Poco::Net)
+add_executable(test ${TESTS_MAIN})
+
+target_link_libraries(${CMAKE_PROJECT_NAME} ${POCO_NEEDED})
+target_link_libraries(test bongodbcore ${POCO_NEEDED})
