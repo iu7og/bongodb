@@ -10,7 +10,7 @@ TVectorCommandsBuffer::TCommandResult TVectorCommandsBuffer::GetByVersion(const 
         throw std::invalid_argument("VectorCommandsBuffer version can't be <= 0");
     }
     if (version > Buffer.size()) {
-        poco_warning_f1(Logger, "Requested a version that is too new, requested version is = %lu", version);
+        // poco_warning_f1(Logger, "Requested a version that is too new, requested version is = %lu", version);
 
         return EError::TooNew;
     }

@@ -55,11 +55,12 @@ THttpRequest THttpRequest::FromPocoHttpRequest(const Poco::Net::HTTPRequest& req
 
 THttpRequest::TPocoRequestData THttpRequest::ToPocoHttpRequest() {
     Poco::JSON::Object obj;
+
     obj.set("operation_type", static_cast<int>(OperationType));
     if (Key) obj.set("key", Key.value());
     if (Value) obj.set("value", Value.value());
     if (Version) obj.set("version", Version.value());
-    if (StreamCommandType) obj.set("stream_command_type", StreamCommandType.value());
+    if (StreamCommandType) obj.set("stream_command_type", static_cast<int>(StreamCommandType.value()));
 
     std::ostringstream bodyStream;
     obj.stringify(bodyStream);
