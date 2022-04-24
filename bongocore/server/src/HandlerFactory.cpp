@@ -1,17 +1,16 @@
 #include "HandlerFactory.h"
+
 #include <Poco/Net/HTTPRequest.h>
 #include <Poco/StreamCopier.h>
+
 #include <sstream>
+
 #include "clients/HttpPrimitives.h"
 
 RequestHandler::RequestHandler(Poco::Logger& logger, bongodb::Backend::TBackend& backend)
-    : Backend(backend)
-    , Logger(logger)
-{
-}
+    : Backend(backend), Logger(logger) {}
 
-void RequestHandler::handleRequest(Poco::Net::HTTPServerRequest& request, Poco::Net::HTTPServerResponse& response)
-{
+void RequestHandler::handleRequest(Poco::Net::HTTPServerRequest& request, Poco::Net::HTTPServerResponse& response) {
     Poco::Net::HTTPRequest pocoRequest = Poco::Net::HTTPRequest(request.getMethod(), request.getURI());
     std::ostringstream ss;
     Poco::StreamCopier::copyStream(request.stream(), ss);
@@ -35,7 +34,6 @@ RequestHandlerFactory::RequestHandlerFactory(const Poco::Util::AbstractConfigura
     Backend = std::make_unique<bongodb::Backend::TBackend>(config);
 }
 
-Poco::Net::HTTPRequestHandler* RequestHandlerFactory::createRequestHandler(const Poco::Net::HTTPServerRequest&)
-{
+Poco::Net::HTTPRequestHandler* RequestHandlerFactory::createRequestHandler(const Poco::Net::HTTPServerRequest&) {
     return new RequestHandler(Logger, *Backend);
 }
