@@ -49,7 +49,6 @@ set (LIB_FILES
     core/storages/storages_build.cpp
     core/storages/ThreadSafeStorageWrapper.cpp
     core/storages/ThreadSafeStorageWrapper.h
-    server/examples/config.xml
     server/src/HandlerFactory.cpp
     server/src/HandlerFactory.h
     # core/storages/BongoStorage.h

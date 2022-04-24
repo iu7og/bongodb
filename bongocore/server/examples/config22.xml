@@ -23,7 +23,7 @@
 
     <backend>
         <processor>
-            <shard>0</shard>
+            <shard>1</shard>
             <replica>1</replica>
 
             <storage>
@@ -55,11 +55,30 @@
                         </client>
                     </replica>
                 </shard>
+                <shard>
+                    <key>1</key>
+                    <master_replica_key>0</master_replica_key>
+                    <replica>
+                        <key>0</key>
+                        <client>
+                            <host>127.0.0.1</host>
+                            <port>1236</port>
+                        </client>
+                    </replica>
+
+                    <replica>
+                        <key>1</key>
+                        <client>
+                            <host>127.0.0.1</host>
+                            <port>1237</port>
+                        </client>
+                    </replica>
+                </shard>
             </cluster>
         </shards>
     </backend>
 
     <server>
-        <port>1235</port>
+        <port>1237</port>
     </server>
 </bongodb>

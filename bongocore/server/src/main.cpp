@@ -34,7 +34,7 @@ class WebServerApp : public Poco::Util::ServerApplication {
         Poco::UInt16 port = static_cast<Poco::UInt16>(config().getUInt("server.port", 1234));
 
         Poco::Net::HTTPServerParams* parameters = new Poco::Net::HTTPServerParams();
-        parameters->setMaxQueued(64);
+        parameters->setMaxQueued(config().getInt("max_queued", 64));
 
         Poco::Net::HTTPServer srv(new RequestHandlerFactory(*config().createView("backend")), port, parameters);
         srv.start();

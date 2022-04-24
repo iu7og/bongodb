@@ -15,9 +15,9 @@ std::shared_ptr<TReplica> buildReplica(const Poco::Util::AbstractConfiguration& 
     return replica;
 }
 
-std::pair<TShardKey, std::shared_ptr<TShard>> buildShard(const Poco::Util::AbstractConfiguration& config) {
+std::shared_ptr<TShard> buildShard(const Poco::Util::AbstractConfiguration& config) {
     auto shard = std::make_shared<TShard>();
-    TShardKey shardKey = config.getInt("key");
+    shard->Key = config.getInt("key");
     TReplicaKey masterReplicaKey = config.getInt("master_replica_key");
 
     Poco::Util::AbstractConfiguration::Keys keys;
@@ -29,7 +29,7 @@ std::pair<TShardKey, std::shared_ptr<TShard>> buildShard(const Poco::Util::Abstr
         }
     }
 
-    return {shardKey, shard};
+    return shard;
 }
 
 TShards::TShardsMap buildCluster(const Poco::Util::AbstractConfiguration& config) {
@@ -38,8 +38,8 @@ TShards::TShardsMap buildCluster(const Poco::Util::AbstractConfiguration& config
     config.keys(keys);
     for (const auto& k : keys) {
         if (!strncmp(k.data(), "shard", strlen("shard"))) {
-            auto [shardKey, shard] = buildShard(*config.createView(k));
-            shards[shardKey] = shard;
+            auto shard = buildShard(*config.createView(k));
+            shards[shard->Key] = shard;
         }
     }
 

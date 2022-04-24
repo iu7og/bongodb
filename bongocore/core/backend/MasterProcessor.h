@@ -21,6 +21,7 @@ public:
     Common::TPutResult Put(Common::TKey&& key, Common::TValue&& value) override;
     void Stream(std::unique_ptr<Common::IStreamCommand> command, Common::TVersion&& version) override;
     Common::TShardKey GetShardKey() override;
+    bool IsMaster() override { return true; }
 
 private:
     std::shared_ptr<Common::TShard> CurrentShard;
