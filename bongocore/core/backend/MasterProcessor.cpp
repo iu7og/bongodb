@@ -1,22 +1,24 @@
 #include "backend/MasterProcessor.h"
 
-#include "storages/build.h"
 #include "backend/build.h"
+#include "storages/build.h"
 
 namespace bongodb::Backend {
 TMasterProcessor::TMasterProcessor(const Poco::Util::AbstractConfiguration& config, const Common::TShards& shards)
-    : CurrentShard(shards.Cluster.at(config.getInt("shard")))
-    , ThisNodeKey(config.getInt("replica"))
-    , Storage(DB::buildStorage<std::unique_ptr>(*config.createView("storage")))
-    , CommandsBuffer(buildCommandsBuffer(*config.createView("buffer")))
-    , Streamer(std::make_unique<TStreamer>(CurrentShard, ThisNodeKey, CommandsBuffer))
-{}
+    : CurrentShard(shards.Cluster.at(config.getInt("shard"))),
+      ThisNodeKey(config.getInt("replica")),
+      Storage(DB::buildStorage<std::unique_ptr>(*config.createView("storage"))),
+      CommandsBuffer(buildCommandsBuffer(*config.createView("buffer"))),
+      Streamer(std::make_unique<TStreamer>(CurrentShard, ThisNodeKey, CommandsBuffer)) {}
 
 Common::TGetResult TMasterProcessor::Get(const Common::TKey& key) { return Storage->Get(key); }
 
 Common::TRemoveResult TMasterProcessor::Remove(const Common::TKey& key) {
     auto result = Storage->Remove(key);
-    if (!result.IsOk()) return result;
+    if (!result.IsOk()) {
+        poco_information_f1(Logger, "Remove failed on key = \"%s\"", key);
+        return result;
+    }
 
     auto command = std::make_shared<Common::TRemoveStreamCommand>(key);
     CommandsBuffer->Push(std::move(command));
@@ -25,7 +27,10 @@ Common::TRemoveResult TMasterProcessor::Remove(const Common::TKey& key) {
 
 Common::TTruncateResult TMasterProcessor::Truncate() {
     auto result = Storage->Truncate();
-    if (!result.IsOk()) return result;
+    if (!result.IsOk()) {
+        poco_information(Logger, "Truncate failed");
+        return result;
+    }
 
     auto command = std::make_shared<Common::TTruncateStreamCommand>();
     CommandsBuffer->Push(command);
@@ -34,7 +39,10 @@ Common::TTruncateResult TMasterProcessor::Truncate() {
 
 Common::TPutResult TMasterProcessor::Put(Common::TKey&& key, Common::TValue&& value) {
     auto result = Storage->Put(key, value);
-    if (!result.IsOk()) return result;
+    if (!result.IsOk()) {
+        poco_information_f1(Logger, "Put failed on key = \"%s\"", key);
+        return result;
+    }
 
     auto command = std::make_shared<Common::TPutStreamCommand>(std::move(key), std::move(value));
     CommandsBuffer->Push(command);

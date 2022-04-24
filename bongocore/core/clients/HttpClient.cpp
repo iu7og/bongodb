@@ -1,14 +1,18 @@
 #include "clients/HttpClient.h"
+
 #include <Poco/Net/HTTPClientSession.h>
 #include <Poco/Net/HTTPRequest.h>
 #include <Poco/Net/HTTPResponse.h>
 #include <Poco/StreamCopier.h>
-#include "common/OperationResults.h"
-#include <sstream>
+
 #include <iostream>
+#include <sstream>
+
+#include "common/OperationResults.h"
 
 namespace bongodb::Clients {
-THttpClient::THttpClient(const Poco::Util::AbstractConfiguration& config) : Session(config.getString("host"), config.getInt("port")) {
+THttpClient::THttpClient(const Poco::Util::AbstractConfiguration& config)
+    : Session(config.getString("host"), config.getInt("port")) {
     Session.setKeepAlive(true);
     Session.setKeepAliveTimeout(Poco::Timespan(config.getInt("keep_alive_seconds", 3600)));
 }
@@ -41,7 +45,8 @@ Common::TStreamResult THttpClient::Stream(const Common::IStreamCommand& command,
 THttpResponse THttpClient::SendRequest(THttpRequest&& request) {
     try {
         auto [pathAndMethod, body] = request.ToPocoHttpRequest();
-        auto pocoRequest = Poco::Net::HTTPRequest(pathAndMethod.first, pathAndMethod.second, Poco::Net::HTTPRequest::HTTP_1_1);
+        auto pocoRequest =
+            Poco::Net::HTTPRequest(pathAndMethod.first, pathAndMethod.second, Poco::Net::HTTPRequest::HTTP_1_1);
         Session.sendRequest(pocoRequest) << body;
 
         Poco::Net::HTTPResponse response;
@@ -50,21 +55,16 @@ THttpResponse THttpClient::SendRequest(THttpRequest&& request) {
         Poco::StreamCopier::copyStream(is, ss);
 
         return response.getStatus() != Poco::Net::HTTPResponse::HTTP_OK
-            ? THttpResponse(Common::EError::NotAvail, response.getStatus())
-            : THttpResponse(ss.str());
-    } catch (Poco::Exception &ex) {
-        // TODO: заменить на логгер
-        std::cout << ex.displayText() << std::endl;
+                   ? THttpResponse(Common::EError::NotAvail, response.getStatus())
+                   : THttpResponse(ss.str());
+    } catch (Poco::Exception& ex) {
+        poco_warning_f1(Logger, "SendRequest exception: %s", ex.what());
     }
     return THttpResponse(Common::EError::NotAvail);
 }
 
-bool THttpClient::IsReady() {
-    return true;
-}
+bool THttpClient::IsReady() { return true; }
 
-bool THttpClient::Prepare() {
-    return true;
-}
+bool THttpClient::Prepare() { return true; }
 
 }  // namespace bongodb::Clients

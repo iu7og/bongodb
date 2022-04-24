@@ -1,10 +1,11 @@
 #pragma once
 
+#include <Poco/Logger.h>
 #include <Poco/Net/HTTPClientSession.h>
 #include <Poco/Util/AbstractConfiguration.h>
 
-#include "clients/IClient.h"
 #include "clients/HttpPrimitives.h"
+#include "clients/IClient.h"
 
 namespace bongodb::Clients {
 class THttpClient : public IClient {
@@ -19,9 +20,12 @@ public:
 
     bool IsReady() override;
     bool Prepare() override;
+
 private:
     THttpResponse SendRequest(THttpRequest&& request);
 
     Poco::Net::HTTPClientSession Session;
+
+    Poco::Logger& Logger = Poco::Logger::get("BackendLogger");
 };
 }  // namespace bongodb::Clients

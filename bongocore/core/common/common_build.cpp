@@ -8,7 +8,6 @@ TShardFn buildShardFn(const std::size_t shardsCount) {
 }
 
 std::shared_ptr<TReplica> buildReplica(const Poco::Util::AbstractConfiguration& config) {
-    // TODO: реализовать
     auto replica = std::make_shared<TReplica>();
     replica->Key = config.getInt("key");
     replica->Client = Clients::buildClient(*config.createView("client"));
