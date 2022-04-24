@@ -11,11 +11,12 @@
 class RequestHandler: public Poco::Net::HTTPRequestHandler
 {
 public:
-    RequestHandler(bongodb::Backend::TBackend* backend);
+    RequestHandler(Poco::Logger& Logger, bongodb::Backend::TBackend& backend);
 private:
     void handleRequest(Poco::Net::HTTPServerRequest& request, Poco::Net::HTTPServerResponse& response) override;
 
-    bongodb::Backend::TBackend* Backend;
+    bongodb::Backend::TBackend& Backend;
+    Poco::Logger& Logger;
 };
 
 class RequestHandlerFactory: public Poco::Net::HTTPRequestHandlerFactory
@@ -27,4 +28,5 @@ private:
     Poco::Net::HTTPRequestHandler* createRequestHandler(const Poco::Net::HTTPServerRequest&) override;
 
     std::unique_ptr<bongodb::Backend::TBackend> Backend;
+    Poco::Logger& Logger = Poco::Logger::get("RequestHandler");
 };

@@ -31,6 +31,8 @@ THttpRequest THttpRequest::StreamRequest(const Common::IStreamCommand& streamCom
 }
 
 THttpRequest THttpRequest::FromPocoHttpRequest(const Poco::Net::HTTPRequest& request, const THttpRequest::TBody& body) {
+    Poco::Logger::get("HttpRequest").trace("parsing poco http request (%s)", body);
+
     Poco::JSON::Parser parser;
     Poco::Dynamic::Var var = parser.parse(body);
     Poco::JSON::Object::Ptr jsonObject = var.extract<Poco::JSON::Object::Ptr>();
@@ -46,6 +48,7 @@ THttpRequest THttpRequest::FromPocoHttpRequest(const Poco::Net::HTTPRequest& req
         jsonObject->has("stream_command_type")
             ? std::optional{Common::EStreamCommandType(jsonObject->get("stream_command_type").convert<int>())}
             : std::nullopt;
+    Poco::Logger::get("HttpRequest").trace("Parsed poco http request");
     return THttpRequest(operationType, std::move(key), std::move(value), std::move(version),
                         std::move(streamCommandType));
 }

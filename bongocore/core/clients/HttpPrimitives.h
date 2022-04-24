@@ -3,6 +3,7 @@
 #include <Poco/Logger.h>
 #include <Poco/Net/HTTPRequest.h>
 #include <Poco/Net/HTTPResponse.h>
+#include <Poco/Logger.h>
 
 #include <memory>
 #include <sstream>
