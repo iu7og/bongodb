@@ -22,6 +22,8 @@ set (SRCS
     core/backend/backend_build.cpp
     core/backend/build.h
     core/backend/ICommandsBuffer.h
+    core/backend/VectorCommandsBuffer.h
+    core/backend/VectorCommandsBuffer.cpp
     core/backend/IProcessor.h
     core/backend/MasterProcessor.cpp
     core/backend/MasterProcessor.h
