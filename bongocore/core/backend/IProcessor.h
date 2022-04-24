@@ -16,5 +16,6 @@ public:
     virtual Common::TPutResult Put(Common::TKey&& key, Common::TValue&& value) = 0;
     virtual void Stream(std::unique_ptr<Common::IStreamCommand> command, Common::TVersion&& version) = 0;
     virtual Common::TShardKey GetShardKey() = 0;
+    virtual bool IsMaster() { return false; }
 };
 }  // namespace bongodb::Backend
