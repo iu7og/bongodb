@@ -1,0 +1,28 @@
+---
+name: Lint C/C++ code
+
+on:
+  push:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  build:
+    name: Lint C/C++ code
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Lint C/C++ code
+        uses: DoozyX/clang-format-lint-action@v0.13
+        with:
+          source: './bongocore'
+          extensions: 'h,cpp,c'
+          clangFormatVersion: 12
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
