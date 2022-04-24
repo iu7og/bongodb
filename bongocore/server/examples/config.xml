@@ -1,4 +1,26 @@
 <bongodb>
+    <logging>
+        <formatters>
+            <f1>
+                <class>PatternFormatter</class>
+                <pattern>%s: [%p] %t</pattern>
+                <times>UTC</times>
+            </f1>
+        </formatters>
+        <channels>
+            <c1>
+                <class>ConsoleChannel</class>
+                <formatter>f1</formatter>
+            </c1>
+        </channels>
+        <loggers>
+            <root>
+                <channel>c1</channel>
+                <level>debug</level>
+            </root>
+        </loggers>
+    </logging>
+
     <backend>
         <processor>
             <shard>1</shard>
