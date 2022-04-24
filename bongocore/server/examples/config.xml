@@ -3,7 +3,7 @@
         <formatters>
             <f1>
                 <class>PatternFormatter</class>
-                <pattern>%s: [%p] %t</pattern>
+                <pattern>%s: [%p] %t (%O:%u)</pattern>
                 <times>UTC</times>
             </f1>
         </formatters>
