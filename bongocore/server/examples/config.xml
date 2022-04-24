@@ -1,0 +1,58 @@
+<bongodb>
+    <logging>
+        <formatters>
+            <f1>
+                <class>PatternFormatter</class>
+                <pattern>%s: [%p] %t (%O:%u)</pattern>
+                <times>UTC</times>
+            </f1>
+        </formatters>
+        <channels>
+            <c1>
+                <class>ColorConsoleChannel</class>
+                <formatter>f1</formatter>
+            </c1>
+        </channels>
+        <loggers>
+            <root>
+                <channel>c1</channel>
+                <level>trace</level>
+            </root>
+        </loggers>
+    </logging>
+
+    <backend>
+        <processor>
+            <shard>0</shard>
+            <replica>0</replica>
+
+            <storage>
+                <type>std</type>
+            </storage>
+
+            <buffer>
+            </buffer>
+        </processor>
+
+        <shards>
+            <cluster>
+                <shard>
+                    <key>0</key>
+                    <master_replica_key>0</master_replica_key>
+                    <replica>
+                        <key>0</key>
+                        <client>
+                            <!--может быть здесь еще будет тип (grpc / http rest)-->
+                            <host>127.0.0.1</host>
+                            <port>1235</port>
+                        </client>
+                    </replica>
+                </shard>
+            </cluster>
+        </shards>
+    </backend>
+
+    <server>
+        <port>1234</port>
+    </server>
+</bongodb>

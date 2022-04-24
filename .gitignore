@@ -42,6 +42,11 @@ go.work
 
 # IDE files
 .idea
+compile_flags.txt
+*.user
+
+# Build dirs
+*build-bongocore*
 
 # Server stub for client testing
 bongocli/serverstub/
