@@ -8,7 +8,7 @@
 #include "backend/ICommandsBuffer.h"
 
 namespace bongodb::Backend {
-class VectorCommandsBuffer : public ICommandsBuffer {
+class TVectorCommandsBuffer : public ICommandsBuffer {
 public:
     using EError = ICommandsBuffer::EError;
     virtual void Push(std::shared_ptr<Common::IStreamCommand> command) override;
