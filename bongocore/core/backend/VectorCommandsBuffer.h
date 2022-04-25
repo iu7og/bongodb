@@ -2,6 +2,8 @@
 
 #include <Poco/Logger.h>
 
+#include <mutex>
+#include <shared_mutex>
 #include <stdexcept>
 #include <vector>
 
@@ -19,5 +21,6 @@ private:
     TBuffer Buffer;
 
     Poco::Logger& Logger = Poco::Logger::get("BackendLogger");
+    std::shared_mutex Mutex;
 };
 }  // namespace bongodb::Backend

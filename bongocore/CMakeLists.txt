@@ -6,7 +6,7 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(Poco REQUIRED Net Util)
-#find_package(tsl-robin-map REQUIRED)
+# find_package(tsl-robin-map REQUIRED)
 
 include_directories(
     core/
@@ -51,8 +51,8 @@ set (LIB_FILES
     core/storages/ThreadSafeStorageWrapper.h
     server/src/HandlerFactory.cpp
     server/src/HandlerFactory.h
-    # core/storages/BongoStorage.h
-    # core/storages/BongoStorage.cpp
+    core/storages/BongoStorage.h
+    core/storages/BongoStorage.cpp
 )
 
 add_library(bongodbcore STATIC ${LIB_FILES})

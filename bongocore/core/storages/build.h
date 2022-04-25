@@ -4,9 +4,9 @@
 
 #include <memory>
 
+#include "storages/BongoStorage.h"
 #include "storages/IStorage.h"
 #include "storages/StdHashStorage.h"
-//#include "storages/BongoStorage.h"
 #include "storages/ThreadSafeStorageWrapper.h"
 
 namespace bongodb::DB {
@@ -15,9 +15,10 @@ TPtr<IStorage> buildStorage(const Poco::Util::AbstractConfiguration& config) {
     std::unique_ptr<IStorage> storage;
 
     auto storageType = config.getString("type", "std");
-    if (storageType == "std") storage = std::make_unique<TStdHashStorage>();
-    // else if (storageType == "bongo")
-    // storage = std::make_unique<TBongoStorage>();
+    if (storageType == "std")
+        storage = std::make_unique<TStdHashStorage>();
+    else if (storageType == "bongo")
+        storage = std::make_unique<TBongoStorage>();
     else
         throw std::runtime_error("Unknown storage type");
 

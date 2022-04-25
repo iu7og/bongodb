@@ -51,9 +51,12 @@ THttpResponse THttpClient::SendRequest(THttpRequest&& request) {
         Session.sendRequest(pocoRequest) << body;
 
         Poco::Net::HTTPResponse response;
-        std::istream& is = Session.receiveResponse(response);
         std::stringstream ss;
-        Poco::StreamCopier::copyStream(is, ss);
+        {
+            // std::lock_guard<std::mutex> lock(Mutex);
+            std::istream& is = Session.receiveResponse(response);
+            Poco::StreamCopier::copyStream(is, ss);
+        }
 
         return response.getStatus() != Poco::Net::HTTPResponse::HTTP_OK
                    ? THttpResponse(Common::EError::NotAvail, response.getStatus())

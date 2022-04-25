@@ -3,7 +3,7 @@
         <formatters>
             <f1>
                 <class>PatternFormatter</class>
-                <pattern>%s: [%p] %t (%O:%u)</pattern>
+                <pattern>%Y-%m-%e   %H:%M:%S.%i | [%p] %s: %t</pattern>
                 <times>UTC</times>
             </f1>
         </formatters>
@@ -16,7 +16,7 @@
         <loggers>
             <root>
                 <channel>c1</channel>
-                <level>trace</level>
+                <level>warning</level>
             </root>
         </loggers>
     </logging>
@@ -27,7 +27,7 @@
             <replica>1</replica>
 
             <storage>
-                <type>std</type>
+                <type>bongo</type>
             </storage>
 
             <buffer>
@@ -80,5 +80,6 @@
 
     <server>
         <port>1237</port>
+        <max_queued>500</max_queued>
     </server>
 </bongodb>
