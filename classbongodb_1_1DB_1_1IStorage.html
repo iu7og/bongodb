@@ -73,15 +73,20 @@ $(function() {
   <div class="headertitle"><div class="title">Класс bongodb::DB::IStorage<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Абстрактный класс, описывающий хранилище.  
+ <a href="classbongodb_1_1DB_1_1IStorage.html#details">Подробнее...</a></p>
+
+<p><code>#include &lt;<a class="el" href="IStorage_8h_source.html">IStorage.h</a>&gt;</code></p>
 <div class="dynheader">
 Граф наследования:bongodb::DB::IStorage:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="classbongodb_1_1DB_1_1IStorage.png" usemap="#bongodb::DB::IStorage_map" alt=""/>
   <map id="bongodb::DB::IStorage_map" name="bongodb::DB::IStorage_map">
-<area href="classbongodb_1_1DB_1_1TBongoStorage.html" alt="bongodb::DB::TBongoStorage" shape="rect" coords="0,56,256,80"/>
-<area href="classbongodb_1_1DB_1_1TStdHashStorage.html" alt="bongodb::DB::TStdHashStorage" shape="rect" coords="266,56,522,80"/>
-<area href="classbongodb_1_1DB_1_1TThreadSafeStorageWrapper.html" alt="bongodb::DB::TThreadSafeStorageWrapper" shape="rect" coords="532,56,788,80"/>
+<area href="classbongodb_1_1DB_1_1TBongoStorage.html" title="Класс хранилище BongoDB, хранящее внутренний статус системы и предоставляющий методы для управления с..." alt="bongodb::DB::TBongoStorage" shape="rect" coords="0,56,256,80"/>
+<area href="classbongodb_1_1DB_1_1TStdHashStorage.html" title="Класс хэш-хранилище." alt="bongodb::DB::TStdHashStorage" shape="rect" coords="266,56,522,80"/>
+<area href="classbongodb_1_1DB_1_1TThreadSafeStorageWrapper.html" title="Класс safe-thread обертка, вызывающая методы IStorage." alt="bongodb::DB::TThreadSafeStorageWrapper" shape="rect" coords="532,56,788,80"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -90,19 +95,174 @@ $(function() {
 <tr class="memitem:a939187d2bffb651cabfe6da6abac2c57"><td class="memItemLeft" align="right" valign="top"><a id="a939187d2bffb651cabfe6da6abac2c57" name="a939187d2bffb651cabfe6da6abac2c57"></a>
 <a class="el" href="classbongodb_1_1Common_1_1TVoidOperationResult.html">Common::TPutResult</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Put</b> (const Common::TKey &amp;key, const Common::TValue &amp;value)</td></tr>
 <tr class="separator:a939187d2bffb651cabfe6da6abac2c57"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7ccf08caea54205ee97bc36672138e77"><td class="memItemLeft" align="right" valign="top"><a id="a7ccf08caea54205ee97bc36672138e77" name="a7ccf08caea54205ee97bc36672138e77"></a>
-virtual <a class="el" href="classbongodb_1_1Common_1_1TOperationResult.html">Common::TGetResult</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Get</b> (const Common::TKey &amp;key)=0</td></tr>
+<tr class="memitem:a7ccf08caea54205ee97bc36672138e77"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classbongodb_1_1Common_1_1TOperationResult.html">Common::TGetResult</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbongodb_1_1DB_1_1IStorage.html#a7ccf08caea54205ee97bc36672138e77">Get</a> (const Common::TKey &amp;key)=0</td></tr>
+<tr class="memdesc:a7ccf08caea54205ee97bc36672138e77"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получение данных по заданному ключу.  <a href="classbongodb_1_1DB_1_1IStorage.html#a7ccf08caea54205ee97bc36672138e77">Подробнее...</a><br /></td></tr>
 <tr class="separator:a7ccf08caea54205ee97bc36672138e77"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa9e78734eaef6add7fef775814364362"><td class="memItemLeft" align="right" valign="top"><a id="aa9e78734eaef6add7fef775814364362" name="aa9e78734eaef6add7fef775814364362"></a>
-virtual <a class="el" href="classbongodb_1_1Common_1_1TVoidOperationResult.html">Common::TRemoveResult</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Remove</b> (const Common::TKey &amp;key)=0</td></tr>
+<tr class="memitem:aa9e78734eaef6add7fef775814364362"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classbongodb_1_1Common_1_1TVoidOperationResult.html">Common::TRemoveResult</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbongodb_1_1DB_1_1IStorage.html#aa9e78734eaef6add7fef775814364362">Remove</a> (const Common::TKey &amp;key)=0</td></tr>
+<tr class="memdesc:aa9e78734eaef6add7fef775814364362"><td class="mdescLeft">&#160;</td><td class="mdescRight">Удаление данных по заданному ключу.  <a href="classbongodb_1_1DB_1_1IStorage.html#aa9e78734eaef6add7fef775814364362">Подробнее...</a><br /></td></tr>
 <tr class="separator:aa9e78734eaef6add7fef775814364362"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a174836e57e8cdec73d2b35fd9633af1b"><td class="memItemLeft" align="right" valign="top"><a id="a174836e57e8cdec73d2b35fd9633af1b" name="a174836e57e8cdec73d2b35fd9633af1b"></a>
-virtual <a class="el" href="classbongodb_1_1Common_1_1TVoidOperationResult.html">Common::TTruncateResult</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Truncate</b> ()=0</td></tr>
+<tr class="memitem:a174836e57e8cdec73d2b35fd9633af1b"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classbongodb_1_1Common_1_1TVoidOperationResult.html">Common::TTruncateResult</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbongodb_1_1DB_1_1IStorage.html#a174836e57e8cdec73d2b35fd9633af1b">Truncate</a> ()=0</td></tr>
+<tr class="memdesc:a174836e57e8cdec73d2b35fd9633af1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Удаление всех записей.  <a href="classbongodb_1_1DB_1_1IStorage.html#a174836e57e8cdec73d2b35fd9633af1b">Подробнее...</a><br /></td></tr>
 <tr class="separator:a174836e57e8cdec73d2b35fd9633af1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a95fcaf2672e093f715cd88f05eaf6f6a"><td class="memItemLeft" align="right" valign="top"><a id="a95fcaf2672e093f715cd88f05eaf6f6a" name="a95fcaf2672e093f715cd88f05eaf6f6a"></a>
-virtual <a class="el" href="classbongodb_1_1Common_1_1TVoidOperationResult.html">Common::TPutResult</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Put</b> (Common::TKey &amp;&amp;key, Common::TValue &amp;&amp;value)=0</td></tr>
+<tr class="memitem:a95fcaf2672e093f715cd88f05eaf6f6a"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classbongodb_1_1Common_1_1TVoidOperationResult.html">Common::TPutResult</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbongodb_1_1DB_1_1IStorage.html#a95fcaf2672e093f715cd88f05eaf6f6a">Put</a> (Common::TKey &amp;&amp;key, Common::TValue &amp;&amp;value)=0</td></tr>
+<tr class="memdesc:a95fcaf2672e093f715cd88f05eaf6f6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Устанавливает значение по заданному ключу.  <a href="classbongodb_1_1DB_1_1IStorage.html#a95fcaf2672e093f715cd88f05eaf6f6a">Подробнее...</a><br /></td></tr>
 <tr class="separator:a95fcaf2672e093f715cd88f05eaf6f6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock"><p >Абстрактный класс, описывающий хранилище. </p>
+</div><h2 class="groupheader">Методы</h2>
+<a id="a7ccf08caea54205ee97bc36672138e77" name="a7ccf08caea54205ee97bc36672138e77"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ccf08caea54205ee97bc36672138e77">&#9670;&nbsp;</a></span>Get()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="classbongodb_1_1Common_1_1TOperationResult.html">Common::TGetResult</a> bongodb::DB::IStorage::Get </td>
+          <td>(</td>
+          <td class="paramtype">const Common::TKey &amp;&#160;</td>
+          <td class="paramname"><em>key</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Получение данных по заданному ключу. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">key</td><td>Ключ, по которому будет искаться данные. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Возвращает результат выполнения запроса. </dd></dl>
+
+<p>Замещается в <a class="el" href="classbongodb_1_1DB_1_1TBongoStorage.html#a3238dcc1a9b5bf78e849ee88c04d2245">bongodb::DB::TBongoStorage</a>, <a class="el" href="classbongodb_1_1DB_1_1TStdHashStorage.html#ac0eadaebe1534cf60f05db0826b1dafe">bongodb::DB::TStdHashStorage</a> и <a class="el" href="classbongodb_1_1DB_1_1TThreadSafeStorageWrapper.html#a8cf21e074c646dce31091df5611787e9">bongodb::DB::TThreadSafeStorageWrapper</a>.</p>
+
+</div>
+</div>
+<a id="a95fcaf2672e093f715cd88f05eaf6f6a" name="a95fcaf2672e093f715cd88f05eaf6f6a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95fcaf2672e093f715cd88f05eaf6f6a">&#9670;&nbsp;</a></span>Put()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="classbongodb_1_1Common_1_1TVoidOperationResult.html">Common::TPutResult</a> bongodb::DB::IStorage::Put </td>
+          <td>(</td>
+          <td class="paramtype">Common::TKey &amp;&amp;&#160;</td>
+          <td class="paramname"><em>key</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Common::TValue &amp;&amp;&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Устанавливает значение по заданному ключу. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">key</td><td>Ключ, по которому добавиться значение. </td></tr>
+    <tr><td class="paramname">value</td><td>Значение, которое будет добавлено. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Возвращает результат выполнения запроса. </dd></dl>
+
+<p>Замещается в <a class="el" href="classbongodb_1_1DB_1_1TBongoStorage.html#aad7213a2adb93c5a638088da9433942a">bongodb::DB::TBongoStorage</a>, <a class="el" href="classbongodb_1_1DB_1_1TStdHashStorage.html#a19bbdd7d1b07e6df17a541f5930af3a1">bongodb::DB::TStdHashStorage</a> и <a class="el" href="classbongodb_1_1DB_1_1TThreadSafeStorageWrapper.html#ae24d3cb68f4510a0ea7cd633fd899232">bongodb::DB::TThreadSafeStorageWrapper</a>.</p>
+
+</div>
+</div>
+<a id="aa9e78734eaef6add7fef775814364362" name="aa9e78734eaef6add7fef775814364362"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9e78734eaef6add7fef775814364362">&#9670;&nbsp;</a></span>Remove()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="classbongodb_1_1Common_1_1TVoidOperationResult.html">Common::TRemoveResult</a> bongodb::DB::IStorage::Remove </td>
+          <td>(</td>
+          <td class="paramtype">const Common::TKey &amp;&#160;</td>
+          <td class="paramname"><em>key</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Удаление данных по заданному ключу. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">key</td><td>Ключ, по которму будут удаляться данные. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Возвращает результат выполнения запроса. </dd></dl>
+
+<p>Замещается в <a class="el" href="classbongodb_1_1DB_1_1TBongoStorage.html#a0cd112c15590952a2e7e3a26d7f75e2b">bongodb::DB::TBongoStorage</a>, <a class="el" href="classbongodb_1_1DB_1_1TStdHashStorage.html#a23c6f733ad5b41661a4d5f651cb8b642">bongodb::DB::TStdHashStorage</a> и <a class="el" href="classbongodb_1_1DB_1_1TThreadSafeStorageWrapper.html#a05197d9f55976af4567d919a71dcc8bb">bongodb::DB::TThreadSafeStorageWrapper</a>.</p>
+
+</div>
+</div>
+<a id="a174836e57e8cdec73d2b35fd9633af1b" name="a174836e57e8cdec73d2b35fd9633af1b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a174836e57e8cdec73d2b35fd9633af1b">&#9670;&nbsp;</a></span>Truncate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="classbongodb_1_1Common_1_1TVoidOperationResult.html">Common::TTruncateResult</a> bongodb::DB::IStorage::Truncate </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Удаление всех записей. </p>
+<dl class="section return"><dt>Возвращает</dt><dd>Возвращает результат выполнения запроса. </dd></dl>
+
+<p>Замещается в <a class="el" href="classbongodb_1_1DB_1_1TBongoStorage.html#a377d99a99e41be275030c377906baed9">bongodb::DB::TBongoStorage</a>, <a class="el" href="classbongodb_1_1DB_1_1TStdHashStorage.html#a26403315ded9ef7928f3e683a40e7800">bongodb::DB::TStdHashStorage</a> и <a class="el" href="classbongodb_1_1DB_1_1TThreadSafeStorageWrapper.html#a4dce0e90aa76845944144748e52c8357">bongodb::DB::TThreadSafeStorageWrapper</a>.</p>
+
+</div>
+</div>
 <hr/>Объявления и описания членов класса находятся в файле:<ul>
 <li>core/storages/<a class="el" href="IStorage_8h_source.html">IStorage.h</a></li>
 </ul>

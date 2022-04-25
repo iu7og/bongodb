@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['tbackend_0',['TBackend',['../classbongodb_1_1Backend_1_1TBackend.html#a3c870416fb870e04bcda6d7544e5e64f',1,'bongodb::Backend::TBackend']]],
-  ['truncate_1',['Truncate',['../classbongodb_1_1Backend_1_1TBackend.html#a85e165e7283cbb13041d1f9ea3396437',1,'bongodb::Backend::TBackend']]]
+  ['stream_0',['Stream',['../classbongodb_1_1Backend_1_1TBackend.html#ad771cd610454668060c32a0bbac354df',1,'bongodb::Backend::TBackend::Stream()'],['../classbongodb_1_1Backend_1_1IProcessor.html#a8e95bd56e555a7c20bb7d40bce38a0aa',1,'bongodb::Backend::IProcessor::Stream()'],['../classbongodb_1_1Backend_1_1TMasterProcessor.html#aa0fa1e4cb1d036325e3f02375a7a9f0c',1,'bongodb::Backend::TMasterProcessor::Stream()'],['../classbongodb_1_1Backend_1_1TReplicaProcessor.html#ad862891dbe5097e1d0ce94171fd0df59',1,'bongodb::Backend::TReplicaProcessor::Stream()'],['../classbongodb_1_1Clients_1_1THttpClient.html#a2fccee20f15d60c7dd1572fcb20fc383',1,'bongodb::Clients::THttpClient::Stream()'],['../classbongodb_1_1Clients_1_1IClient.html#aeab3b0dfa663cadf2585a8ecbefa0196',1,'bongodb::Clients::IClient::Stream()']]]
 ];
