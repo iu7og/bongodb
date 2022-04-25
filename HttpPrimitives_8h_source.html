@@ -88,10 +88,10 @@ $(function() {
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">namespace </span>bongodb::Clients {</div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keyword">enum class</span> EOperationType { Put = 0, Get, Delete, Truncate, Stream };</div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="classbongodb_1_1Clients_1_1THttpRequest.html">   19</a></span><span class="keyword">class </span><a class="code hl_class" href="classbongodb_1_1Clients_1_1THttpRequest.html">THttpRequest</a> {</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="classbongodb_1_1Clients_1_1THttpRequest.html">   22</a></span><span class="keyword">class </span><a class="code hl_class" href="classbongodb_1_1Clients_1_1THttpRequest.html">THttpRequest</a> {</div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="keyword">public</span>:</div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keyword">template</span> &lt;<span class="keyword">template</span> &lt;<span class="keyword">typename</span>&gt; <span class="keyword">typename</span> TPtr = std::unique_ptr&gt;</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="classbongodb_1_1Clients_1_1THttpRequest.html#a75616be9a4a199b6c47c4df248eb43db">   25</a></span>    <span class="keyword">using</span> <a class="code hl_typedef" href="classbongodb_1_1Clients_1_1THttpRequest.html#a75616be9a4a199b6c47c4df248eb43db">TStreamCommandAndVersion</a> = std::pair&lt;TPtr&lt;Common::IStreamCommand&gt;, Common::TVersion&gt;;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <span class="keyword">using</span> TStreamCommandAndVersion = std::pair&lt;TPtr&lt;Common::IStreamCommand&gt;, Common::TVersion&gt;;</div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keyword">using</span> TPath = std::string;</div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="keyword">using</span> TMethod = <span class="keyword">decltype</span>(Poco::Net::HTTPRequest::HTTP_GET);</div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keyword">using</span> TBody = std::string;</div>
@@ -112,7 +112,7 @@ $(function() {
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    Common::TValue ExtractValue();</div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="keyword">template</span> &lt;<span class="keyword">template</span> &lt;<span class="keyword">typename</span>&gt; <span class="keyword">typename</span> TPtr = std::unique_ptr&gt;</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <a class="code hl_typedef" href="classbongodb_1_1Clients_1_1THttpRequest.html#a75616be9a4a199b6c47c4df248eb43db">TStreamCommandAndVersion&lt;TPtr&gt;</a> ExtractStreamCommandAndVersion();</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    TStreamCommandAndVersion&lt;TPtr&gt; ExtractStreamCommandAndVersion();</div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="keyword">private</span>:</div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <a class="code hl_class" href="classbongodb_1_1Clients_1_1THttpRequest.html">THttpRequest</a>(EOperationType operationType, std::optional&lt;Common::TKey&gt;&amp;&amp; key = std::nullopt,</div>
@@ -163,8 +163,7 @@ $(function() {
 <div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="preprocessor">#include &quot;clients/HttpPrimitives-inl.h&quot;</span></div>
 <div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
 <div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>}  <span class="comment">// namespace bongodb::Clients</span></div>
-<div class="ttc" id="aclassbongodb_1_1Clients_1_1THttpRequest_html"><div class="ttname"><a href="classbongodb_1_1Clients_1_1THttpRequest.html">bongodb::Clients::THttpRequest</a></div><div class="ttdef"><b>Definition:</b> HttpPrimitives.h:19</div></div>
-<div class="ttc" id="aclassbongodb_1_1Clients_1_1THttpRequest_html_a75616be9a4a199b6c47c4df248eb43db"><div class="ttname"><a href="classbongodb_1_1Clients_1_1THttpRequest.html#a75616be9a4a199b6c47c4df248eb43db">bongodb::Clients::THttpRequest::TStreamCommandAndVersion</a></div><div class="ttdeci">std::pair&lt; TPtr&lt; Common::IStreamCommand &gt;, Common::TVersion &gt; TStreamCommandAndVersion</div><div class="ttdoc">Класс http-request.</div><div class="ttdef"><b>Definition:</b> HttpPrimitives.h:25</div></div>
+<div class="ttc" id="aclassbongodb_1_1Clients_1_1THttpRequest_html"><div class="ttname"><a href="classbongodb_1_1Clients_1_1THttpRequest.html">bongodb::Clients::THttpRequest</a></div><div class="ttdoc">Класс http-request.</div><div class="ttdef"><b>Definition:</b> HttpPrimitives.h:22</div></div>
 <div class="ttc" id="aclassbongodb_1_1Common_1_1IStreamCommand_html"><div class="ttname"><a href="classbongodb_1_1Common_1_1IStreamCommand.html">bongodb::Common::IStreamCommand</a></div><div class="ttdoc">Класс IStreamCommad.</div><div class="ttdef"><b>Definition:</b> StreamCommands.h:13</div></div>
 <div class="ttc" id="astructbongodb_1_1Clients_1_1THttpResponse_html"><div class="ttname"><a href="structbongodb_1_1Clients_1_1THttpResponse.html">bongodb::Clients::THttpResponse</a></div><div class="ttdef"><b>Definition:</b> HttpPrimitives.h:68</div></div>
 </div><!-- fragment --></div><!-- contents -->

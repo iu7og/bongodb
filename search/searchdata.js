@@ -4,8 +4,7 @@ var indexSectionsWithContent =
   1: "irtw",
   2: "b",
   3: "egiprst~",
-  4: "m",
-  5: "t"
+  4: "m"
 };
 
 var indexSectionNames =
@@ -14,8 +13,7 @@ var indexSectionNames =
   1: "classes",
   2: "files",
   3: "functions",
-  4: "variables",
-  5: "typedefs"
+  4: "variables"
 };
 
 var indexSectionLabels =
@@ -24,7 +22,6 @@ var indexSectionLabels =
   1: "Классы",
   2: "Файлы",
   3: "Функции",
-  4: "Переменные",
-  5: "Определения типов"
+  4: "Переменные"
 };
 
