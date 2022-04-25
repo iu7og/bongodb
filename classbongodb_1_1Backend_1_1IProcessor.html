@@ -73,231 +73,41 @@ $(function() {
   <div class="headertitle"><div class="title">Класс bongodb::Backend::IProcessor<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
 </div><!--header-->
 <div class="contents">
-
-<p>Абстрактный класс, задающий интерфейс работы с данными.  
- <a href="classbongodb_1_1Backend_1_1IProcessor.html#details">Подробнее...</a></p>
-
-<p><code>#include &lt;<a class="el" href="IProcessor_8h_source.html">IProcessor.h</a>&gt;</code></p>
 <div class="dynheader">
 Граф наследования:bongodb::Backend::IProcessor:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="classbongodb_1_1Backend_1_1IProcessor.png" usemap="#bongodb::Backend::IProcessor_map" alt=""/>
   <map id="bongodb::Backend::IProcessor_map" name="bongodb::Backend::IProcessor_map">
-<area href="classbongodb_1_1Backend_1_1TMasterProcessor.html" title="Класс TMasterProcessor, используется на мастер-ноде для обработки команд БД." alt="bongodb::Backend::TMasterProcessor" shape="rect" coords="0,56,229,80"/>
-<area href="classbongodb_1_1Backend_1_1TReplicaProcessor.html" title="Класс, отвечающий за управление репликами." alt="bongodb::Backend::TReplicaProcessor" shape="rect" coords="239,56,468,80"/>
+<area href="classbongodb_1_1Backend_1_1TMasterProcessor.html" alt="bongodb::Backend::TMasterProcessor" shape="rect" coords="0,56,229,80"/>
+<area href="classbongodb_1_1Backend_1_1TReplicaProcessor.html" alt="bongodb::Backend::TReplicaProcessor" shape="rect" coords="239,56,468,80"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Открытые члены</h2></td></tr>
-<tr class="memitem:a9988f0d81a69fc88f750c7e21a7e648b"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classbongodb_1_1Common_1_1TOperationResult.html">Common::TGetResult</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbongodb_1_1Backend_1_1IProcessor.html#a9988f0d81a69fc88f750c7e21a7e648b">Get</a> (const Common::TKey &amp;key)=0</td></tr>
-<tr class="memdesc:a9988f0d81a69fc88f750c7e21a7e648b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получение данных по заданному ключу.  <a href="classbongodb_1_1Backend_1_1IProcessor.html#a9988f0d81a69fc88f750c7e21a7e648b">Подробнее...</a><br /></td></tr>
+<tr class="memitem:a9988f0d81a69fc88f750c7e21a7e648b"><td class="memItemLeft" align="right" valign="top"><a id="a9988f0d81a69fc88f750c7e21a7e648b" name="a9988f0d81a69fc88f750c7e21a7e648b"></a>
+virtual <a class="el" href="classbongodb_1_1Common_1_1TOperationResult.html">Common::TGetResult</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Get</b> (const Common::TKey &amp;key)=0</td></tr>
 <tr class="separator:a9988f0d81a69fc88f750c7e21a7e648b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aba38fb6282c37c85eaae29ea48ecf48e"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classbongodb_1_1Common_1_1TVoidOperationResult.html">Common::TRemoveResult</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbongodb_1_1Backend_1_1IProcessor.html#aba38fb6282c37c85eaae29ea48ecf48e">Remove</a> (const Common::TKey &amp;key)=0</td></tr>
-<tr class="memdesc:aba38fb6282c37c85eaae29ea48ecf48e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Удаление данных по заданному ключу.  <a href="classbongodb_1_1Backend_1_1IProcessor.html#aba38fb6282c37c85eaae29ea48ecf48e">Подробнее...</a><br /></td></tr>
+<tr class="memitem:aba38fb6282c37c85eaae29ea48ecf48e"><td class="memItemLeft" align="right" valign="top"><a id="aba38fb6282c37c85eaae29ea48ecf48e" name="aba38fb6282c37c85eaae29ea48ecf48e"></a>
+virtual <a class="el" href="classbongodb_1_1Common_1_1TVoidOperationResult.html">Common::TRemoveResult</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Remove</b> (const Common::TKey &amp;key)=0</td></tr>
 <tr class="separator:aba38fb6282c37c85eaae29ea48ecf48e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2a868de20a6f668285cd0018d9001a2d"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classbongodb_1_1Common_1_1TVoidOperationResult.html">Common::TTruncateResult</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbongodb_1_1Backend_1_1IProcessor.html#a2a868de20a6f668285cd0018d9001a2d">Truncate</a> ()=0</td></tr>
-<tr class="memdesc:a2a868de20a6f668285cd0018d9001a2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Удаление всех записей.  <a href="classbongodb_1_1Backend_1_1IProcessor.html#a2a868de20a6f668285cd0018d9001a2d">Подробнее...</a><br /></td></tr>
+<tr class="memitem:a2a868de20a6f668285cd0018d9001a2d"><td class="memItemLeft" align="right" valign="top"><a id="a2a868de20a6f668285cd0018d9001a2d" name="a2a868de20a6f668285cd0018d9001a2d"></a>
+virtual <a class="el" href="classbongodb_1_1Common_1_1TVoidOperationResult.html">Common::TTruncateResult</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Truncate</b> ()=0</td></tr>
 <tr class="separator:a2a868de20a6f668285cd0018d9001a2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abc97770c58b515c1bf5d986bcb902427"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classbongodb_1_1Common_1_1TVoidOperationResult.html">Common::TPutResult</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbongodb_1_1Backend_1_1IProcessor.html#abc97770c58b515c1bf5d986bcb902427">Put</a> (Common::TKey &amp;&amp;key, Common::TValue &amp;&amp;value)=0</td></tr>
-<tr class="memdesc:abc97770c58b515c1bf5d986bcb902427"><td class="mdescLeft">&#160;</td><td class="mdescRight">Устанавливает значение по заданному ключу.  <a href="classbongodb_1_1Backend_1_1IProcessor.html#abc97770c58b515c1bf5d986bcb902427">Подробнее...</a><br /></td></tr>
+<tr class="memitem:abc97770c58b515c1bf5d986bcb902427"><td class="memItemLeft" align="right" valign="top"><a id="abc97770c58b515c1bf5d986bcb902427" name="abc97770c58b515c1bf5d986bcb902427"></a>
+virtual <a class="el" href="classbongodb_1_1Common_1_1TVoidOperationResult.html">Common::TPutResult</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Put</b> (Common::TKey &amp;&amp;key, Common::TValue &amp;&amp;value)=0</td></tr>
 <tr class="separator:abc97770c58b515c1bf5d986bcb902427"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8e95bd56e555a7c20bb7d40bce38a0aa"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbongodb_1_1Backend_1_1IProcessor.html#a8e95bd56e555a7c20bb7d40bce38a0aa">Stream</a> (std::unique_ptr&lt; <a class="el" href="classbongodb_1_1Common_1_1IStreamCommand.html">Common::IStreamCommand</a> &gt; command, Common::TVersion &amp;&amp;version)=0</td></tr>
-<tr class="memdesc:a8e95bd56e555a7c20bb7d40bce38a0aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Что-то делает.  <a href="classbongodb_1_1Backend_1_1IProcessor.html#a8e95bd56e555a7c20bb7d40bce38a0aa">Подробнее...</a><br /></td></tr>
 <tr class="separator:a8e95bd56e555a7c20bb7d40bce38a0aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a52dd07b77ac27db415cad920e7478bb9"><td class="memItemLeft" align="right" valign="top">virtual Common::TShardKey&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbongodb_1_1Backend_1_1IProcessor.html#a52dd07b77ac27db415cad920e7478bb9">GetShardKey</a> ()=0</td></tr>
-<tr class="memdesc:a52dd07b77ac27db415cad920e7478bb9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получить ключ шардирования.  <a href="classbongodb_1_1Backend_1_1IProcessor.html#a52dd07b77ac27db415cad920e7478bb9">Подробнее...</a><br /></td></tr>
+<tr class="memitem:a52dd07b77ac27db415cad920e7478bb9"><td class="memItemLeft" align="right" valign="top"><a id="a52dd07b77ac27db415cad920e7478bb9" name="a52dd07b77ac27db415cad920e7478bb9"></a>
+virtual Common::TShardKey&#160;</td><td class="memItemRight" valign="bottom"><b>GetShardKey</b> ()=0</td></tr>
 <tr class="separator:a52dd07b77ac27db415cad920e7478bb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a695d8ac67210dd8553420254c033e873"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbongodb_1_1Backend_1_1IProcessor.html#a695d8ac67210dd8553420254c033e873">IsMaster</a> ()</td></tr>
-<tr class="memdesc:a695d8ac67210dd8553420254c033e873"><td class="mdescLeft">&#160;</td><td class="mdescRight">Проверить является ли узел мастером.  <a href="classbongodb_1_1Backend_1_1IProcessor.html#a695d8ac67210dd8553420254c033e873">Подробнее...</a><br /></td></tr>
+<tr class="memitem:a695d8ac67210dd8553420254c033e873"><td class="memItemLeft" align="right" valign="top"><a id="a695d8ac67210dd8553420254c033e873" name="a695d8ac67210dd8553420254c033e873"></a>
+virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>IsMaster</b> ()</td></tr>
 <tr class="separator:a695d8ac67210dd8553420254c033e873"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
-<div class="textblock"><p >Абстрактный класс, задающий интерфейс работы с данными. </p>
-</div><h2 class="groupheader">Методы</h2>
-<a id="a9988f0d81a69fc88f750c7e21a7e648b" name="a9988f0d81a69fc88f750c7e21a7e648b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9988f0d81a69fc88f750c7e21a7e648b">&#9670;&nbsp;</a></span>Get()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual <a class="el" href="classbongodb_1_1Common_1_1TOperationResult.html">Common::TGetResult</a> bongodb::Backend::IProcessor::Get </td>
-          <td>(</td>
-          <td class="paramtype">const Common::TKey &amp;&#160;</td>
-          <td class="paramname"><em>key</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Получение данных по заданному ключу. </p>
-<dl class="params"><dt>Аргументы</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">key</td><td>Ключ, по которому будет искаться данные. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Возвращает</dt><dd>Возвращает результат выполнения запроса. </dd></dl>
-
-<p>Замещается в <a class="el" href="classbongodb_1_1Backend_1_1TMasterProcessor.html#a9f785ac7dbbe3a713a759dc71e74e50b">bongodb::Backend::TMasterProcessor</a> и <a class="el" href="classbongodb_1_1Backend_1_1TReplicaProcessor.html#ab631be8d7ddaf62673d21c4fe4ca8400">bongodb::Backend::TReplicaProcessor</a>.</p>
-
-</div>
-</div>
-<a id="a52dd07b77ac27db415cad920e7478bb9" name="a52dd07b77ac27db415cad920e7478bb9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a52dd07b77ac27db415cad920e7478bb9">&#9670;&nbsp;</a></span>GetShardKey()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual Common::TShardKey bongodb::Backend::IProcessor::GetShardKey </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Получить ключ шардирования. </p>
-<dl class="section return"><dt>Возвращает</dt><dd>Возвращает ключ шардирования. </dd></dl>
-
-<p>Замещается в <a class="el" href="classbongodb_1_1Backend_1_1TMasterProcessor.html#ab06b041a1da2b8e0273566726c6dfe4c">bongodb::Backend::TMasterProcessor</a> и <a class="el" href="classbongodb_1_1Backend_1_1TReplicaProcessor.html#a79ff640456bb5d005d97a88cb815cf96">bongodb::Backend::TReplicaProcessor</a>.</p>
-
-</div>
-</div>
-<a id="a695d8ac67210dd8553420254c033e873" name="a695d8ac67210dd8553420254c033e873"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a695d8ac67210dd8553420254c033e873">&#9670;&nbsp;</a></span>IsMaster()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual bool bongodb::Backend::IProcessor::IsMaster </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Проверить является ли узел мастером. </p>
-<dl class="section return"><dt>Возвращает</dt><dd>Возвращает true / false. </dd></dl>
-
-<p>Переопределяется в <a class="el" href="classbongodb_1_1Backend_1_1TMasterProcessor.html#a916e32c50def894d56ff537362397a48">bongodb::Backend::TMasterProcessor</a>.</p>
-
-</div>
-</div>
-<a id="abc97770c58b515c1bf5d986bcb902427" name="abc97770c58b515c1bf5d986bcb902427"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abc97770c58b515c1bf5d986bcb902427">&#9670;&nbsp;</a></span>Put()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual <a class="el" href="classbongodb_1_1Common_1_1TVoidOperationResult.html">Common::TPutResult</a> bongodb::Backend::IProcessor::Put </td>
-          <td>(</td>
-          <td class="paramtype">Common::TKey &amp;&amp;&#160;</td>
-          <td class="paramname"><em>key</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Common::TValue &amp;&amp;&#160;</td>
-          <td class="paramname"><em>value</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Устанавливает значение по заданному ключу. </p>
-<dl class="params"><dt>Аргументы</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">key</td><td>Ключ, по которому добавиться значение. </td></tr>
-    <tr><td class="paramname">value</td><td>Значение, которое будет добавлено. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Возвращает</dt><dd>Возвращает результат выполнения запроса. </dd></dl>
-
-<p>Замещается в <a class="el" href="classbongodb_1_1Backend_1_1TMasterProcessor.html#a684a2b1a5cb6b1014391f9566689388a">bongodb::Backend::TMasterProcessor</a> и <a class="el" href="classbongodb_1_1Backend_1_1TReplicaProcessor.html#a61df464b509ea85d71edcefc6a88af18">bongodb::Backend::TReplicaProcessor</a>.</p>
-
-</div>
-</div>
-<a id="aba38fb6282c37c85eaae29ea48ecf48e" name="aba38fb6282c37c85eaae29ea48ecf48e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aba38fb6282c37c85eaae29ea48ecf48e">&#9670;&nbsp;</a></span>Remove()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual <a class="el" href="classbongodb_1_1Common_1_1TVoidOperationResult.html">Common::TRemoveResult</a> bongodb::Backend::IProcessor::Remove </td>
-          <td>(</td>
-          <td class="paramtype">const Common::TKey &amp;&#160;</td>
-          <td class="paramname"><em>key</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Удаление данных по заданному ключу. </p>
-<dl class="params"><dt>Аргументы</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">key</td><td>Ключ, по которму будут удаляться данные. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Возвращает</dt><dd>Возвращает результат выполнения запроса. </dd></dl>
-
-<p>Замещается в <a class="el" href="classbongodb_1_1Backend_1_1TMasterProcessor.html#aaebfbaadd855eb18393eb3f50ff2619e">bongodb::Backend::TMasterProcessor</a> и <a class="el" href="classbongodb_1_1Backend_1_1TReplicaProcessor.html#aaf64606f0b2585e9e45cb33781b1c917">bongodb::Backend::TReplicaProcessor</a>.</p>
-
-</div>
-</div>
+<h2 class="groupheader">Методы</h2>
 <a id="a8e95bd56e555a7c20bb7d40bce38a0aa" name="a8e95bd56e555a7c20bb7d40bce38a0aa"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8e95bd56e555a7c20bb7d40bce38a0aa">&#9670;&nbsp;</a></span>Stream()</h2>
 
@@ -332,46 +142,7 @@ $(function() {
 </table>
 </div><div class="memdoc">
 
-<p>Что-то делает. </p>
-<dl class="params"><dt>Аргументы</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">command</td><td>Команда. </td></tr>
-    <tr><td class="paramname">version</td><td>Версия. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Замещается в <a class="el" href="classbongodb_1_1Backend_1_1TMasterProcessor.html#aa0fa1e4cb1d036325e3f02375a7a9f0c">bongodb::Backend::TMasterProcessor</a> и <a class="el" href="classbongodb_1_1Backend_1_1TReplicaProcessor.html#ad862891dbe5097e1d0ce94171fd0df59">bongodb::Backend::TReplicaProcessor</a>.</p>
-
-</div>
-</div>
-<a id="a2a868de20a6f668285cd0018d9001a2d" name="a2a868de20a6f668285cd0018d9001a2d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2a868de20a6f668285cd0018d9001a2d">&#9670;&nbsp;</a></span>Truncate()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual <a class="el" href="classbongodb_1_1Common_1_1TVoidOperationResult.html">Common::TTruncateResult</a> bongodb::Backend::IProcessor::Truncate </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Удаление всех записей. </p>
-<dl class="section return"><dt>Возвращает</dt><dd>Возвращает результат выполнения запроса. </dd></dl>
-
-<p>Замещается в <a class="el" href="classbongodb_1_1Backend_1_1TMasterProcessor.html#acc807b73d784b9ce3000f1bdc664ed3d">bongodb::Backend::TMasterProcessor</a> и <a class="el" href="classbongodb_1_1Backend_1_1TReplicaProcessor.html#a9b638c8cd2161e374f96cde38f853dac">bongodb::Backend::TReplicaProcessor</a>.</p>
+<p>Замещается в <a class="el" href="classbongodb_1_1Backend_1_1TMasterProcessor.html#aa0fa1e4cb1d036325e3f02375a7a9f0c">bongodb::Backend::TMasterProcessor</a>.</p>
 
 </div>
 </div>
