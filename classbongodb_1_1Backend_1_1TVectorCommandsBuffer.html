@@ -85,7 +85,7 @@ $(function() {
  <div class="center">
   <img src="classbongodb_1_1Backend_1_1TVectorCommandsBuffer.png" usemap="#bongodb::Backend::TVectorCommandsBuffer_map" alt=""/>
   <map id="bongodb::Backend::TVectorCommandsBuffer_map" name="bongodb::Backend::TVectorCommandsBuffer_map">
-<area href="classbongodb_1_1Backend_1_1ICommandsBuffer.html" title="Класс ICommandsBuffer." alt="bongodb::Backend::ICommandsBuffer" shape="rect" coords="0,0,263,24"/>
+<area href="classbongodb_1_1Backend_1_1ICommandsBuffer.html" title="Абстрактный класс для реализации буффер команд." alt="bongodb::Backend::ICommandsBuffer" shape="rect" coords="0,0,263,24"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -106,10 +106,10 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>TCommandResult</b> =
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Открытые члены</h2></td></tr>
 <tr class="memitem:a4e422b718b97dfb4b49f2e9c99b0e24b"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbongodb_1_1Backend_1_1TVectorCommandsBuffer.html#a4e422b718b97dfb4b49f2e9c99b0e24b">Push</a> (std::shared_ptr&lt; <a class="el" href="classbongodb_1_1Common_1_1IStreamCommand.html">Common::IStreamCommand</a> &gt; command) override</td></tr>
-<tr class="memdesc:a4e422b718b97dfb4b49f2e9c99b0e24b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Метод Push.  <a href="classbongodb_1_1Backend_1_1TVectorCommandsBuffer.html#a4e422b718b97dfb4b49f2e9c99b0e24b">Подробнее...</a><br /></td></tr>
+<tr class="memdesc:a4e422b718b97dfb4b49f2e9c99b0e24b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Добавляет команду и задает ей версию.  <a href="classbongodb_1_1Backend_1_1TVectorCommandsBuffer.html#a4e422b718b97dfb4b49f2e9c99b0e24b">Подробнее...</a><br /></td></tr>
 <tr class="separator:a4e422b718b97dfb4b49f2e9c99b0e24b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a698c4ec0b39eef377ee1ce4ad43663ea"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classbongodb_1_1Common_1_1TOperationResult.html">TCommandResult</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbongodb_1_1Backend_1_1TVectorCommandsBuffer.html#a698c4ec0b39eef377ee1ce4ad43663ea">GetByVersion</a> (const Common::TVersion &amp;version) override</td></tr>
-<tr class="memdesc:a698c4ec0b39eef377ee1ce4ad43663ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Что-то делает.  <a href="classbongodb_1_1Backend_1_1TVectorCommandsBuffer.html#a698c4ec0b39eef377ee1ce4ad43663ea">Подробнее...</a><br /></td></tr>
+<tr class="memdesc:a698c4ec0b39eef377ee1ce4ad43663ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Возвращает указатель на указанную версию команды.  <a href="classbongodb_1_1Backend_1_1TVectorCommandsBuffer.html#a698c4ec0b39eef377ee1ce4ad43663ea">Подробнее...</a><br /></td></tr>
 <tr class="separator:a698c4ec0b39eef377ee1ce4ad43663ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
@@ -139,10 +139,10 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>TCommandResult</b> =
 </table>
 </div><div class="memdoc">
 
-<p>Что-то делает. </p>
+<p>Возвращает указатель на указанную версию команды. </p>
 <dl class="params"><dt>Аргументы</dt><dd>
   <table class="params">
-    <tr><td class="paramname">version</td><td>Версия. </td></tr>
+    <tr><td class="paramname">version</td><td>Уникальная для каждой команды версии. </td></tr>
   </table>
   </dd>
 </dl>
@@ -176,7 +176,7 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>TCommandResult</b> =
 </table>
 </div><div class="memdoc">
 
-<p>Метод Push. </p>
+<p>Добавляет команду и задает ей версию. </p>
 <dl class="params"><dt>Аргументы</dt><dd>
   <table class="params">
     <tr><td class="paramname">command</td><td>Команда. </td></tr>
