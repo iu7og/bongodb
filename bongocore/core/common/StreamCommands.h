@@ -7,6 +7,9 @@
 namespace bongodb::Common {
 enum class EStreamCommandType { Truncate, Put, Remove };
 
+/**
+ * @brief Класс IStreamCommad.
+ */
 class IStreamCommand {
 public:
     virtual std::optional<TKey> GetKey() const;
@@ -36,12 +39,50 @@ private:
 
 class TPutStreamCommand : public IStreamCommand {
 public:
+    /**
+     * @brief Конструктор.
+     *
+     * @param Key Ключ.
+     * @param value значение.
+     */
     TPutStreamCommand(const TKey& Key, const TValue& value);
+    /**
+     * @brief Константный конструктор.
+     *
+     * @param Key Ключ.
+     * @param value значение.
+     */
     TPutStreamCommand(TKey&& Key, TValue&& value);
+
+    /**
+     * @brief Получить ключ.
+     *
+     * @return Ключ.
+     */
     std::optional<TKey> GetKey() const override;
+    /**
+     * @brief Достать ключ.
+     *
+     * @return Ключ.
+     */
     std::optional<TKey> ExtractKey() override;
+    /**
+     * @brief Получить значение.
+     *
+     * @return Значение.
+     */
     std::optional<TValue> GetValue() const override;
+    /**
+     * @brief Достать значение.
+     *
+     * @return Значение.
+     */
     std::optional<TValue> ExtractValue() override;
+    /**
+     * @brief Получить тип.
+     *
+     * @return Stream-тип команды.
+     */
     EStreamCommandType GetType() const override;
 
 private:

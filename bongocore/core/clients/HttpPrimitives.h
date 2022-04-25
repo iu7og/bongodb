@@ -16,6 +16,9 @@
 namespace bongodb::Clients {
 enum class EOperationType { Put = 0, Get, Delete, Truncate, Stream };
 
+/**
+ * @brief Класс http-request.
+ */
 class THttpRequest {
 public:
     template <template <typename> typename TPtr = std::unique_ptr>

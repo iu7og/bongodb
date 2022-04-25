@@ -8,6 +8,9 @@ namespace bongodb::Common {
 enum class EError : std::uint8_t { NotFound = 1, NotAvail, Other };
 
 template <typename TResultValue, typename TError = EError>
+/**
+ * @brief Класс описывающий результат выполнения операций и работы с данными.
+ */
 class TOperationResult {
 public:
     using TInnerValue = std::variant<TResultValue, TError>;
@@ -25,14 +28,32 @@ private:
     TInnerValue InnerValue;
 };
 
+/**
+ * @brief Класс описывающий void результат выполнения операций и работы с данными.
+ */
 class TVoidOperationResult {
 public:
     using TInnerValue = std::optional<EError>;
-
+    /**
+     * @brief Конструктор.
+     *
+     * @param error Ошибка.
+     */
     TVoidOperationResult(EError error) : InnerValue(error) {}
+    /**
+     * @brief Конструктор.
+     */
     TVoidOperationResult() : InnerValue(std::nullopt) {}
 
+    /**
+     * @brief Проверка InnerValue на корректность.
+     * @return Возвращает true / false.
+     */
     bool IsOk() const { return InnerValue == std::nullopt; }
+    /**
+     * @brief Получить ошибку.
+     * @return Возвращает ошибку.
+     */
     EError GetError() { return InnerValue.value(); }
 
 private:
