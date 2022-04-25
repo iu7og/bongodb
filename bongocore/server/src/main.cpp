@@ -18,11 +18,12 @@ class WebServerApp : public Poco::Util::ServerApplication {
 
     void defineOptions(Poco::Util::OptionSet& options) {
         Application::defineOptions(options);
-        options.addOption(Poco::Util::Option("config", "c", "load configuration data from a file")
-                              .required(true)
-                              .repeatable(false)
-                              .argument("config")
-                              .callback(Poco::Util::OptionCallback<WebServerApp>(this, &WebServerApp::handleConfig)));
+        options.addOption(
+            Poco::Util::Option("please specify config with --config file", "c", "load configuration data from a file")
+                .required(true)
+                .repeatable(false)
+                .argument("config")
+                .callback(Poco::Util::OptionCallback<WebServerApp>(this, &WebServerApp::handleConfig)));
     }
 
     void initialize(Application& self) {
