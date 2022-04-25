@@ -80,5 +80,6 @@
 
     <server>
         <port>1235</port>
+        <max_queued>200</max_queued>
     </server>
 </bongodb>
