@@ -3,6 +3,7 @@
 #include <Poco/Logger.h>
 #include <Poco/Net/HTTPClientSession.h>
 #include <Poco/Util/AbstractConfiguration.h>
+
 #include <mutex>
 
 #include "clients/HttpPrimitives.h"

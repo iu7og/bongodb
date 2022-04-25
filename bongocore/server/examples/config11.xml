@@ -16,7 +16,7 @@
         <loggers>
             <root>
                 <channel>c1</channel>
-                <level>trace</level>
+                <level>warning</level>
             </root>
         </loggers>
     </logging>
@@ -80,6 +80,6 @@
 
     <server>
         <port>1234</port>
-        <max_queued>200</max_queued>
+        <max_queued>500</max_queued>
     </server>
 </bongodb>

@@ -53,7 +53,7 @@ THttpResponse THttpClient::SendRequest(THttpRequest&& request) {
         Poco::Net::HTTPResponse response;
         std::stringstream ss;
         {
-            //std::lock_guard<std::mutex> lock(Mutex);
+            // std::lock_guard<std::mutex> lock(Mutex);
             std::istream& is = Session.receiveResponse(response);
             Poco::StreamCopier::copyStream(is, ss);
         }
