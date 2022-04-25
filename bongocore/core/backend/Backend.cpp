@@ -56,7 +56,7 @@ Clients::THttpResponse TBackend::Process(Clients::THttpRequest&& request) {
             return Clients::THttpResponse(Remove(request.ExtractKey()));
         case Clients::EOperationType::Truncate:
             Logger.trace((Processor->IsMaster() ? "Master" : "Replica") + std::string(" truncate"));
-            return Clients::THttpResponse(Remove(request.ExtractKey()));
+            return Clients::THttpResponse(Truncate());
         case Clients::EOperationType::Stream:
             auto [command, version] = request.ExtractStreamCommandAndVersion<std::unique_ptr>();
             Logger.trace((Processor->IsMaster() ? "Master" : "Replica") +

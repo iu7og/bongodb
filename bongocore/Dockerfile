@@ -5,6 +5,8 @@ RUN apt update && apt install -y g++ cmake make libpoco-dev && mkdir -p build
 WORKDIR /bongocore
 COPY . .
 
+RUN apt install -y robin-map-dev
+
 RUN cmake .
 RUN make bongo
 
