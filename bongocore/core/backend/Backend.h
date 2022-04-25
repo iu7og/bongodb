@@ -18,66 +18,64 @@
 
 namespace bongodb::Backend {
 /**
- * @brief Класс, ...
+ * @brief Класс бэкенд работы с БД.
  */
 class TBackend {
 public:
     /**
-     * Создание ...
-     * @brief Конструктор.
+     * @brief Конструктор бэкенда.
      *
-     * @param parameter Описание, зачем нужен.
+     * @param config Конфигурация для бэкенда.
      */
     TBackend(const Poco::Util::AbstractConfiguration& config);
 
     /**
-     * @brief Делает ...
-     * @param parameter Описание, что делает.
-     * @return Возвращает ...
+     * @brief Получение данных по заданному ключу.
+     * @param key Ключ, по которому будет искаться данные.
+     * @return Возвращает результат выполнения запроса.
      */
     Common::TGetResult Get(const Common::TKey& key);
     /**
-     * @brief Делает ...
-     * @param parameter Описание, что делает.
-     * @return Возвращает ...
+     * @brief Удаление данных по заданному ключу.
+     * @param key Ключ, по которму будут удаляться данные.
+     * @return Возвращает результат выполнения запроса.
      */
     Common::TRemoveResult Remove(const Common::TKey& key);
     /**
-     * @brief Делает ...
-     * @param parameter Описание, что делает.
-     * @return Возвращает ...
+     * @brief Удаление всех записей.
+     * @return Возвращает результат выполнения запроса.
      */
     Common::TTruncateResult Truncate();
     /**
-     * @brief Делает ...
-     * @param parameter Описание, что делает.
-     * @return Возвращает ...
+     * @brief Устанавливает значение по заданному ключу.
+     * @param key Ключ, по которому добавиться значение.
+     * @param value Значение, которое будет добавлено.
+     * @return Возвращает результат выполнения запроса.
      */
     Common::TPutResult Put(Common::TKey&& key, Common::TValue&& value);
     /**
-     * @brief Делает ...
-     * @param parameter Описание, что делает.
-     * @return Возвращает ...
+     * @brief Стримит команды на реплики.
+     * Подробнее: https://redis.io/docs/manual/replication/#how-redis-replication-works
+     * @param command Команда.
+     * @param version Версия.
      */
     void Stream(std::unique_ptr<Common::IStreamCommand> command, Common::TVersion&& version);
 
     /**
-     * @brief Делает ...
-     * @param parameter Описание, что делает.
-     * @return Возвращает ...
+     * @brief Обработчик http-запроса.
+     * @param request http-запрос.
+     * @return Возвращает http-ответ.
      */
     Clients::THttpResponse Process(Clients::THttpRequest&& request);
 
     /**
-     * @brief Делает ...
-     * @param parameter Описание, что делает.
-     * @return Возвращает ...
+     * @brief Проверка готовности.
+     * @return Возвращает true / false.
      */
     bool IsReady();
     /**
-     * @brief Делает ...
-     * @param parameter Описание, что делает.
-     * @return Возвращает ...
+     * @brief Подготовить данные перед работой.
+     * @return Возвращает true / false.
      */
     bool Prepare();
 

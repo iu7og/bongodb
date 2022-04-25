@@ -65,7 +65,7 @@ Clients::THttpResponse TBackend::Process(Clients::THttpRequest&& request) {
             return Clients::THttpResponse();
     }
 
-    throw std::runtime_error("Unknown request type");
+    return Common::EError::NotAvail;
 }
 
 bool TBackend::IsReady() { return Ready; }

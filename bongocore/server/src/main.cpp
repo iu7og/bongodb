@@ -33,10 +33,14 @@ class WebServerApp : public Poco::Util::ServerApplication {
     int main(const std::vector<std::string>&) {
         Poco::UInt16 port = static_cast<Poco::UInt16>(config().getUInt("server.port", 1234));
 
-        Poco::Net::HTTPServerParams* parameters = new Poco::Net::HTTPServerParams();
-        parameters->setMaxQueued(config().getInt("max_queued", 64));
+        Poco::Net::HTTPServerParams::Ptr parameters = new Poco::Net::HTTPServerParams();
+        parameters->setMaxQueued(config().getInt("server.max_queued", 64));
 
-        Poco::Net::HTTPServer srv(new RequestHandlerFactory(*config().createView("backend")), port, parameters);
+        Poco::ThreadPool threadPool(config().getInt("server.min_threads", 2),
+                                    config().getInt("server.max_threads", 16));
+        Poco::Net::ServerSocket socket(port);
+        Poco::Net::HTTPServer srv(new RequestHandlerFactory(*config().createView("backend")), threadPool, socket,
+                                  parameters);
         srv.start();
         logger().information("HTTP Server started on port %hu.", port);
         waitForTerminationRequest();
