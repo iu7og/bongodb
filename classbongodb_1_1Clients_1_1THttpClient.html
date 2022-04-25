@@ -73,36 +73,77 @@ $(function() {
   <div class="headertitle"><div class="title">Класс bongodb::Clients::THttpClient</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Класс http-клиент БД.  
+ <a href="classbongodb_1_1Clients_1_1THttpClient.html#details">Подробнее...</a></p>
+
+<p><code>#include &lt;<a class="el" href="HttpClient_8h_source.html">HttpClient.h</a>&gt;</code></p>
 <div class="dynheader">
 Граф наследования:bongodb::Clients::THttpClient:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="classbongodb_1_1Clients_1_1THttpClient.png" usemap="#bongodb::Clients::THttpClient_map" alt=""/>
   <map id="bongodb::Clients::THttpClient_map" name="bongodb::Clients::THttpClient_map">
-<area href="classbongodb_1_1Clients_1_1IClient.html" alt="bongodb::Clients::IClient" shape="rect" coords="0,0,172,24"/>
+<area href="classbongodb_1_1Clients_1_1IClient.html" title="Абстрактный класс, клиент работы с БД." alt="bongodb::Clients::IClient" shape="rect" coords="0,0,172,24"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Открытые члены</h2></td></tr>
-<tr class="memitem:a6f9e93bb83003268f7975757a9bd20b4"><td class="memItemLeft" align="right" valign="top"><a id="a6f9e93bb83003268f7975757a9bd20b4" name="a6f9e93bb83003268f7975757a9bd20b4"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>THttpClient</b> (const Poco::Util::AbstractConfiguration &amp;config)</td></tr>
+<tr class="memitem:a6f9e93bb83003268f7975757a9bd20b4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbongodb_1_1Clients_1_1THttpClient.html#a6f9e93bb83003268f7975757a9bd20b4">THttpClient</a> (const Poco::Util::AbstractConfiguration &amp;config)</td></tr>
+<tr class="memdesc:a6f9e93bb83003268f7975757a9bd20b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Конструктор http-клиента БД.  <a href="classbongodb_1_1Clients_1_1THttpClient.html#a6f9e93bb83003268f7975757a9bd20b4">Подробнее...</a><br /></td></tr>
 <tr class="separator:a6f9e93bb83003268f7975757a9bd20b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1609780d4b73d9d4063db82b5731b2b2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classbongodb_1_1Common_1_1TOperationResult.html">Common::TGetResult</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbongodb_1_1Clients_1_1THttpClient.html#a1609780d4b73d9d4063db82b5731b2b2">Get</a> (const Common::TKey &amp;key) override</td></tr>
+<tr class="memdesc:a1609780d4b73d9d4063db82b5731b2b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получение данных по заданному ключу.  <a href="classbongodb_1_1Clients_1_1THttpClient.html#a1609780d4b73d9d4063db82b5731b2b2">Подробнее...</a><br /></td></tr>
 <tr class="separator:a1609780d4b73d9d4063db82b5731b2b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af6f080c5f0316254c4409f01a19090d0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classbongodb_1_1Common_1_1TVoidOperationResult.html">Common::TRemoveResult</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbongodb_1_1Clients_1_1THttpClient.html#af6f080c5f0316254c4409f01a19090d0">Remove</a> (const Common::TKey &amp;key) override</td></tr>
+<tr class="memdesc:af6f080c5f0316254c4409f01a19090d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Удаление данных по заданному ключу.  <a href="classbongodb_1_1Clients_1_1THttpClient.html#af6f080c5f0316254c4409f01a19090d0">Подробнее...</a><br /></td></tr>
 <tr class="separator:af6f080c5f0316254c4409f01a19090d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6d60991c81f17cd4eabd07db61a705c5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classbongodb_1_1Common_1_1TVoidOperationResult.html">Common::TTruncateResult</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbongodb_1_1Clients_1_1THttpClient.html#a6d60991c81f17cd4eabd07db61a705c5">Truncate</a> () override</td></tr>
+<tr class="memdesc:a6d60991c81f17cd4eabd07db61a705c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Удаление всех записей.  <a href="classbongodb_1_1Clients_1_1THttpClient.html#a6d60991c81f17cd4eabd07db61a705c5">Подробнее...</a><br /></td></tr>
 <tr class="separator:a6d60991c81f17cd4eabd07db61a705c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af4deced43068de47cfe6275515b8c76a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classbongodb_1_1Common_1_1TVoidOperationResult.html">Common::TPutResult</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbongodb_1_1Clients_1_1THttpClient.html#af4deced43068de47cfe6275515b8c76a">Put</a> (Common::TKey &amp;&amp;key, Common::TValue &amp;&amp;value) override</td></tr>
+<tr class="memdesc:af4deced43068de47cfe6275515b8c76a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Устанавливает значение по заданному ключу.  <a href="classbongodb_1_1Clients_1_1THttpClient.html#af4deced43068de47cfe6275515b8c76a">Подробнее...</a><br /></td></tr>
 <tr class="separator:af4deced43068de47cfe6275515b8c76a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2fccee20f15d60c7dd1572fcb20fc383"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classbongodb_1_1Common_1_1TVoidOperationResult.html">Common::TStreamResult</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbongodb_1_1Clients_1_1THttpClient.html#a2fccee20f15d60c7dd1572fcb20fc383">Stream</a> (const <a class="el" href="classbongodb_1_1Common_1_1IStreamCommand.html">Common::IStreamCommand</a> &amp;command, const Common::TVersion &amp;version) override</td></tr>
+<tr class="memdesc:a2fccee20f15d60c7dd1572fcb20fc383"><td class="mdescLeft">&#160;</td><td class="mdescRight">Стримит команды на реплики. Подробнее: <a href="https://redis.io/docs/manual/replication/#how-redis-replication-works">https://redis.io/docs/manual/replication/#how-redis-replication-works</a>.  <a href="classbongodb_1_1Clients_1_1THttpClient.html#a2fccee20f15d60c7dd1572fcb20fc383">Подробнее...</a><br /></td></tr>
 <tr class="separator:a2fccee20f15d60c7dd1572fcb20fc383"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aacd3d93e4aaf8e6aa0101f7a73017905"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbongodb_1_1Clients_1_1THttpClient.html#aacd3d93e4aaf8e6aa0101f7a73017905">IsReady</a> () override</td></tr>
+<tr class="memdesc:aacd3d93e4aaf8e6aa0101f7a73017905"><td class="mdescLeft">&#160;</td><td class="mdescRight">Проверка готовности.  <a href="classbongodb_1_1Clients_1_1THttpClient.html#aacd3d93e4aaf8e6aa0101f7a73017905">Подробнее...</a><br /></td></tr>
 <tr class="separator:aacd3d93e4aaf8e6aa0101f7a73017905"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a486bd68a05ea50831fe677058f314e72"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbongodb_1_1Clients_1_1THttpClient.html#a486bd68a05ea50831fe677058f314e72">Prepare</a> () override</td></tr>
+<tr class="memdesc:a486bd68a05ea50831fe677058f314e72"><td class="mdescLeft">&#160;</td><td class="mdescRight">Подготовить данные перед работой.  <a href="classbongodb_1_1Clients_1_1THttpClient.html#a486bd68a05ea50831fe677058f314e72">Подробнее...</a><br /></td></tr>
 <tr class="separator:a486bd68a05ea50831fe677058f314e72"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock"><p >Класс http-клиент БД. </p>
+</div><h2 class="groupheader">Конструктор(ы)</h2>
+<a id="a6f9e93bb83003268f7975757a9bd20b4" name="a6f9e93bb83003268f7975757a9bd20b4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f9e93bb83003268f7975757a9bd20b4">&#9670;&nbsp;</a></span>THttpClient()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bongodb::Clients::THttpClient::THttpClient </td>
+          <td>(</td>
+          <td class="paramtype">const Poco::Util::AbstractConfiguration &amp;&#160;</td>
+          <td class="paramname"><em>config</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Конструктор http-клиента БД. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">config</td><td>Конфигурация для http-клиента. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <h2 class="groupheader">Методы</h2>
 <a id="a1609780d4b73d9d4063db82b5731b2b2" name="a1609780d4b73d9d4063db82b5731b2b2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1609780d4b73d9d4063db82b5731b2b2">&#9670;&nbsp;</a></span>Get()</h2>
@@ -127,9 +168,15 @@ $(function() {
   </tr>
 </table>
 </div><div class="memdoc">
-<p >Protocol procedures</p><ol type="1">
-<li>proxy request </li>
-</ol>
+
+<p>Получение данных по заданному ключу. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">key</td><td>Ключ, по которому будет искаться данные. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Возвращает результат выполнения запроса. </dd></dl>
 
 <p>Замещает <a class="el" href="classbongodb_1_1Clients_1_1IClient.html#ae17d2d634270ecbf463304f530ae86b0">bongodb::Clients::IClient</a>.</p>
 
@@ -158,7 +205,10 @@ $(function() {
 </table>
 </div><div class="memdoc">
 
-<p>Замещает <a class="el" href="classbongodb_1_1Clients_1_1IClient.html">bongodb::Clients::IClient</a>.</p>
+<p>Проверка готовности. </p>
+<dl class="section return"><dt>Возвращает</dt><dd>Возвращает true / false. </dd></dl>
+
+<p>Замещает <a class="el" href="classbongodb_1_1Clients_1_1IClient.html#a83f7ae7935133cde1bedec747c41ff32">bongodb::Clients::IClient</a>.</p>
 
 </div>
 </div>
@@ -185,7 +235,10 @@ $(function() {
 </table>
 </div><div class="memdoc">
 
-<p>Замещает <a class="el" href="classbongodb_1_1Clients_1_1IClient.html">bongodb::Clients::IClient</a>.</p>
+<p>Подготовить данные перед работой. </p>
+<dl class="section return"><dt>Возвращает</dt><dd>Возвращает true / false. </dd></dl>
+
+<p>Замещает <a class="el" href="classbongodb_1_1Clients_1_1IClient.html#a9c52a9460ea02a0f4d980395c2132dc0">bongodb::Clients::IClient</a>.</p>
 
 </div>
 </div>
@@ -223,7 +276,17 @@ $(function() {
 </table>
 </div><div class="memdoc">
 
-<p>Замещает <a class="el" href="classbongodb_1_1Clients_1_1IClient.html">bongodb::Clients::IClient</a>.</p>
+<p>Устанавливает значение по заданному ключу. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">key</td><td>Ключ, по которому добавиться значение. </td></tr>
+    <tr><td class="paramname">value</td><td>Значение, которое будет добавлено. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Возвращает результат выполнения запроса. </dd></dl>
+
+<p>Замещает <a class="el" href="classbongodb_1_1Clients_1_1IClient.html#a3ca7f516f2ec66eda714ccc438b5fb3e">bongodb::Clients::IClient</a>.</p>
 
 </div>
 </div>
@@ -251,7 +314,16 @@ $(function() {
 </table>
 </div><div class="memdoc">
 
-<p>Замещает <a class="el" href="classbongodb_1_1Clients_1_1IClient.html">bongodb::Clients::IClient</a>.</p>
+<p>Удаление данных по заданному ключу. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">key</td><td>Ключ, по которму будут удаляться данные. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Возвращает результат выполнения запроса. </dd></dl>
+
+<p>Замещает <a class="el" href="classbongodb_1_1Clients_1_1IClient.html#ac6317bc2f3e4bff76a58b32b1ef1f840">bongodb::Clients::IClient</a>.</p>
 
 </div>
 </div>
@@ -288,9 +360,15 @@ $(function() {
   </tr>
 </table>
 </div><div class="memdoc">
-<ol type="1">
-<li>stream data to replicas (maybe some kind of <code>handle</code> should be returned) </li>
-</ol>
+
+<p>Стримит команды на реплики. Подробнее: <a href="https://redis.io/docs/manual/replication/#how-redis-replication-works">https://redis.io/docs/manual/replication/#how-redis-replication-works</a>. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">command</td><td>Команда. </td></tr>
+    <tr><td class="paramname">version</td><td>Версия. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p>Замещает <a class="el" href="classbongodb_1_1Clients_1_1IClient.html#aeab3b0dfa663cadf2585a8ecbefa0196">bongodb::Clients::IClient</a>.</p>
 
@@ -319,7 +397,10 @@ $(function() {
 </table>
 </div><div class="memdoc">
 
-<p>Замещает <a class="el" href="classbongodb_1_1Clients_1_1IClient.html">bongodb::Clients::IClient</a>.</p>
+<p>Удаление всех записей. </p>
+<dl class="section return"><dt>Возвращает</dt><dd>Возвращает результат выполнения запроса. </dd></dl>
+
+<p>Замещает <a class="el" href="classbongodb_1_1Clients_1_1IClient.html#aa3dd9366e9dfe68c4c87ca8d91f33a04">bongodb::Clients::IClient</a>.</p>
 
 </div>
 </div>
