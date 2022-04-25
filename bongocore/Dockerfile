@@ -8,4 +8,4 @@ COPY . .
 RUN cmake .
 RUN make bongo
 
-CMD ["./bongo", "--config", "server/examples/config.xml"]
+CMD ["./bongo", "--config", "server/examples/config21.xml"]
