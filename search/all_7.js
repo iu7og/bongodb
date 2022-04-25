@@ -1,4 +1,23 @@
 var searchData=
 [
-  ['stream_0',['Stream',['../classbongodb_1_1Backend_1_1TBackend.html#ad771cd610454668060c32a0bbac354df',1,'bongodb::Backend::TBackend::Stream()'],['../classbongodb_1_1Backend_1_1IProcessor.html#a8e95bd56e555a7c20bb7d40bce38a0aa',1,'bongodb::Backend::IProcessor::Stream()'],['../classbongodb_1_1Backend_1_1TMasterProcessor.html#aa0fa1e4cb1d036325e3f02375a7a9f0c',1,'bongodb::Backend::TMasterProcessor::Stream()'],['../classbongodb_1_1Backend_1_1TReplicaProcessor.html#ad862891dbe5097e1d0ce94171fd0df59',1,'bongodb::Backend::TReplicaProcessor::Stream()'],['../classbongodb_1_1Clients_1_1THttpClient.html#a2fccee20f15d60c7dd1572fcb20fc383',1,'bongodb::Clients::THttpClient::Stream()'],['../classbongodb_1_1Clients_1_1IClient.html#aeab3b0dfa663cadf2585a8ecbefa0196',1,'bongodb::Clients::IClient::Stream()']]]
+  ['tbackend_0',['TBackend',['../classbongodb_1_1Backend_1_1TBackend.html',1,'bongodb::Backend::TBackend'],['../classbongodb_1_1Backend_1_1TBackend.html#a3c870416fb870e04bcda6d7544e5e64f',1,'bongodb::Backend::TBackend::TBackend()']]],
+  ['tbongostorage_1',['TBongoStorage',['../classbongodb_1_1DB_1_1TBongoStorage.html',1,'bongodb::DB']]],
+  ['thttpclient_2',['THttpClient',['../classbongodb_1_1Clients_1_1THttpClient.html',1,'bongodb::Clients']]],
+  ['thttprequest_3',['THttpRequest',['../classbongodb_1_1Clients_1_1THttpRequest.html',1,'bongodb::Clients']]],
+  ['thttpresponse_4',['THttpResponse',['../structbongodb_1_1Clients_1_1THttpResponse.html',1,'bongodb::Clients']]],
+  ['tmasterprocessor_5',['TMasterProcessor',['../classbongodb_1_1Backend_1_1TMasterProcessor.html',1,'bongodb::Backend']]],
+  ['toperationresult_6',['TOperationResult',['../classbongodb_1_1Common_1_1TOperationResult.html',1,'bongodb::Common']]],
+  ['tputstreamcommand_7',['TPutStreamCommand',['../classbongodb_1_1Common_1_1TPutStreamCommand.html',1,'bongodb::Common']]],
+  ['tremovestreamcommand_8',['TRemoveStreamCommand',['../classbongodb_1_1Common_1_1TRemoveStreamCommand.html',1,'bongodb::Common']]],
+  ['treplica_9',['TReplica',['../structbongodb_1_1Common_1_1TReplica.html',1,'bongodb::Common']]],
+  ['treplicaprocessor_10',['TReplicaProcessor',['../classbongodb_1_1Backend_1_1TReplicaProcessor.html',1,'bongodb::Backend']]],
+  ['truncate_11',['Truncate',['../classbongodb_1_1Backend_1_1TBackend.html#a85e165e7283cbb13041d1f9ea3396437',1,'bongodb::Backend::TBackend']]],
+  ['tshard_12',['TShard',['../structbongodb_1_1Common_1_1TShard.html',1,'bongodb::Common']]],
+  ['tshards_13',['TShards',['../structbongodb_1_1Common_1_1TShards.html',1,'bongodb::Common']]],
+  ['tstdhashstorage_14',['TStdHashStorage',['../classbongodb_1_1DB_1_1TStdHashStorage.html',1,'bongodb::DB']]],
+  ['tstreamer_15',['TStreamer',['../classbongodb_1_1Backend_1_1TStreamer.html',1,'bongodb::Backend']]],
+  ['tthreadsafestoragewrapper_16',['TThreadSafeStorageWrapper',['../classbongodb_1_1DB_1_1TThreadSafeStorageWrapper.html',1,'bongodb::DB']]],
+  ['ttruncatestreamcommand_17',['TTruncateStreamCommand',['../classbongodb_1_1Common_1_1TTruncateStreamCommand.html',1,'bongodb::Common']]],
+  ['tvectorcommandsbuffer_18',['TVectorCommandsBuffer',['../classbongodb_1_1Backend_1_1TVectorCommandsBuffer.html',1,'bongodb::Backend']]],
+  ['tvoidoperationresult_19',['TVoidOperationResult',['../classbongodb_1_1Common_1_1TVoidOperationResult.html',1,'bongodb::Common']]]
 ];

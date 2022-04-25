@@ -80,33 +80,31 @@ $(function() {
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;<a class="code" href="Backend_8h.html">backend/Backend.h</a>&quot;</span></div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="classRequestHandler.html">   14</a></span><span class="keyword">class </span><a class="code hl_class" href="classRequestHandler.html">RequestHandler</a> : <span class="keyword">public</span> Poco::Net::HTTPRequestHandler {</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <a class="code hl_function" href="classRequestHandler.html#add195a592eb6c16264b5bc12285bcf9f">RequestHandler</a>(Poco::Logger&amp; Logger, <a class="code hl_class" href="classbongodb_1_1Backend_1_1TBackend.html">bongodb::Backend::TBackend</a>&amp; backend);</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <span class="keywordtype">void</span> handleRequest(Poco::Net::HTTPServerRequest&amp; request, Poco::Net::HTTPServerResponse&amp; response) <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <a class="code hl_class" href="classbongodb_1_1Backend_1_1TBackend.html">bongodb::Backend::TBackend</a>&amp; Backend;</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    Poco::Logger&amp; Logger;</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>};</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="classRequestHandlerFactory.html">   34</a></span><span class="keyword">class </span><a class="code hl_class" href="classRequestHandlerFactory.html">RequestHandlerFactory</a> : <span class="keyword">public</span> Poco::Net::HTTPRequestHandlerFactory {</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <a class="code hl_function" href="classRequestHandlerFactory.html#a2c57448faf042432f111e4adca2b9e2a">RequestHandlerFactory</a>(<span class="keyword">const</span> Poco::Util::AbstractConfiguration&amp; config);</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    Poco::Net::HTTPRequestHandler* createRequestHandler(<span class="keyword">const</span> Poco::Net::HTTPServerRequest&amp;) <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    std::unique_ptr&lt;bongodb::Backend::TBackend&gt; Backend;</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    Poco::Logger&amp; Logger = Poco::Logger::get(<span class="stringliteral">&quot;RequestHandler&quot;</span>);</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>};</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="classRequestHandler.html">   11</a></span><span class="keyword">class </span><a class="code hl_class" href="classRequestHandler.html">RequestHandler</a> : <span class="keyword">public</span> Poco::Net::HTTPRequestHandler {</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <a class="code hl_class" href="classRequestHandler.html">RequestHandler</a>(Poco::Logger&amp; Logger, <a class="code hl_class" href="classbongodb_1_1Backend_1_1TBackend.html">bongodb::Backend::TBackend</a>&amp; backend);</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="keywordtype">void</span> handleRequest(Poco::Net::HTTPServerRequest&amp; request, Poco::Net::HTTPServerResponse&amp; response) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <a class="code hl_class" href="classbongodb_1_1Backend_1_1TBackend.html">bongodb::Backend::TBackend</a>&amp; Backend;</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    Poco::Logger&amp; Logger;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>};</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="classRequestHandlerFactory.html">   22</a></span><span class="keyword">class </span><a class="code hl_class" href="classRequestHandlerFactory.html">RequestHandlerFactory</a> : <span class="keyword">public</span> Poco::Net::HTTPRequestHandlerFactory {</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <a class="code hl_class" href="classRequestHandlerFactory.html">RequestHandlerFactory</a>(<span class="keyword">const</span> Poco::Util::AbstractConfiguration&amp; config);</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    Poco::Net::HTTPRequestHandler* createRequestHandler(<span class="keyword">const</span> Poco::Net::HTTPServerRequest&amp;) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    std::unique_ptr&lt;bongodb::Backend::TBackend&gt; Backend;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    Poco::Logger&amp; Logger = Poco::Logger::get(<span class="stringliteral">&quot;RequestHandler&quot;</span>);</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>};</div>
 <div class="ttc" id="aBackend_8h_html"><div class="ttname"><a href="Backend_8h.html">Backend.h</a></div><div class="ttdoc">угугуг</div></div>
-<div class="ttc" id="aclassRequestHandlerFactory_html"><div class="ttname"><a href="classRequestHandlerFactory.html">RequestHandlerFactory</a></div><div class="ttdoc">Фабрика обработчиков запроса.</div><div class="ttdef"><b>Definition:</b> HandlerFactory.h:34</div></div>
-<div class="ttc" id="aclassRequestHandlerFactory_html_a2c57448faf042432f111e4adca2b9e2a"><div class="ttname"><a href="classRequestHandlerFactory.html#a2c57448faf042432f111e4adca2b9e2a">RequestHandlerFactory::RequestHandlerFactory</a></div><div class="ttdeci">RequestHandlerFactory(const Poco::Util::AbstractConfiguration &amp;config)</div><div class="ttdoc">Конструктор фабрики.</div><div class="ttdef"><b>Definition:</b> HandlerFactory.cpp:33</div></div>
-<div class="ttc" id="aclassRequestHandler_html"><div class="ttname"><a href="classRequestHandler.html">RequestHandler</a></div><div class="ttdoc">Класс отвечающий за обработку запросов.</div><div class="ttdef"><b>Definition:</b> HandlerFactory.h:14</div></div>
-<div class="ttc" id="aclassRequestHandler_html_add195a592eb6c16264b5bc12285bcf9f"><div class="ttname"><a href="classRequestHandler.html#add195a592eb6c16264b5bc12285bcf9f">RequestHandler::RequestHandler</a></div><div class="ttdeci">RequestHandler(Poco::Logger &amp;Logger, bongodb::Backend::TBackend &amp;backend)</div><div class="ttdoc">Конструктор класса обработающего запроса.</div><div class="ttdef"><b>Definition:</b> HandlerFactory.cpp:10</div></div>
-<div class="ttc" id="aclassbongodb_1_1Backend_1_1TBackend_html"><div class="ttname"><a href="classbongodb_1_1Backend_1_1TBackend.html">bongodb::Backend::TBackend</a></div><div class="ttdoc">Класс бэкенд работы с БД.</div><div class="ttdef"><b>Definition:</b> Backend.h:23</div></div>
+<div class="ttc" id="aclassRequestHandlerFactory_html"><div class="ttname"><a href="classRequestHandlerFactory.html">RequestHandlerFactory</a></div><div class="ttdef"><b>Definition:</b> HandlerFactory.h:22</div></div>
+<div class="ttc" id="aclassRequestHandler_html"><div class="ttname"><a href="classRequestHandler.html">RequestHandler</a></div><div class="ttdef"><b>Definition:</b> HandlerFactory.h:11</div></div>
+<div class="ttc" id="aclassbongodb_1_1Backend_1_1TBackend_html"><div class="ttname"><a href="classbongodb_1_1Backend_1_1TBackend.html">bongodb::Backend::TBackend</a></div><div class="ttdoc">Класс, ...</div><div class="ttdef"><b>Definition:</b> Backend.h:23</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
