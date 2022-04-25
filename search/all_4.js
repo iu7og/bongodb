@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['prepare_0',['Prepare',['../classbongodb_1_1Backend_1_1TBackend.html#a5541fdc6f8f1d1fee376926bce930b5c',1,'bongodb::Backend::TBackend']]],
-  ['process_1',['Process',['../classbongodb_1_1Backend_1_1TBackend.html#a034a20ac84a390861ba7ff6546d75e67',1,'bongodb::Backend::TBackend']]],
-  ['put_2',['Put',['../classbongodb_1_1Backend_1_1TBackend.html#aa51b7df392197a09acbe686a88a8abb0',1,'bongodb::Backend::TBackend']]]
+  ['master_0',['Master',['../structbongodb_1_1Common_1_1TShard.html#a4b567b29ac958f943ccd5441f797c795',1,'bongodb::Common::TShard']]]
 ];

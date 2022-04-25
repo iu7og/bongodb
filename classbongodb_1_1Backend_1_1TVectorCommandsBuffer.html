@@ -74,13 +74,18 @@ $(function() {
   <div class="headertitle"><div class="title">Класс bongodb::Backend::TVectorCommandsBuffer</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Класс вектор буффер команд.  
+ <a href="classbongodb_1_1Backend_1_1TVectorCommandsBuffer.html#details">Подробнее...</a></p>
+
+<p><code>#include &lt;<a class="el" href="VectorCommandsBuffer_8h_source.html">VectorCommandsBuffer.h</a>&gt;</code></p>
 <div class="dynheader">
 Граф наследования:bongodb::Backend::TVectorCommandsBuffer:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="classbongodb_1_1Backend_1_1TVectorCommandsBuffer.png" usemap="#bongodb::Backend::TVectorCommandsBuffer_map" alt=""/>
   <map id="bongodb::Backend::TVectorCommandsBuffer_map" name="bongodb::Backend::TVectorCommandsBuffer_map">
-<area href="classbongodb_1_1Backend_1_1ICommandsBuffer.html" alt="bongodb::Backend::ICommandsBuffer" shape="rect" coords="0,0,263,24"/>
+<area href="classbongodb_1_1Backend_1_1ICommandsBuffer.html" title="Класс ICommandsBuffer." alt="bongodb::Backend::ICommandsBuffer" shape="rect" coords="0,0,263,24"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -101,11 +106,15 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>TCommandResult</b> =
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Открытые члены</h2></td></tr>
 <tr class="memitem:a4e422b718b97dfb4b49f2e9c99b0e24b"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbongodb_1_1Backend_1_1TVectorCommandsBuffer.html#a4e422b718b97dfb4b49f2e9c99b0e24b">Push</a> (std::shared_ptr&lt; <a class="el" href="classbongodb_1_1Common_1_1IStreamCommand.html">Common::IStreamCommand</a> &gt; command) override</td></tr>
+<tr class="memdesc:a4e422b718b97dfb4b49f2e9c99b0e24b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Метод Push.  <a href="classbongodb_1_1Backend_1_1TVectorCommandsBuffer.html#a4e422b718b97dfb4b49f2e9c99b0e24b">Подробнее...</a><br /></td></tr>
 <tr class="separator:a4e422b718b97dfb4b49f2e9c99b0e24b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a698c4ec0b39eef377ee1ce4ad43663ea"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classbongodb_1_1Common_1_1TOperationResult.html">TCommandResult</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbongodb_1_1Backend_1_1TVectorCommandsBuffer.html#a698c4ec0b39eef377ee1ce4ad43663ea">GetByVersion</a> (const Common::TVersion &amp;version) override</td></tr>
+<tr class="memdesc:a698c4ec0b39eef377ee1ce4ad43663ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Что-то делает.  <a href="classbongodb_1_1Backend_1_1TVectorCommandsBuffer.html#a698c4ec0b39eef377ee1ce4ad43663ea">Подробнее...</a><br /></td></tr>
 <tr class="separator:a698c4ec0b39eef377ee1ce4ad43663ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Методы</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock"><p >Класс вектор буффер команд. </p>
+</div><h2 class="groupheader">Методы</h2>
 <a id="a698c4ec0b39eef377ee1ce4ad43663ea" name="a698c4ec0b39eef377ee1ce4ad43663ea"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a698c4ec0b39eef377ee1ce4ad43663ea">&#9670;&nbsp;</a></span>GetByVersion()</h2>
 
@@ -130,7 +139,16 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>TCommandResult</b> =
 </table>
 </div><div class="memdoc">
 
-<p>Замещает <a class="el" href="classbongodb_1_1Backend_1_1ICommandsBuffer.html">bongodb::Backend::ICommandsBuffer</a>.</p>
+<p>Что-то делает. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">version</td><td>Версия. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Возвращает результат выполнения запроса. </dd></dl>
+
+<p>Замещает <a class="el" href="classbongodb_1_1Backend_1_1ICommandsBuffer.html#a9adb13bca2e21b968430c8359e5d18c4">bongodb::Backend::ICommandsBuffer</a>.</p>
 
 </div>
 </div>
@@ -158,7 +176,15 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>TCommandResult</b> =
 </table>
 </div><div class="memdoc">
 
-<p>Замещает <a class="el" href="classbongodb_1_1Backend_1_1ICommandsBuffer.html">bongodb::Backend::ICommandsBuffer</a>.</p>
+<p>Метод Push. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">command</td><td>Команда. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Замещает <a class="el" href="classbongodb_1_1Backend_1_1ICommandsBuffer.html#aa86fadb1775e05aa6f000a9377c59b57">bongodb::Backend::ICommandsBuffer</a>.</p>
 
 </div>
 </div>
